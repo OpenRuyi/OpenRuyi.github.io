@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ruyi Programming Language</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Reset & Global Styles --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #2563eb;
+            --secondary-color: #475569;
+            --border-color: #e2e8f0;
+            --code-bg-color: #f1f5f9;
+            --code-text-color: #0f172a;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --toc-bg: #f8fafc;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Hide elements of the non-selected language */
+        .lang-en, .lang-zh {
+            display: none;
+        }
+
+        /* --- Layout --- */
+        .container {
+            display: flex;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .main-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 2rem;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .main-header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        #toc {
+            position: sticky;
+            top: 80px; /* Header height */
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            width: 280px;
+            padding: 2rem 1rem;
+            border-right: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        #toc ul {
+            list-style-type: none;
+        }
+
+        #toc li a {
+            display: block;
+            padding: 0.4rem 0.8rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        
+        #toc li a.h3-link {
+            padding-left: 1.8rem;
+            font-size: 0.85rem;
+        }
+        
+        #toc li a.h4-link {
+             padding-left: 2.8rem;
+             font-size: 0.8rem;
+        }
+
+        #toc li a:hover {
+            background-color: var(--border-color);
+            color: var(--text-color);
+        }
+
+        #toc li a.active {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+        
+        main {
+            flex-grow: 1;
+            padding: 2rem 3rem 4rem;
+            min-width: 0;
+        }
+
+        /* --- Content Typography --- */
+        main h1, main h2, main h3, main h4, main h5, main h6 {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            scroll-margin-top: 80px; /* For anchor links */
+        }
+        main h1 { font-size: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        main h2 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        main h3 { font-size: 1.5rem; }
+        main h4 { font-size: 1.25rem; }
+        main p { margin-bottom: 1.25em; }
+        main ul, main ol { margin-left: 1.5rem; margin-bottom: 1.25em; }
+        main li { margin-bottom: 0.5em; }
+        main a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        main a:hover { text-decoration: underline; }
+        main strong { font-weight: 700; }
+        main hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
+        
+        /* --- Code Blocks --- */
+        main pre {
+            background-color: var(--code-bg-color);
+            color: var(--code-text-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        main code {
+            font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+            font-size: 0.9rem;
+        }
+        main p > code, main li > code { /* Inline code */
+            background-color: var(--code-bg-color);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #cbd5e1;
+            border: none;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            color: var(--code-text-color);
+            cursor: pointer;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        main pre:hover .copy-btn {
+            opacity: 1;
+        }
+        
+        /* --- Language Toggle Switch --- */
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+        .lang-switch .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+            margin: 0 0.5rem;
+        }
+        .lang-switch .switch input { display: none; }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: var(--border-color);
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px; width: 18px;
+            left: 3px; bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(20px); }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            #toc { display: none; }
+            main { padding: 2rem; }
+        }
+        @media (max-width: 640px) {
+            .main-header { padding: 1rem; }
+            main { padding: 1.5rem 1rem; }
+            main h1 { font-size: 2rem; }
+            main h2 { font-size: 1.75rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <span class="lang-zh">Ruyi 编程框架</span>
+            <span class="lang-en">Ruyi Programming Framework</span>
+        </div>
+        <div class="lang-switch">
+            <span>中文</span>
+            <label class="switch">
+                <input type="checkbox" id="language-toggle">
+                <span class="slider"></span>
+            </label>
+            <span>English</span>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav id="toc">
+            <!-- Table of Contents will be generated here by JavaScript -->
+        </nav>
+
+        <main>
+            <article id="content">
+                <!-- All bilingual content goes here -->
+                
+                <h1>
+                    <span class="lang-zh">Ruyi 编程框架</span>
+                    <span class="lang-en">Ruyi Programming Framework</span>
+                </h1>
+                
+                <p>
+                    <span class="lang-zh">欢迎来到 Ruyi (如意) 的世界！Ruyi 是一门简单而强大的编程语言，旨在让每个人都能轻松地将想法转化为可执行的程序，无论是自动化日常任务、处理数据，还是与智能设备交互。</span>
+                    <span class="lang-en">Welcome to the world of Ruyi (如意)! Ruyi is a simple yet powerful programming language designed to let everyone easily turn ideas into executable programs, whether for automating daily tasks, processing data, or interacting with smart devices.</span>
+                </p>
+                
+                <hr>
+
+                <h2 id="s1-what-is-ruyi">
+                    <span class="lang-zh">1. Ruyi 是什么？</span>
+                    <span class="lang-en">1. What is Ruyi?</span>
+                </h2>
+
+                <p>
+                    <span class="lang-zh">Ruyi (如意) 的核心思想是 <strong>“所思即所得，万事皆如意”</strong>。它致力于打破传统编程语言复杂的语法壁垒，让用户可以通过自然、直观的方式描述自己的需求，由强大的人工智能模型将其解释并执行。</span>
+                    <span class="lang-en">The core idea of Ruyi (如意) is <strong>"What you think is what you get, everything goes as you wish."</strong> It aims to break down the complex syntactical barriers of traditional programming languages, allowing users to describe their needs in a natural, intuitive way, which is then interpreted and executed by a powerful artificial intelligence model.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">编程能力的重要性不言而喻。人类有别于其他动物的关键特征是可以创造和使用工具，而编程恰是当今时代创造和使用工具的最佳方式。会编程的人可以借助机器将自己的能力无限地复制和放大，从而更高效地完成工作、享受生活、探索自己的兴趣。自计算机发明以来，各种编程语言不断涌现，编程可以实现的功能越来越丰富，而最近出现的AI模型和工具例如GPT、Claude、Deepseek、Cursor等又进一步将编程的效率大大提升… 未来，编程者的能力边界将加速扩大，成为“超级个体”。</span>
+                    <span class="lang-en">The importance of programming ability is self-evident. A key feature that distinguishes humans from other animals is the ability to create and use tools, and programming is the best way to do so in the modern era. People who can program can use machines to replicate and amplify their abilities indefinitely, enabling them to work more efficiently, enjoy life, and explore their interests. Since the invention of computers, various programming languages have emerged, and the functions that programming can achieve have become increasingly rich. Recent AI models and tools like GPT, Claude, Deepseek, and Cursor have further boosted programming efficiency... In the future, the boundaries of a programmer's capabilities will expand rapidly, turning them into "super-individuals."</span>
+                </p>
+                <p>
+                    <span class="lang-zh">你可能会想，现在AI那么厉害，代码都可以由AI生成，人类还需要会编程吗？我们坚定的认为 —— 需要，甚至比以往更加需要。如果你有过稍微比较深入的AI辅助编程经历就会明白，虽然AI可以代劳大部分的繁琐工作，但核心的架构、处理问题的逻辑往往还需要人来理解（尤其是当遇到一些细节问题需要修复的时候）。这也是为什么当前AI工具的受益者绝大部分是会编程的程序员。</span>
+                    <span class="lang-en">You might think that with AI being so powerful now, capable of generating code, do humans still need to learn programming? We firmly believe—yes, and even more so than before. If you have had in-depth experience with AI-assisted programming, you will understand that while AI can handle most of the tedious work, the core architecture and problem-solving logic still require human understanding (especially when it comes to fixing detailed issues). This is why the main beneficiaries of current AI tools are overwhelmingly programmers.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">总之，在这个有趣的历史节点，我们看到了AI带来的效率革命和巨大潜力，而这个红利应该（但尚未）被更广泛的人群享受。我们希望改变这个现状：<strong>让编程不再是少数人的专利，而是一种所有人都可以掌握的、用来与机器精确沟通的思考和表达方式。</strong></span>
+                    <span class="lang-en">In short, at this interesting historical juncture, we see the efficiency revolution and immense potential brought by AI, and this dividend should (but has not yet) been enjoyed by a wider population. We hope to change this situation: <strong>making programming no longer a patent for a few, but a way of thinking and expression that everyone can master to communicate precisely with machines.</strong></span>
+                </p>
+                <p>
+                    <span class="lang-zh">Ruyi 语言就是出于这一目的而设计，它不是为了替代任何一个已有的传统编程语言，而是希望让想编程的人可以绕过繁琐的代码语法、数据结构、算法学习过程（这些已经基本可以由 AI 代劳了），直接训练编程的核心逻辑和架构思维，并在自己的工作和生活中应用。<strong>Ruyi 的主要特点包括：</strong></span>
+                    <span class="lang-en">The Ruyi language was designed for this purpose. It is not intended to replace any existing traditional programming language, but rather to allow those who want to program to bypass the cumbersome process of learning code syntax, data structures, and algorithms (which can now largely be handled by AI), and to directly train the core logic and architectural thinking of programming for application in their work and life. <strong>The main features of Ruyi include:</strong></span>
+                </p>
+
+                <ol>
+                    <li>
+                        <span class="lang-zh"><strong>普适易学</strong>：为所有人设计，无论你是否具备编程背景，都能快速上手。相比其他编程语言，Ruyi 的学习门槛极低，如同学习一种新的沟通方式。</span>
+                        <span class="lang-en"><strong>Accessible and Easy to Learn</strong>: Designed for everyone, regardless of your programming background, you can get started quickly. Compared to other programming languages, Ruyi has an extremely low learning curve, like learning a new way to communicate.</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh"><strong>功能实用</strong>：无论是重复性的办公任务、复杂的数据整理与分析，还是自动控制智能设备、个人品牌或组织平台的搭建，Ruyi 都能帮你胜任。</span>
+                        <span class="lang-en"><strong>Functional and Practical</strong>: Whether it's repetitive office tasks, complex data organization and analysis, or automatically controlling smart devices and building personal brands or organizational platforms, Ruyi can handle it.</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh"><strong>自然语言风格</strong>：Ruyi 鼓励使用日常语言来编写指令，对语法没有僵硬的要求，也可以容忍指令的不精确，更注重理解你的意图。</span>
+                        <span class="lang-en"><strong>Natural Language Style</strong>: Ruyi encourages using everyday language to write instructions. It has no rigid syntax requirements, tolerates imprecise commands, and focuses more on understanding your intent.</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh"><strong>注重架构思维</strong>：虽然简单，Ruyi 依然支持核心的编程概念，如变量、循环、条件判断、数据集合（如列表、对象、表格）和函数，帮助用户构建结构化的任务流程。</span>
+                        <span class="lang-en"><strong>Focus on Architectural Thinking</strong>: Although simple, Ruyi still supports core programming concepts such as variables, loops, conditional statements, data collections (like lists, objects, tables), and functions, helping users build structured task flows.</span>
+                    </li>
+                    <li>
+                        <span class="lang-zh"><strong>AI原生解释器</strong>：Ruyi代码是由AI大模型（<strong>Ruyi解释器</strong>）直接解释执行的，随着模型能力提升，Ruyi代码的执行准确性和运行速度也会随之提升。</span>
+                        <span class="lang-en"><strong>AI-Native Interpreter</strong>: Ruyi code is directly interpreted and executed by a large AI model (the <strong>Ruyi Interpreter</strong>). As the model's capabilities improve, the execution accuracy and speed of Ruyi code will also increase.</span>
+                    </li>
+                </ol>
+
+                <p>
+                    <span class="lang-zh">Ruyi 的愿景是：<strong>让全世界有编程能力的人口增加一个数量级。</strong></span>
+                    <span class="lang-en">Ruyi's vision is: <strong>to increase the world's programming-capable population by an order of magnitude.</strong></span>
+                </p>
+                
+                <h2 id="s2-quick-start">
+                    <span class="lang-zh">2. 快速开始</span>
+                    <span class="lang-en">2. Quick Start</span>
+                </h2>
+                
+                <p>
+                    <span class="lang-zh">上手使用 Ruyi 非常简单，你只需要在我们的<a href="https://www.wisewk.com">官方网站</a>上下载 "Ruyi IDE" 应用，打开后按照引导完成基本设置，就可以在编辑窗口中开始创建你的第一个 Ruyi 程序了。</span>
+                    <span class="lang-en">Getting started with Ruyi is very simple. You just need to download the "Ruyi IDE" application from our <a href="https://www.wisewk.com">official website</a>, open it, follow the guide to complete the basic setup, and you can start creating your first Ruyi program in the editor window.</span>
+                </p>
+                
+                <p>
+                    <span class="lang-zh"><strong>你的第一个 Ruyi 程序：</strong></span>
+                    <span class="lang-en"><strong>Your first Ruyi program:</strong></span>
+                </p>
+                <p>
+                    <span class="lang-zh">想象你想让如意助手向你问好。你可以这样写：</span>
+                    <span class="lang-en">Imagine you want the Ruyi assistant to greet you. You can write:</span>
+                </p>
+                <pre><code><span class="lang-zh"># 我的第一个如意程序
+告诉用户 "你好，如意！"</span><span class="lang-en"># My first Ruyi program
+tell user "Hello, Ruyi!"</span></code></pre>
+                
+                <p>
+                    <span class="lang-zh">接下来，点击Ruyi IDE中的“执行”按钮，你就可以从对话窗口中看到助手发来的问候消息。</span>
+                    <span class="lang-en">Next, click the "Execute" button in the Ruyi IDE, and you will see the greeting message from the assistant in the dialog window.</span>
+                </p>
+
+                <p>
+                    <span class="lang-zh"><strong>再来一个与 AI 互动的例子：</strong></span>
+                    <span class="lang-en"><strong>Another example of interacting with AI:</strong></span>
+                </p>
+                <pre><code><span class="lang-zh"># 询问AI并获取信息
+询问AI，输入是 "中国的首都是哪里？"，输出结果记为{首都}
+告诉用户 "中国的首都是：{首都}"</span><span class="lang-en"># Ask AI and get information
+ask AI, input is "Where is the capital of China?", record output as {capital}
+tell user "The capital of China is: {capital}"</span></code></pre>
+
+                <p>
+                    <span class="lang-zh">看到了吗？就像在和一位聪明的助手对话一样，你只需用清晰的语言描述你的步骤和目标即可。</span>
+                    <span class="lang-en">See? It's just like talking to a smart assistant; you only need to describe your steps and goals in clear language.</span>
+                </p>
+                
+                <p>
+                    <span class="lang-zh"><strong>你可以尝试直接与应用中内置的“Ruyi智能助手”对话，告诉它你的需求，让它帮你自动生成一个程序草稿供你修改。</strong></span>
+                    <span class="lang-en"><strong>You can try talking directly to the built-in "Ruyi Smart Assistant" in the application, tell it your needs, and it will help you automatically generate a program draft for you to modify.</strong></span>
+                </p>
+                
+                <p>
+                    <span class="lang-zh">接下来本文将介绍Ruyi的语法规范，我们会在介绍过程中插入一些可以在Ruyi IDE中直接运行的例子，便于你边学边用，快速掌握。</span>
+                    <span class="lang-en">Next, this article will introduce the syntax specifications of Ruyi. We will include examples that can be run directly in the Ruyi IDE during the introduction to help you learn and use it quickly.</span>
+                </p>
+
+                <p>
+                    <span class="lang-zh">你也可以跳过语法介绍部分，直接去看 <a href="#s6-use-cases">实际案例</a> 中感兴趣的例子，如果理解这些例子对你来说不算难事，那么恭喜你，你可以直接上手实操了！</span>
+                    <span class="lang-en">You can also skip the syntax introduction and go directly to the interesting examples in the <a href="#s6-use-cases">Use Cases</a> section. If understanding these examples is not difficult for you, then congratulations, you can start practicing directly!</span>
+                </p>
+                
+                
+Model response
+ThinkingThoughts
+(experimental)
+Auto
+Expand to view model thoughts
+
+chevron_right
+Of course. My apologies for the previous incomplete response. The generation was likely interrupted.
+Here is the complete, fully-translated, and correctly formatted HTML for the entire "3. Basic Syntax and Concepts" section. You can replace the truncated version in the index.html file with this complete block.
+Replacement HTML for Section 3 (Complete Version)
+code
+Html
+<h2 id="s3-syntax-and-concepts">
+                    <span class="lang-zh">3. 基本语法与概念</span>
+                    <span class="lang-en">3. Basic Syntax and Concepts</span>
+                </h2>
+
+                <p>
+                    <span class="lang-zh">Ruyi 的语法非常灵活，但遵循一些简单的约定和概念将有助于系统更精确地理解你的意图。</span>
+                    <span class="lang-en">Ruyi's syntax is very flexible, but following some simple conventions and concepts will help the system understand your intent more accurately.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">Ruyi 程序由一系列语句组成，通常每行一个语句，描述一个操作或一个步骤，鼓励使用祈使句或清晰的陈述句。</span>
+                    <span class="lang-en">A Ruyi program consists of a series of statements, usually one per line, describing an action or a step. Using imperative or clear declarative sentences is encouraged.</span>
+                </p>
+
+                <h3 id="s3-1-comments">
+                    <span class="lang-zh">注释</span>
+                    <span class="lang-en">Comments</span>
+                </h3>
+                <p>
+                    <span class="lang-zh">使用 <code>#</code> 符号开始一行，表示这一行是注释。注释用于解释代码，系统在执行时会忽略它们。</span>
+                    <span class="lang-en">Use the <code>#</code> symbol to start a line, indicating that this line is a comment. Comments are used to explain the code and are ignored by the system during execution.</span>
+                </p>
+                <pre><code><span class="lang-zh"># 这是一个注释，系统不会执行这句话
+告诉用户 "你好，注释让代码更易懂" # 这也是一个行内注释</span><span class="lang-en"># This is a comment, the system will not execute this sentence
+tell user "Hello, comments make code easier to understand" # This is also an inline comment</span></code></pre>
+                
+                <h3 id="s3-2-variables">
+                    <span class="lang-zh">变量</span>
+                    <span class="lang-en">Variables</span>
+                </h3>
+                <p>
+                    <span class="lang-zh">变量就像是贴了标签的盒子，用来存储信息，方便后续使用。在 Ruyi 中，变量一般用大括号包裹的词语表示，例如 <code>{变量}</code>。</span>
+                    <span class="lang-en">Variables are like labeled boxes used to store information for later use. In Ruyi, variables are generally represented by words enclosed in curly braces, like <code>{variable}</code>.</span>
+                </p>
+                
+                <ul>
+                    <li>
+                        <p><strong><span class="lang-zh">声明（记录）变量</span><span class="lang-en">Declaring (Recording) Variables</span></strong><span class="lang-zh">：通常使用 <code>记为{变量名}</code> 或类似的自然语言方式。</span><span class="lang-en">: Usually done using <code>record as {variableName}</code> or similar natural language phrases.</span></p>
+                        <pre><code><span class="lang-zh">询问AI，输入是"目前人工智能领域的头部公司有哪些？"，输出公司列表，记为{公司列表}
+设置变量 {用户姓名} 为 "小明"
+将 "北京" 存入 {当前城市}
+创建变量 {来访人数}，初始值为 0</span><span class="lang-en">ask AI, input is "What are the leading companies in AI?", output a list of companies, record as {companyList}
+set variable {userName} to "Xiao Ming"
+store "Beijing" in {currentCity}
+create variable {visitorCount}, with an initial value of 0</span></code></pre>
+                    </li>
+                    <li>
+                        <p><strong><span class="lang-zh">使用变量</span><span class="lang-en">Using Variables</span></strong><span class="lang-zh">：在需要用到存储信息的地方，使用 <code>{变量名}</code>，即代表将变量的值填入对应的位置。</span><span class="lang-en">: Wherever you need the stored information, use <code>{variableName}</code>, which means the value of the variable will be inserted at that position.</span></p>
+                        <pre><code><span class="lang-zh">告诉用户 "你好，{用户姓名}"
+在浏览器中搜索 "{当前城市} 人口数量"，记为 {人口数量}
+告诉用户 "{当前城市} 的人口数量是 {人口数量}。"</span><span class="lang-en">tell user "Hello, {userName}"
+in the browser, search for "{currentCity} population", record as {population}
+tell user "The population of {currentCity} is {population}."</span></code></pre>
+                    </li>
+                </ul>
+                <p>
+                    <span class="lang-zh">变量名建议使用有意义的词语，方便理解。</span>
+                    <span class="lang-en">It is recommended to use meaningful words for variable names for better understanding.</span>
+                </p>
+
+                <h3 id="s3-3-data-types">
+                    <span class="lang-zh">数据类型</span>
+                    <span class="lang-en">Data Types</span>
+                </h3>
+                <p>
+                    <span class="lang-zh">每个变量在系统中存储和传递时，是被理解为不同类型的数据进行实际操作的。不同类型的变量用于不同场景的数据处理，例如数字类型变量用于数据统计、文本类型的变量用于文档操作、对话等。</span>
+                    <span class="lang-en">When variables are stored and passed in the system, they are understood as different types of data for specific operations. Different variable types are used for different data processing scenarios; for example, number-type variables are for statistics, while text-type variables are for document operations, dialogues, etc.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">类型在传统的编程语言中是个重要的概念（也往往比较容易出错），但在 Ruyi 中，你不需要专门关心变量的类型，Ruyi 会根据你的代码自动理解每个变量的类型。当然你也可以在定义变量时补充说明类型，以对整个处理过程更有控制感。例如：</span>
+                    <span class="lang-en">Types are an important (and often error-prone) concept in traditional programming languages. However, in Ruyi, you don't need to explicitly worry about variable types; Ruyi will automatically understand the type of each variable from your code. Of course, you can also specify the type when defining a variable to have more control over the process. For example:</span>
+                </p>
+                <pre><code><span class="lang-zh">询问AI "北京的人口数量是多少？"，输出数字，记为{人口数}
+询问AI "北京去年的人均GDP是多少？"，输出文本，记为{人均GDP}
+告诉用户 "北京的人口数量是 {人口数}，人均GDP为 {人均GDP}。"</span><span class="lang-en">ask AI "What is the population of Beijing?", output a number, record as {population}
+ask AI "What was Beijing's per capita GDP last year?", output text, record as {perCapitaGDP}
+tell user "The population of Beijing is {population}, and the per capita GDP is {perCapitaGDP}."</span></code></pre>
+
+                <h4 id="s3-3-1-basic-types">
+                    <span class="lang-zh">基本数据类型</span>
+                    <span class="lang-en">Basic Data Types</span>
+                </h4>
+                <p><span class="lang-zh">Ruyi 目前支持下列基本数据类型：</span><span class="lang-en">Ruyi currently supports the following basic data types:</span></p>
+                <ul>
+                    <li><strong><span class="lang-zh">文本</span><span class="lang-en">Text</span></strong>: <span class="lang-zh">用引号括起来的字符序列，如 <code>"Hello world!"</code> 或 <code>'你好，世界！'</code>。</span><span class="lang-en">A sequence of characters enclosed in quotes, such as <code>"Hello world!"</code> or <code>'你好, 世界!'</code>.</span></li>
+                    <li><strong><span class="lang-zh">数字</span><span class="lang-en">Number</span></strong>: <span class="lang-zh">整数或小数，如 <code>10</code> 或 <code>3.14</code>。</span><span class="lang-en">Integers or decimals, such as <code>10</code> or <code>3.14</code>.</span></li>
+                    <li><strong><span class="lang-zh">布尔</span><span class="lang-en">Boolean</span></strong>: <span class="lang-zh"><code>真</code> 或 <code>假</code> (或者 <code>是</code> / <code>否</code>)，用于表示条件或状态。</span><span class="lang-en"><code>true</code> or <code>false</code> (or <code>yes</code> / <code>no</code>), used to represent conditions or states.</span></li>
+                </ul>
+                <pre><code><span class="lang-zh">询问用户 "你的年龄是多少？"，结果记为 {年龄}
+判断 {年龄} 是否大于 18，记为 {是否成年} # {是否成年} 会是 真 或 假
+如果 {是否成年} 为真：
+    告诉用户 "你已成年。"</span><span class="lang-en">ask user "What is your age?", record result as {age}
+check if {age} is greater than 18, record as {isAdult} # {isAdult} will be true or false
+if {isAdult} is true:
+    tell user "You are an adult."</span></code></pre>
+                <ul>
+                    <li><strong><span class="lang-zh">图像</span><span class="lang-en">Image</span></strong>: <span class="lang-zh">代表图片数据。可以通过拍照、读取文件或AI生成等方式获得。</span><span class="lang-en">Represents image data. Can be obtained by taking a photo, reading a file, or generating with AI.</span></li>
+                </ul>
+                <pre><code><span class="lang-zh">拍照，记为 {产品图片}
+读取图片文件 "logo.png"，记为 {公司Logo}
+询问AI "生成一张卡通猫的图片"，输出图像，记为 {卡通猫图片}
+告诉用户 "这是拍摄的产品图片："
+把{产品图片}发送给用户</span><span class="lang-en">take a photo, record as {productImage}
+read image file "logo.png", record as {companyLogo}
+ask AI "generate an image of a cartoon cat", output an image, record as {cartoonCatImage}
+tell user "This is the product photo taken:"
+send {productImage} to the user</span></code></pre>
+
+                <h4 id="s3-3-2-object">
+                    <span class="lang-zh">对象 (Object)</span>
+                    <span class="lang-en">Object</span>
+                </h4>
+                <p>
+                    <span class="lang-zh">对象是包含多个<strong>属性</strong>的集合，用于表示一个具体的事物或实体。每个属性都有一个名称和一个对应的值（也称为键值对）。属性的值可能是一个基本类型的变量，也可能是另外一个对象。</span>
+                    <span class="lang-en">An object is a collection of multiple <strong>properties</strong>, used to represent a specific thing or entity. Each property has a name and a corresponding value (also known as a key-value pair). The value of a property can be a basic type variable or another object.</span>
+                </p>
+                <ul>
+                    <li>
+                        <p><strong><span class="lang-zh">创建对象</span><span class="lang-en">Creating an Object</span></strong>:</p>
+                        <pre><code><span class="lang-zh">创建一个对象，名为 {我的汽车}
+设置 {我的汽车} 的 {颜色} 为 "红色"
+设置 {我的汽车} 的 {品牌} 为 "特斯拉"
+设置 {我的汽车} 的 {型号} 为 "Model Y"
+
+# 或者更简洁的方式，AI会理解你的意图
+创建一个对象 {客户}，其属性包括： "姓名" 是 "李明"，"年龄" 是 24，"城市" 是 "上海"</span><span class="lang-en">create an object named {myCar}
+set the {color} of {myCar} to "red"
+set the {brand} of {myCar} to "Tesla"
+set the {model} of {myCar} to "Model Y"
+
+# Or in a more concise way, the AI will understand your intent
+create an object {customer} with properties: "name" is "Li Ming", "age" is 24, "city" is "Shanghai"</span></code></pre>
+                    </li>
+                    <li>
+                        <p><strong><span class="lang-zh">访问对象属性</span><span class="lang-en">Accessing Object Properties</span></strong>: <span class="lang-zh">可以直接在大括号中使用自然语言访问到属性值，或者使用更接近传统编程的点 <code>.</code> 操作符。</span><span class="lang-en">You can access property values using natural language within curly braces, or by using the more traditional dot <code>.</code> operator.</span></p>
+                        <pre><code><span class="lang-zh">告诉用户 "我的汽车颜色是 {我的汽车的颜色}"
+如果 {客户的年龄} 大于 18： # 假设{客户}是一个前面定义的对象
+    告诉用户 "{客户的姓名}是成年人。"
+
+# 或者使用{变量名.属性名}的方式
+告诉用户 "我的汽车颜色是：{我的汽车.颜色}，品牌是{我的汽车.品牌}，型号是{我的汽车.型号}"</span><span class="lang-en">tell user "My car's color is {the color of myCar}"
+if {the age of customer} is greater than 18: # Assuming {customer} is a previously defined object
+    tell user "{the name of customer} is an adult."
+
+# Or using the {variable.property} style
+tell user "My car's color is: {myCar.color}, brand is {myCar.brand}, and model is {myCar.model}"</span></code></pre>
+                    </li>
+                </ul>
+
+                <h4 id="s3-3-3-list">
+                    <span class="lang-zh">列表 (List)</span>
+                    <span class="lang-en">List</span>
+                </h4>
+                <p>
+                    <span class="lang-zh">列表是一系列有序的基本类型元素或对象。</span>
+                    <span class="lang-en">A list is an ordered series of basic type elements or objects.</span>
+                </p>
+                <pre><code><span class="lang-zh"># 创建列表
+将列表 {"苹果", "香蕉", "橙子"} 记为 {水果列表}
+询问AI，输入是"目前人工智能领域的上市公司有哪些？"，输出公司名称列表，记为{公司列表} # {公司列表} 是一个文本列表
+
+# 访问列表元素（AI 会智能理解）
+获取 {水果列表} 的第一个，记为{水果1}
+告诉用户 "我最喜欢的水果是：{水果1}"
+获取 {公司列表} 中元素的数量，记为{公司数量}
+告诉用户 "AI领域上市公司大约有 {公司数量} 家。"</span><span class="lang-en"># Create a list
+record the list {"Apple", "Banana", "Orange"} as {fruitList}
+ask AI, input is "What are the publicly traded companies in AI?", output a list of company names, record as {companyList} # {companyList} is a list of text
+
+# Access list elements (AI will understand intelligently)
+get the first item of {fruitList}, record as {fruit1}
+tell user "My favorite fruit is: {fruit1}"
+get the number of elements in {companyList}, record as {companyCount}
+tell user "There are approximately {companyCount} publicly traded AI companies."</span></code></pre>
+
+                <h4 id="s3-3-4-table">
+                    <span class="lang-zh">数据表 (Table)</span>
+                    <span class="lang-en">Table</span>
+                </h4>
+                <p>
+                    <span class="lang-zh">数据表类似于电子表格，包含行和列。<strong>数据表可以看作是由多个结构相同的对象组成的列表</strong>。表中的每一行对应一个对象，每一列对应对象的一个属性。你可以创建数据表、添加、删除、修改数据表中的数据、将数据表从文件导入或导出到文件等。</span>
+                    <span class="lang-en">A table is similar to a spreadsheet, containing rows and columns. <strong>A table can be seen as a list of objects with the same structure</strong>. Each row in the table corresponds to an object, and each column corresponds to a property of the object. You can create tables, add, delete, modify data in tables, and import/export tables from/to files.</span>
+                </p>
+                <pre><code><span class="lang-zh"># 创建数据表
+建立一个空的数据表，包含 "姓名"、"部门"、"工号" 列，记为 {员工信息表}
+
+# 添加一行 (可以理解为添加一个符合结构的对象)
+创建一个对象 {新员工A}，包含属性 "姓名"是"张三"，"部门"是"技术部"，"工号"是"T001"
+将 {新员工A} 作为新行添加到 {员工信息表}
+
+# 添加一行内容 (更简洁的方式)
+将一行数据 {"姓名":"小明", "部门":"市场部", "工号":"M023"} 添加到 {员工信息表}
+
+# 从文件加载数据到数据表
+读取表格文件 "外部员工数据.xlsx" 的内容，存入新的数据表 {外部员工表}
+
+# 保存数据表到文件
+将{员工信息表}保存到文件，文件名为"员工信息.xlsx"</span><span class="lang-en"># Create a table
+create an empty table with columns "Name", "Department", "ID", record as {employeeInfoTable}
+
+# Add a row (can be seen as adding a structured object)
+create an object {newEmployeeA} with properties "Name" is "Zhang San", "Department" is "Tech", "ID" is "T001"
+add {newEmployeeA} as a new row to {employeeInfoTable}
+
+# Add a row of data (more concise way)
+add a row of data {"Name":"Xiao Ming", "Department":"Marketing", "ID":"M023"} to {employeeInfoTable}
+
+# Load data from a file into a table
+read the content of the spreadsheet file "external_employee_data.xlsx", store in a new table {externalEmployeeTable}
+
+# Save table to a file
+save {employeeInfoTable} to a file named "employee_info.xlsx"</span></code></pre>
+                
+                <h4 id="s3-3-5-data-processing">
+                    <span class="lang-zh">数据处理</span>
+                    <span class="lang-en">Data Processing</span>
+                </h4>
+                <p>
+                    <span class="lang-zh">Ruyi 集成了AI大模型能力，在数据处理方面非常强大。你只需要描述你的处理需求，即可完成各种复杂的数据处理操作。</span>
+                    <span class="lang-en">Ruyi integrates the capabilities of large AI models, making it very powerful for data processing. You just need to describe your processing needs to perform various complex data operations.</span>
+                </p>
+                <ul>
+                    <li><strong><span class="lang-zh">筛选</span><span class="lang-en">Filter</span></strong>: <pre><code><span class="lang-zh">从{公司数据表}中筛选出所有“市值”（单位：亿）大于100的公司记录，结果记为{大型公司表}</span><span class="lang-en">from {companyDataTable}, filter all records where "Market Cap" (unit: 100M) is greater than 100, record result as {largeCapCompanyTable}</span></code></pre></li>
+                    <li><strong><span class="lang-zh">提取</span><span class="lang-en">Extract</span></strong>: <pre><code><span class="lang-zh">获取{公司数据表}中的“国家”列，去重后记为{国家名称列表}</span><span class="lang-en">get the "Country" column from {companyDataTable}, remove duplicates, record as {countryNameList}</span></code></pre></li>
+                    <li><strong><span class="lang-zh">汇总</span><span class="lang-en">Summarize</span></strong>: <pre><code><span class="lang-zh">计算{公司数据表}中所有“国家”属性为“中国”的公司的“市值”总和，记为{中国公司总市值}</span><span class="lang-en">calculate the sum of "Market Cap" for all companies where "Country" is "China" in {companyDataTable}, record as {chinaTotalMarketCap}</span></code></pre></li>
+                    <li><strong><span class="lang-zh">排序</span><span class="lang-en">Sort</span></strong>: <pre><code><span class="lang-zh">将{公司数据表}按“市值”列的值从大到小排序</span><span class="lang-en">sort {companyDataTable} by the "Market Cap" column in descending order</span></code></pre></li>
+                    <li><strong><span class="lang-zh">合并</span><span class="lang-en">Merge</span></strong>: <pre><code><span class="lang-zh">将{国内销售表}和{海外销售表}两个数据表按“产品ID”列合并，记为{全球销售总表}</span><span class="lang-en">merge the {domesticSalesTable} and {overseasSalesTable} tables on the "ProductID" column, record as {globalSalesTable}</span></code></pre></li>
+                    <li><strong><span class="lang-zh">计算</span><span class="lang-en">Calculate</span></strong>: <pre><code><span class="lang-zh">将{公司数据表}中的“市值”除以“员工数量”，增加为“人均市值”列</span><span class="lang-en">in {companyDataTable}, divide "Market Cap" by "Employee Count" and add it as a new column "Market Cap Per Employee"</span></code></pre></li>
+                </ul>
+                <p>
+                    <span class="lang-zh">对于<strong>图像类数据</strong>，也有很多内置的处理操作可以执行：</span>
+                    <span class="lang-en">For <strong>Image data</strong>, many built-in processing operations can also be performed:</span>
+                </p>
+                <pre><code><span class="lang-zh"># 例子1
+拍照，记为 {原始照片}
+调整 {原始照片} 的尺寸为宽度500像素，高度自动，记为 {调整后照片}
+将 {调整后照片} 转换为灰度图像，记为 {灰度照片}
+询问AI，输入 "{原始照片} 给这个照片配一个10个字以内的标题"，记为 {照片标题}
+将 {灰度照片} 保存到文件，文件名是 "{照片标题}.jpg"</span><span class="lang-en"># Example 1
+take a photo, record as {originalPhoto}
+resize {originalPhoto} to a width of 500 pixels, height auto, record as {resizedPhoto}
+convert {resizedPhoto} to a grayscale image, record as {grayscalePhoto}
+ask AI, input "{originalPhoto} give this photo a title within 10 words", record as {photoTitle}
+save {grayscalePhoto} to a file named "{photoTitle}.jpg"</span></code></pre>
+                <pre><code><span class="lang-zh"># 例子2
+读取图片文件 "风景.jpg"，记为 {风景照片}
+询问AI，输入 "给这张照片 {风景照片} 应用复古滤镜效果"，输出处理后的图像，记为 {复古风景照片}
+询问AI，输入 "{风景照片} 给这张照片配诗"，输出文字，记为 {照片配诗}
+将 {复古风景照片} 发给用户
+告诉用户 "这是你照片的配诗：{照片配诗}"</span><span class="lang-en"># Example 2
+read image file "landscape.jpg", record as {landscapePhoto}
+ask AI, input "apply a vintage filter effect to this photo {landscapePhoto}", output the processed image, record as {vintageLandscapePhoto}
+ask AI, input "{landscapePhoto} write a poem for this photo", output text, record as {photoPoem}
+send {vintageLandscapePhoto} to user
+tell user "Here is the poem for your photo: {photoPoem}"</span></code></pre>
+
+                <h3 id="s3-4-control-flow">
+                    <span class="lang-zh">流程控制</span>
+                    <span class="lang-en">Control Flow</span>
+                </h3>
+                <p>
+                    <span class="lang-zh">代码默认是一行一行顺序执行的，但你可以通过流程控制语法，改变代码的执行流程。</span>
+                    <span class="lang-en">By default, code executes line by line in sequence, but you can change the execution flow using control flow syntax.</span>
+                </p>
+
+                <h4 id="s3-4-1-loops">
+                    <span class="lang-zh">循环</span>
+                    <span class="lang-en">Loops</span>
+                </h4>
+                <p>
+                    <span class="lang-zh">当需要对一组项目中的每一个重复执行相同操作时，可以使用循环。一个循环包括循环条件、循环内容两部分。循环内容的代码通常需要缩进（即在每行循环内容代码前面留一些空格），以表示这些操作是循环内的一部分。Ruyi 的 AI 解释器对于缩进有一定容错性，但良好缩进有助于可读性和准确性。</span>
+                    <span class="lang-en">When you need to repeat the same operation for each item in a set, you can use a loop. A loop consists of a condition and a body. The code in the loop body is usually indented (i.e., has some spaces at the beginning of the line) to indicate it is part of the loop. Ruyi's AI interpreter has some tolerance for indentation, but good indentation improves readability and accuracy.</span>
+                </p>
+                <pre><code><span class="lang-zh"># 可以指定循环次数进行循环
+创建一个列表，名为{人员名单}
+重复执行 5 次：
+    告诉用户 "这是第 {循环当前次数} 次循环！" # {循环当前次数} 是一个特殊变量，从1开始
+    询问用户 "请输入第{循环当前次数}个人名"，获取用户回答，插入{人员名单}列表
+将 {人员名单} 保存到文件，文件名是 "名单"
+
+# 也可以按照时间循环
+每隔5分钟，执行：
+    告诉用户 "当前时间是{当前时间}，这是第{循环当前次数}次问好！"
+
+# 遍历{数据集合}中的每一个{单个项目变量名}
+将列表 {"苹果派", "香蕉船", "橙汁"} 记为 {甜点菜单}
+遍历{甜点菜单}中的每一个甜点，记为{当前甜点}
+    告诉用户 "我们有售：{当前甜点}"</span><span class="lang-en"># Loop for a specific number of times
+create a list named {nameList}
+repeat 5 times:
+    tell user "This is loop iteration number {currentLoopIndex}!" # {currentLoopIndex} is a special variable starting from 1
+    ask user "Please enter the {currentLoopIndex}-th name", get user response, insert into {nameList}
+save {nameList} to a file named "names"
+
+# Can also loop based on time
+every 5 minutes, execute:
+    tell user "The current time is {currentTime}, this is greeting number {currentLoopIndex}!"
+
+# Iterate over each {item} in a {collection}
+record the list {"Apple Pie", "Banana Split", "Orange Juice"} as {dessertMenu}
+for each dessert in {dessertMenu}, record as {currentDessert}:
+    tell user "We have: {currentDessert}"</span></code></pre>
+
+                <h4 id="s3-4-2-conditionals">
+                    <span class="lang-zh">条件分支</span>
+                    <span class="lang-en">Conditional Branches</span>
+                </h4>
+                <p>
+                    <span class="lang-zh">当程序需要根据不同的情况执行不同的操作时，使用条件分支。程序根据条件表达式的判定情况，决定执行哪一条分支。条件表达式一般是一个判断，例如 <code>{市值}小于100亿</code>、 <code>{医院列表}是空的</code> 等。</span>
+                    <span class="lang-en">When a program needs to perform different actions based on different situations, use conditional branches. The program decides which branch to execute based on the evaluation of a conditional expression. A conditional expression is typically a comparison, like <code>{marketCap} is less than 10 billion</code> or <code>{hospitalList} is empty</code>.</span>
+                </p>
+                <p><strong><span class="lang-zh">基本格式</span><span class="lang-en">Basic Format</span></strong>:</p>
+                <pre><code><span class="lang-zh">如果{条件1}: 
+    ... （条件1成立时执行）
+否则如果{条件2}:    # 可选
+    ... （条件1不成立，但条件2成立时执行）
+否则:              # 可选
+    ... （条件1和条件2都不成立时执行）</span><span class="lang-en">if {condition1}: 
+    ... (execute when condition1 is true)
+else if {condition2}:    # optional
+    ... (execute when condition1 is false but condition2 is true)
+else:              # optional
+    ... (execute when neither condition1 nor condition2 is true)</span></code></pre>
+                <p><strong><span class="lang-zh">例子</span><span class="lang-en">Example</span></strong>:</p>
+                <pre><code><span class="lang-zh"># 例子1
+询问用户"请输入你的年龄"，获取用户回答，记为{用户年龄}
+如果 {用户年龄} 小于 18：
+    告诉用户 "你是未成年人。"
+否则如果 {用户年龄} 大于等于 18 并且 {用户年龄} 小于 60：
+    告诉用户 "你是成年人。"
+否则：
+    告诉用户 "你已步入老年。"
+
+# 例子2
+询问AI，输入是 "今天天气怎么样？"，输出天气描述，记为 {天气情况}
+如果 {天气情况} 包含 "雨"：
+    告诉用户 "出门请记得带伞。"
+否则：
+    告诉用户 "今天天气不错！"</span><span class="lang-en"># Example 1
+ask user "Please enter your age", get user response, record as {userAge}
+if {userAge} is less than 18:
+    tell user "You are a minor."
+else if {userAge} is greater than or equal to 18 and {userAge} is less than 60:
+    tell user "You are an adult."
+else:
+    tell user "You are a senior."
+
+# Example 2
+ask AI, input is "What's the weather like today?", output weather description, record as {weatherCondition}
+if {weatherCondition} contains "rain":
+    tell user "Remember to bring an umbrella when you go out."
+else:
+    tell user "The weather is nice today!"</span></code></pre>
+
+                <h3 id="s3-5-functions">
+                    <span class="lang-zh">任务分解（函数）</span>
+                    <span class="lang-en">Task Decomposition (Functions)</span>
+                </h3>
+                <p>
+                    <span class="lang-zh">在 Ruyi 中，你可以将一组常用的操作定义为一个“任务”，这类似于传统编程语言中的“函数”或“子程序”。这样做可以使你的主流程更简洁，也方便代码复用。</span>
+                    <span class="lang-en">In Ruyi, you can define a set of commonly used operations as a "task," which is similar to a "function" or "subroutine" in traditional programming languages. This makes your main workflow cleaner and facilitates code reuse.</span>
+                </p>
+                <ul>
+                    <li>
+                        <p><strong><span class="lang-zh">定义任务</span><span class="lang-en">Defining a Task</span></strong>: <span class="lang-zh">使用 <code>定义一个任务，名为"{任务名称}"</code> 开始。任务可以有输入参数和输出（返回值）。</span><span class="lang-en">Start with <code>define a task named "{taskName}"</code>. Tasks can have input parameters and outputs (return values).</span></p>
+                        <pre><code><span class="lang-zh"># 定义一个任务，用于向特定用户问好
+定义一个任务，名为 "定制问候语"
+    任务输入： {用户名} (类型为文本)
+    将 "你好，{用户名}！欢迎使用如意。" 记为 {问候语文本}
+    告诉用户 {问候语文本}
+    # 这个任务没有明确的返回值
+
+# 定义一个任务，用于计算两个数的和并返回结果
+定义一个任务，名为 "计算两数之和"
+    任务输入： {数字一} (数字类型) 和 {数字二} (数字类型)
+    将 {数字一} 加上 {数字二} 的结果记为 {计算结果}
+    任务返回 {计算结果} # 任务结束，并输出{计算结果}</span><span class="lang-en"># Define a task to greet a specific user
+define a task named "customGreeting"
+    task input: {userName} (type is text)
+    record "Hello, {userName}! Welcome to Ruyi." as {greetingText}
+    tell user {greetingText}
+    # This task has no explicit return value
+
+# Define a task to calculate the sum of two numbers and return the result
+define a task named "calculateSum"
+    task input: {numberOne} (number type) and {numberTwo} (number type)
+    record the result of {numberOne} plus {numberTwo} as {calculationResult}
+    task returns {calculationResult} # Task ends and outputs {calculationResult}</span></code></pre>
+                    </li>
+                    <li>
+                        <p><strong><span class="lang-zh">调用任务</span><span class="lang-en">Calling a Task</span></strong>: <span class="lang-zh">使用 <code>执行任务 "{任务名称}"</code>，并提供必要的输入参数，（可选）接收输出结果。</span><span class="lang-en">Use <code>execute task "{taskName}"</code>, provide the necessary input parameters, and (optionally) receive the output result.</span></p>
+                        <pre><code><span class="lang-zh"># 调用问候任务
+执行任务 "定制问候语"，{用户名} 为 "张三"
+
+# 调用计算任务并获取输出
+执行任务 "计算两数之和"，{数字一} 是 10，{数字二} 是 25，输出结果记为 {总和}
+告诉用户 "10 + 25 的结果是：{总和}"</span><span class="lang-en"># Call the greeting task
+execute task "customGreeting", with {userName} as "Zhang San"
+
+# Call the calculation task and get the output
+execute task "calculateSum", with {numberOne} as 10 and {numberTwo} as 25, record output as {totalSum}
+tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
+                    </li>
+                </ul>
+                <p>
+                    <span class="lang-zh">利用函数（任务），你可以将一个复杂的大任务分解成一系列更小、更易于管理和描述的子任务，进而逐个完成。这个分解任务的能力实际上就是架构和逻辑的能力，需要精心设计，使用变量在流程的不同阶段传递信息，同时保证程序总体结构的精简可读性。</span>
+                    <span class="lang-en">By using functions (tasks), you can decompose a large, complex task into a series of smaller, more manageable sub-tasks to be completed one by one. This ability to decompose tasks is essentially the skill of architecture and logic, requiring careful design, using variables to pass information at different stages of the flow, while ensuring the overall program structure is concise and readable.</span>
+                </p>
+
+                <h2 id="s6-use-cases">
+                    <span class="lang-zh">6. 实战案例</span>
+                    <span class="lang-en">6. Use Cases</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">在我们的<a href="https://www.wisewk.com/examples">案例库</a>中，可以找到更多案例，使用搜索功能试试看有没有你需要的。</span>
+                    <span class="lang-en">In our <a href="https://www.wisewk.com/examples">example library</a>, you can find more cases. Try using the search function to see if there's what you need.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">这些案例展示了Ruyi的潜在能力。实际执行效果会依赖于背后AI模型的理解能力、对外部应用和设备的控制能力，以及Ruyi IDE提供的具体执行环境。祝你Ruyi之旅愉快！</span>
+                    <span class="lang-en">These cases demonstrate the potential of Ruyi. The actual execution effect will depend on the underlying AI model's understanding, its ability to control external applications and devices, and the specific execution environment provided by the Ruyi IDE. Have a pleasant journey with Ruyi!</span>
+                </p>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('content');
+            const tocContainer = document.getElementById('toc');
+            const toggle = document.getElementById('language-toggle');
+
+            const BROWSER_LANG = navigator.language.toLowerCase();
+            const PREFERRED_LANG_KEY = 'ruyi_lang_pref';
+
+            // --- Function to update TOC text based on current language ---
+            function updateTOCLanguage(lang) {
+                const tocLinks = tocContainer.querySelectorAll('a');
+                const langSelector = lang === 'en' ? '.lang-en' : '.lang-zh';
+
+                tocLinks.forEach(link => {
+                    const targetId = link.getAttribute('href').substring(1); // Remove the '#'
+                    const headingElement = document.getElementById(targetId);
+                    if (headingElement) {
+                        const langSpan = headingElement.querySelector(langSelector);
+                        if (langSpan) {
+                            link.textContent = langSpan.textContent;
+                        }
+                    }
+                });
+            }
+            
+            // --- Function to set the page language ---
+            function setLanguage(lang) {
+                const isEnglish = lang === 'en';
+                document.documentElement.lang = isEnglish ? 'en-US' : 'zh-CN';
+                
+                document.querySelectorAll('.lang-zh').forEach(el => el.style.display = isEnglish ? 'none' : 'inline');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = isEnglish ? 'inline' : 'none');
+                
+                updateTOCLanguage(lang); // *** THIS IS THE KEY UPDATE ***
+                
+                toggle.checked = isEnglish;
+                localStorage.setItem(PREFERRED_LANG_KEY, lang);
+            }
+
+            // --- 1. TOC Generation ---
+            const headings = content.querySelectorAll('h2, h3, h4');
+            const tocList = document.createElement('ul');
+            
+            headings.forEach(heading => {
+                const id = heading.id;
+                if (!id) return;
+
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                // Text will be set by updateTOCLanguage, can leave this blank
+                // link.textContent = '...'; 
+
+                if (heading.tagName === 'H3') link.classList.add('h3-link');
+                if (heading.tagName === 'H4') link.classList.add('h4-link');
+
+                const tocItem = document.createElement('li');
+                tocItem.appendChild(link);
+                tocList.appendChild(tocItem);
+            });
+            tocContainer.appendChild(tocList);
+
+            // --- 2. Language Initialization and Switching ---
+            const savedLang = localStorage.getItem(PREFERRED_LANG_KEY);
+            const initialLang = savedLang || (BROWSER_LANG.startsWith('zh') ? 'zh' : 'en');
+            setLanguage(initialLang); // This will also call updateTOCLanguage for the first time
+
+            toggle.addEventListener('change', () => {
+                setLanguage(toggle.checked ? 'en' : 'zh');
+            });
+
+            // --- 3. Active TOC Link Highlighting (Scrollspy) ---
+            const observer = new IntersectionObserver((entries) => {
+                let lastVisibleId = null;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        lastVisibleId = entry.target.getAttribute('id');
+                    }
+                });
+                
+                if (lastVisibleId) {
+                    tocContainer.querySelectorAll('a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${lastVisibleId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+            headings.forEach(heading => observer.observe(heading));
+
+            // --- 4. Copy Code Buttons ---
+            document.querySelectorAll('main pre').forEach(block => {
+                const button = document.createElement('button');
+                button.className = 'copy-btn';
+                button.textContent = 'Copy';
+                block.appendChild(button);
+
+                button.addEventListener('click', () => {
+                    const code = block.querySelector('code').textContent;
+                    navigator.clipboard.writeText(code).then(() => {
+                        button.textContent = 'Copied!';
+                        setTimeout(() => {
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
