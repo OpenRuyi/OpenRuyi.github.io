@@ -16,27 +16,20 @@
             --bg-color: #ffffff;
             --text-color: #2c3e50;
             --primary-color: #2563eb;
+            --primary-color-dark: #1e40af;
             --secondary-color: #475569;
             --border-color: #e2e8f0;
             --code-bg-color: #f1f5f9;
             --code-text-color: #0f172a;
             --header-bg: rgba(255, 255, 255, 0.8);
-            --toc-bg: #f8fafc;
-            --hl-variable-color: #005cc5; /* Blue */
-            --hl-string-color: #d73a49; /* Magenta/Red */
-            --hl-comment-color: #6a737d; /* Gray for comments */
+            --hl-variable-color: #005cc5;
+            --hl-string-color: #d73a49;
+            --hl-comment-color: #6a737d;
+            --nav-width: 280px; /* Define nav width as a variable */
         }
 
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
             background-color: var(--bg-color);
@@ -45,16 +38,10 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        
         .lang-en, .lang-zh { display: none; }
 
         /* --- Layout --- */
-        .container {
-            display: flex;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
+        .container { display: flex; max-width: 1280px; margin: 0 auto; }
         .main-header {
             position: sticky;
             top: 0;
@@ -62,11 +49,17 @@
             background-color: var(--header-bg);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
+            padding: 0 2rem;
             z-index: 100;
+            height: 73px;
+        }
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            height: 100%;
         }
         
         .main-header .logo {
@@ -76,27 +69,44 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
+            /* Key alignment style */
+            padding-left: 2.5rem;
+            transition: padding-left 0.3s ease;
         }
-        
-        .logo-icon {
-            width: 28px;
-            height: 28px;
-            color: var(--primary-color);
+        .logo-icon { width: 28px; height: 28px; color: var(--primary-color); }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-download:hover { background-color: var(--primary-color-dark); }
 
         #toc {
             position: sticky;
-            top: 73px; /* Header height */
+            top: 73px;
             height: calc(100vh - 73px);
             overflow-y: auto;
-            width: 280px;
+            width: var(--nav-width);
             padding: 2rem 1rem;
             border-right: 1px solid var(--border-color);
             flex-shrink: 0;
+            transition: transform 0.3s ease;
         }
 
         #toc ul { list-style-type: none; }
-
         #toc li a {
             display: block;
             padding: 0.4rem 0.8rem;
@@ -106,19 +116,14 @@
             transition: all 0.2s ease;
             font-size: 0.9rem;
         }
-        
         #toc li a.h3-link { padding-left: 1.8rem; font-size: 0.85rem; }
         #toc li a.h4-link { padding-left: 2.8rem; font-size: 0.8rem; }
         #toc li a:hover { background-color: var(--border-color); color: var(--text-color); }
         #toc li a.active { background-color: var(--primary-color); color: white; font-weight: 500; }
         
-        main {
-            flex-grow: 1;
-            padding: 2rem 3rem 4rem;
-            min-width: 0;
-        }
+        main { flex-grow: 1; padding: 2rem 3rem 4rem; min-width: 0; }
 
-        /* --- Content Typography --- */
+        /* --- Content Typography & Code Blocks --- */
         main h1, main h2, main h3, main h4 {
             color: var(--text-color);
             font-weight: 700;
@@ -138,7 +143,6 @@
         main strong { font-weight: 700; }
         main hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
         
-        /* --- Code Blocks with Line Numbers & Highlighting --- */
         main pre {
             background-color: var(--code-bg-color);
             color: var(--code-text-color);
@@ -152,31 +156,21 @@
             font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
             font-size: 0.9rem;
             counter-reset: line;
-            white-space: pre; /* Important for preserving space */
+            white-space: pre;
         }
-        main code .line {
-            display: block;
-            padding-left: 2.5em;
-            position: relative;
-            min-height: 1.2em; /* Ensure empty lines are visible */
-        }
+        main code .line { display: block; padding-left: 3.5em; position: relative; min-height: 1.2em; }
         main code .line::before {
             counter-increment: line;
             content: counter(line);
             position: absolute;
             left: 0;
-            width: 1.5em;
+            width: 2.5em;
             text-align: right;
             color: var(--secondary-color);
             opacity: 0.6;
             user-select: none;
         }
-        main p > code, main li > code { /* Inline code */
-            background-color: var(--code-bg-color);
-            padding: 0.2em 0.4em;
-            border-radius: 4px;
-            font-size: 0.85em;
-        }
+        main p > code, main li > code { background-color: var(--code-bg-color); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.85em; }
         .hl-variable { color: var(--hl-variable-color); font-weight: 500; }
         .hl-string { color: var(--hl-string-color); }
         .hl-comment { color: var(--hl-comment-color); font-style: italic; }
@@ -208,35 +202,53 @@
         
         /* --- Responsive Design --- */
         @media (max-width: 1024px) {
-            #toc { display: none; }
+            #toc {
+                transform: translateX(-100%);
+                width: 0;
+                padding: 0;
+                border: none;
+            }
+            .main-header .logo {
+                padding-left: 0; /* Remove padding when TOC is hidden */
+            }
             main { padding: 2rem; }
         }
         @media (max-width: 640px) {
-            .main-header { padding: 1rem; }
+            .main-header { padding: 0 1rem; }
             main { padding: 1.5rem 1rem; }
             main h1 { font-size: 2rem; }
             main h2 { font-size: 1.75rem; }
+            .header-actions { gap: 1rem; }
+            .btn-download { padding: 0.4rem 0.8rem; font-size: 0.8rem;}
         }
     </style>
 </head>
 <body>
 
     <header class="main-header">
-        <div class="logo">
-            <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 19L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M17.5 7.5L16.5 2.5L15.5 7.5L20.5 8.5L15.5 9.5L16.5 14.5L17.5 9.5L22.5 8.5L17.5 7.5Z" fill="currentColor"/>
-            </svg>
-            <span class="lang-zh">Ruyi 编程框架</span>
-            <span class="lang-en">Ruyi Programming Framework</span>
-        </div>
-        <div class="lang-switch">
-            <span>中文</span>
-            <label class="switch">
-                <input type="checkbox" id="language-toggle">
-                <span class="slider"></span>
-            </label>
-            <span>English</span>
+        <div class="header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 19L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.5 7.5L16.5 2.5L15.5 7.5L20.5 8.5L15.5 9.5L16.5 14.5L17.5 9.5L22.5 8.5L17.5 7.5Z" fill="currentColor"/>
+                </svg>
+                <span class="lang-zh">Ruyi 编程框架</span>
+                <span class="lang-en">Ruyi Programming Framework</span>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="btn-download">
+                    <span class="lang-zh">下载试用</span>
+                    <span class="lang-en">Download IDE</span>
+                </a>
+                <div class="lang-switch">
+                    <span>中文</span>
+                    <label class="switch">
+                        <input type="checkbox" id="language-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>English</span>
+                </div>
+            </div>
         </div>
     </header>
 
