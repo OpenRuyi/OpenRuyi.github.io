@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Ruyi Programming Language</title>
+    <title>Ruyi Programming Framework</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +22,9 @@
             --code-text-color: #0f172a;
             --header-bg: rgba(255, 255, 255, 0.8);
             --toc-bg: #f8fafc;
+            --hl-variable-color: #005cc5; /* Blue */
+            --hl-string-color: #d73a49; /* Magenta/Red */
+            --hl-comment-color: #6a737d; /* Gray for comments */
         }
 
         *, *::before, *::after {
@@ -43,10 +46,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Hide elements of the non-selected language */
-        .lang-en, .lang-zh {
-            display: none;
-        }
+        .lang-en, .lang-zh { display: none; }
 
         /* --- Layout --- */
         .container {
@@ -73,12 +73,21 @@
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            color: var(--primary-color);
         }
 
         #toc {
             position: sticky;
-            top: 80px; /* Header height */
-            height: calc(100vh - 80px);
+            top: 73px; /* Header height */
+            height: calc(100vh - 73px);
             overflow-y: auto;
             width: 280px;
             padding: 2rem 1rem;
@@ -86,9 +95,7 @@
             flex-shrink: 0;
         }
 
-        #toc ul {
-            list-style-type: none;
-        }
+        #toc ul { list-style-type: none; }
 
         #toc li a {
             display: block;
@@ -100,26 +107,10 @@
             font-size: 0.9rem;
         }
         
-        #toc li a.h3-link {
-            padding-left: 1.8rem;
-            font-size: 0.85rem;
-        }
-        
-        #toc li a.h4-link {
-             padding-left: 2.8rem;
-             font-size: 0.8rem;
-        }
-
-        #toc li a:hover {
-            background-color: var(--border-color);
-            color: var(--text-color);
-        }
-
-        #toc li a.active {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 500;
-        }
+        #toc li a.h3-link { padding-left: 1.8rem; font-size: 0.85rem; }
+        #toc li a.h4-link { padding-left: 2.8rem; font-size: 0.8rem; }
+        #toc li a:hover { background-color: var(--border-color); color: var(--text-color); }
+        #toc li a.active { background-color: var(--primary-color); color: white; font-weight: 500; }
         
         main {
             flex-grow: 1;
@@ -128,12 +119,12 @@
         }
 
         /* --- Content Typography --- */
-        main h1, main h2, main h3, main h4, main h5, main h6 {
+        main h1, main h2, main h3, main h4 {
             color: var(--text-color);
             font-weight: 700;
             margin-top: 2.5em;
             margin-bottom: 1em;
-            scroll-margin-top: 80px; /* For anchor links */
+            scroll-margin-top: 80px;
         }
         main h1 { font-size: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
         main h2 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
@@ -147,11 +138,11 @@
         main strong { font-weight: 700; }
         main hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
         
-        /* --- Code Blocks --- */
+        /* --- Code Blocks with Line Numbers & Highlighting --- */
         main pre {
             background-color: var(--code-bg-color);
             color: var(--code-text-color);
-            padding: 1.5rem;
+            padding: 1.25rem 1.5rem;
             border-radius: 8px;
             overflow-x: auto;
             margin-bottom: 1.25rem;
@@ -160,6 +151,25 @@
         main code {
             font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
             font-size: 0.9rem;
+            counter-reset: line;
+            white-space: pre; /* Important for preserving space */
+        }
+        main code .line {
+            display: block;
+            padding-left: 2.5em;
+            position: relative;
+            min-height: 1.2em; /* Ensure empty lines are visible */
+        }
+        main code .line::before {
+            counter-increment: line;
+            content: counter(line);
+            position: absolute;
+            left: 0;
+            width: 1.5em;
+            text-align: right;
+            color: var(--secondary-color);
+            opacity: 0.6;
+            user-select: none;
         }
         main p > code, main li > code { /* Inline code */
             background-color: var(--code-bg-color);
@@ -167,6 +177,9 @@
             border-radius: 4px;
             font-size: 0.85em;
         }
+        .hl-variable { color: var(--hl-variable-color); font-weight: 500; }
+        .hl-string { color: var(--hl-string-color); }
+        .hl-comment { color: var(--hl-comment-color); font-style: italic; }
 
         .copy-btn {
             position: absolute;
@@ -182,42 +195,14 @@
             opacity: 0;
             transition: opacity 0.2s ease;
         }
-        main pre:hover .copy-btn {
-            opacity: 1;
-        }
+        main pre:hover .copy-btn { opacity: 1; }
         
         /* --- Language Toggle Switch --- */
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-            user-select: none;
-        }
-        .lang-switch .switch {
-            position: relative;
-            display: inline-block;
-            width: 44px;
-            height: 24px;
-            margin: 0 0.5rem;
-        }
+        .lang-switch { display: flex; align-items: center; font-size: 0.9rem; user-select: none; }
+        .lang-switch .switch { position: relative; display: inline-block; width: 44px; height: 24px; margin: 0 0.5rem; }
         .lang-switch .switch input { display: none; }
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: var(--border-color);
-            transition: .4s;
-            border-radius: 34px;
-        }
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 18px; width: 18px;
-            left: 3px; bottom: 3px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
-        }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-color); transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
         input:checked + .slider { background-color: var(--primary-color); }
         input:checked + .slider:before { transform: translateX(20px); }
         
@@ -232,13 +217,16 @@
             main h1 { font-size: 2rem; }
             main h2 { font-size: 1.75rem; }
         }
-
     </style>
 </head>
 <body>
 
     <header class="main-header">
         <div class="logo">
+            <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 19L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M17.5 7.5L16.5 2.5L15.5 7.5L20.5 8.5L15.5 9.5L16.5 14.5L17.5 9.5L22.5 8.5L17.5 7.5Z" fill="currentColor"/>
+            </svg>
             <span class="lang-zh">Ruyi 编程框架</span>
             <span class="lang-en">Ruyi Programming Framework</span>
         </div>
@@ -267,8 +255,8 @@
                 </h1>
                 
                 <p>
-                    <span class="lang-zh">欢迎来到 Ruyi (如意) 的世界！Ruyi 是一门简单而强大的编程语言，旨在让每个人都能轻松地将想法转化为可执行的程序，无论是自动化日常任务、处理数据，还是与智能设备交互。</span>
-                    <span class="lang-en">Welcome to the world of Ruyi (如意)! Ruyi is a simple yet powerful programming language designed to let everyone easily turn ideas into executable programs, whether for automating daily tasks, processing data, or interacting with smart devices.</span>
+                    <span class="lang-zh">欢迎来到 Ruyi (如意) 的世界！Ruyi 是一个简单而强大的自然语言编程框架，旨在让每个人都能轻松地将想法转化为可执行的程序，无论是自动化日常任务、处理数据，还是与智能设备交互。</span>
+                    <span class="lang-en">Welcome to the world of Ruyi (如意)! Ruyi is a simple yet powerful natural language programming framework designed to let everyone easily turn ideas into executable programs, whether for automating daily tasks, processing data, or interacting with smart devices.</span>
                 </p>
                 
                 <hr>
@@ -333,8 +321,8 @@
                 </h2>
                 
                 <p>
-                    <span class="lang-zh">上手使用 Ruyi 非常简单，你只需要在我们的<a href="https://www.wisewk.com">官方网站</a>上下载 "Ruyi IDE" 应用，打开后按照引导完成基本设置，就可以在编辑窗口中开始创建你的第一个 Ruyi 程序了。</span>
-                    <span class="lang-en">Getting started with Ruyi is very simple. You just need to download the "Ruyi IDE" application from our <a href="https://www.wisewk.com">official website</a>, open it, follow the guide to complete the basic setup, and you can start creating your first Ruyi program in the editor window.</span>
+                    <span class="lang-zh">上手使用 Ruyi 非常简单，你只需要在我们的<a href="https://www.wisewk.com">官方网站</a>上下载 "Ruyi Studio" 应用，打开后按照引导完成基本设置，就可以在编辑窗口中开始创建你的第一个 Ruyi 程序了。</span>
+                    <span class="lang-en">Getting started with Ruyi is very simple. You just need to download the "Ruyi Studio" application from our <a href="https://www.wisewk.com">official website</a>, open it, follow the guide to complete the basic setup, and you can start creating your first Ruyi program in the editor window.</span>
                 </p>
                 
                 <p>
@@ -350,8 +338,8 @@
 tell user "Hello, Ruyi!"</span></code></pre>
                 
                 <p>
-                    <span class="lang-zh">接下来，点击Ruyi IDE中的“执行”按钮，你就可以从对话窗口中看到助手发来的问候消息。</span>
-                    <span class="lang-en">Next, click the "Execute" button in the Ruyi IDE, and you will see the greeting message from the assistant in the dialog window.</span>
+                    <span class="lang-zh">接下来，点击Ruyi Studio中的“执行”按钮，你就可以从对话窗口中看到助手发来的问候消息。</span>
+                    <span class="lang-en">Next, click the "Execute" button in the Ruyi Studio, and you will see the greeting message from the assistant in the dialog window.</span>
                 </p>
 
                 <p>
@@ -375,8 +363,8 @@ tell user "The capital of China is: {capital}"</span></code></pre>
                 </p>
                 
                 <p>
-                    <span class="lang-zh">接下来本文将介绍Ruyi的语法规范，我们会在介绍过程中插入一些可以在Ruyi IDE中直接运行的例子，便于你边学边用，快速掌握。</span>
-                    <span class="lang-en">Next, this article will introduce the syntax specifications of Ruyi. We will include examples that can be run directly in the Ruyi IDE during the introduction to help you learn and use it quickly.</span>
+                    <span class="lang-zh">接下来本文将介绍Ruyi的语法规范，我们会在介绍过程中插入一些可以在Ruyi Studio中直接运行的例子，便于你边学边用，快速掌握。</span>
+                    <span class="lang-en">Next, this article will introduce the syntax specifications of Ruyi. We will include examples that can be run directly in the Ruyi Studio during the introduction to help you learn and use it quickly.</span>
                 </p>
 
                 <p>
@@ -384,19 +372,7 @@ tell user "The capital of China is: {capital}"</span></code></pre>
                     <span class="lang-en">You can also skip the syntax introduction and go directly to the interesting examples in the <a href="#s6-use-cases">Use Cases</a> section. If understanding these examples is not difficult for you, then congratulations, you can start practicing directly!</span>
                 </p>
                 
-                
-Model response
-ThinkingThoughts
-(experimental)
-Auto
-Expand to view model thoughts
 
-chevron_right
-Of course. My apologies for the previous incomplete response. The generation was likely interrupted.
-Here is the complete, fully-translated, and correctly formatted HTML for the entire "3. Basic Syntax and Concepts" section. You can replace the truncated version in the index.html file with this complete block.
-Replacement HTML for Section 3 (Complete Version)
-code
-Html
 <h2 id="s3-syntax-and-concepts">
                     <span class="lang-zh">3. 基本语法与概念</span>
                     <span class="lang-en">3. Basic Syntax and Concepts</span>
@@ -815,8 +791,8 @@ tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
                     <span class="lang-en">In our <a href="https://www.wisewk.com/examples">example library</a>, you can find more cases. Try using the search function to see if there's what you need.</span>
                 </p>
                 <p>
-                    <span class="lang-zh">这些案例展示了Ruyi的潜在能力。实际执行效果会依赖于背后AI模型的理解能力、对外部应用和设备的控制能力，以及Ruyi IDE提供的具体执行环境。祝你Ruyi之旅愉快！</span>
-                    <span class="lang-en">These cases demonstrate the potential of Ruyi. The actual execution effect will depend on the underlying AI model's understanding, its ability to control external applications and devices, and the specific execution environment provided by the Ruyi IDE. Have a pleasant journey with Ruyi!</span>
+                    <span class="lang-zh">这些案例展示了Ruyi的潜在能力。实际执行效果会依赖于背后AI模型的理解能力、对外部应用和设备的控制能力，以及Ruyi Studio提供的具体执行环境。祝你Ruyi之旅愉快！</span>
+                    <span class="lang-en">These cases demonstrate the potential of Ruyi. The actual execution effect will depend on the underlying AI model's understanding, its ability to control external applications and devices, and the specific execution environment provided by the Ruyi Studio. Have a pleasant journey with Ruyi!</span>
                 </p>
             </article>
         </main>
@@ -831,24 +807,47 @@ tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
             const BROWSER_LANG = navigator.language.toLowerCase();
             const PREFERRED_LANG_KEY = 'ruyi_lang_pref';
 
-            // --- Function to update TOC text based on current language ---
             function updateTOCLanguage(lang) {
-                const tocLinks = tocContainer.querySelectorAll('a');
                 const langSelector = lang === 'en' ? '.lang-en' : '.lang-zh';
-
-                tocLinks.forEach(link => {
-                    const targetId = link.getAttribute('href').substring(1); // Remove the '#'
-                    const headingElement = document.getElementById(targetId);
+                tocContainer.querySelectorAll('a').forEach(link => {
+                    const headingElement = document.getElementById(link.getAttribute('href').substring(1));
                     if (headingElement) {
                         const langSpan = headingElement.querySelector(langSelector);
-                        if (langSpan) {
-                            link.textContent = langSpan.textContent;
-                        }
+                        if (langSpan) link.textContent = langSpan.textContent;
+                    }
+                });
+            }
+
+            function processAllCodeBlocks(lang) {
+                const langSelector = lang === 'en' ? 'lang-en' : 'lang-zh';
+                document.querySelectorAll('main pre').forEach(pre => {
+                    const codeSpan = pre.querySelector(`code > span.${langSelector}`);
+                    if (codeSpan && codeSpan.dataset.originalCode) {
+                         const highlightedHtml = highlightAndNumberCode(codeSpan.dataset.originalCode);
+                         codeSpan.innerHTML = highlightedHtml;
                     }
                 });
             }
             
-            // --- Function to set the page language ---
+            function highlightAndNumberCode(rawCode) {
+                // Escape HTML characters to prevent rendering them
+                const escapedCode = rawCode
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+                
+                // Apply syntax highlighting
+                const highlightedCode = escapedCode
+                    .replace(/"([^"]*)"/g, '<span class="hl-string">"$1"</span>')
+                    // .replace(/'([^']*)'/g, "<span class='hl-string'>'$1'</span>")
+                    .replace(/\{([^}]+)\}/g, '<span class="hl-variable">{$1}</span>')
+                    .replace(/(#.*)/g, '<span class="hl-comment">$1</span>');
+                
+                // Add line numbers
+                const lines = highlightedCode.split('\n');
+                return lines.map(line => `<span class="line">${line || ' '}</span>`).join('');
+            }
+
             function setLanguage(lang) {
                 const isEnglish = lang === 'en';
                 document.documentElement.lang = isEnglish ? 'en-US' : 'zh-CN';
@@ -856,38 +855,62 @@ tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
                 document.querySelectorAll('.lang-zh').forEach(el => el.style.display = isEnglish ? 'none' : 'inline');
                 document.querySelectorAll('.lang-en').forEach(el => el.style.display = isEnglish ? 'inline' : 'none');
                 
-                updateTOCLanguage(lang); // *** THIS IS THE KEY UPDATE ***
+                updateTOCLanguage(lang);
+                processAllCodeBlocks(lang);
                 
                 toggle.checked = isEnglish;
                 localStorage.setItem(PREFERRED_LANG_KEY, lang);
             }
 
-            // --- 1. TOC Generation ---
+            // --- 1. One-time Setup on Load ---
+            // A. TOC Generation
             const headings = content.querySelectorAll('h2, h3, h4');
             const tocList = document.createElement('ul');
-            
             headings.forEach(heading => {
                 const id = heading.id;
                 if (!id) return;
-
                 const link = document.createElement('a');
                 link.href = `#${id}`;
-                // Text will be set by updateTOCLanguage, can leave this blank
-                // link.textContent = '...'; 
-
                 if (heading.tagName === 'H3') link.classList.add('h3-link');
                 if (heading.tagName === 'H4') link.classList.add('h4-link');
-
                 const tocItem = document.createElement('li');
                 tocItem.appendChild(link);
                 tocList.appendChild(tocItem);
             });
             tocContainer.appendChild(tocList);
 
-            // --- 2. Language Initialization and Switching ---
+            // B. Store original code and set up copy buttons
+            document.querySelectorAll('main pre').forEach(pre => {
+                const codeBlock = pre.querySelector('code');
+                if (!codeBlock) return;
+                
+                // Save original text for both languages
+                codeBlock.querySelectorAll('span.lang-zh, span.lang-en').forEach(span => {
+                    span.dataset.originalCode = span.textContent;
+                });
+
+                const button = document.createElement('button');
+                button.className = 'copy-btn';
+                button.textContent = 'Copy';
+                pre.appendChild(button);
+
+                button.addEventListener('click', () => {
+                    const visibleSpan = codeBlock.querySelector('span:not([style*="display: none"])');
+                    const rawCodeToCopy = visibleSpan ? visibleSpan.dataset.originalCode : '';
+                    
+                    if (rawCodeToCopy) {
+                         navigator.clipboard.writeText(rawCodeToCopy).then(() => {
+                            button.textContent = 'Copied!';
+                            setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                        });
+                    }
+                });
+            });
+
+            // --- 2. Language Initialization and Interactivity ---
             const savedLang = localStorage.getItem(PREFERRED_LANG_KEY);
             const initialLang = savedLang || (BROWSER_LANG.startsWith('zh') ? 'zh' : 'en');
-            setLanguage(initialLang); // This will also call updateTOCLanguage for the first time
+            setLanguage(initialLang);
 
             toggle.addEventListener('change', () => {
                 setLanguage(toggle.checked ? 'en' : 'zh');
@@ -895,42 +918,16 @@ tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
 
             // --- 3. Active TOC Link Highlighting (Scrollspy) ---
             const observer = new IntersectionObserver((entries) => {
-                let lastVisibleId = null;
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        lastVisibleId = entry.target.getAttribute('id');
+                        const id = entry.target.getAttribute('id');
+                        tocContainer.querySelectorAll('a').forEach(link => {
+                           link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                        });
                     }
                 });
-                
-                if (lastVisibleId) {
-                    tocContainer.querySelectorAll('a').forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === `#${lastVisibleId}`) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
             }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
-
             headings.forEach(heading => observer.observe(heading));
-
-            // --- 4. Copy Code Buttons ---
-            document.querySelectorAll('main pre').forEach(block => {
-                const button = document.createElement('button');
-                button.className = 'copy-btn';
-                button.textContent = 'Copy';
-                block.appendChild(button);
-
-                button.addEventListener('click', () => {
-                    const code = block.querySelector('code').textContent;
-                    navigator.clipboard.writeText(code).then(() => {
-                        button.textContent = 'Copied!';
-                        setTimeout(() => {
-                            button.textContent = 'Copy';
-                        }, 2000);
-                    });
-                });
-            });
         });
     </script>
 </body>
