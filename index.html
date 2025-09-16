@@ -200,6 +200,40 @@
         input:checked + .slider { background-color: var(--primary-color); }
         input:checked + .slider:before { transform: translateX(20px); }
         
+        /* --- Footer --- */
+        .page-footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            text-align: center;
+        }
+        .footer-content p {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        .footer-nav a {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+        .footer-nav a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+        
         /* --- Responsive Design --- */
         @media (max-width: 1024px) {
             #toc {
@@ -212,6 +246,12 @@
                 padding-left: 0; /* Remove padding when TOC is hidden */
             }
             main { padding: 2rem; }
+        }
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
         @media (max-width: 640px) {
             .main-header { padding: 0 1rem; }
@@ -817,6 +857,25 @@ tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
             </article>
         </main>
     </div>
+
+    <footer class="page-footer">
+        <div class="footer-content">
+            <p>
+                <span class="lang-zh">© 2025 Wisewk Inc. 版权所有。</span>
+                <span class="lang-en">© 2025 Wisewk Inc. All rights reserved.</span>
+            </p>
+            <nav class="footer-nav">
+                <a href="./privacy.html">
+                    <span class="lang-zh">隐私政策</span>
+                    <span class="lang-en">Privacy Policy</span>
+                </a>
+                <a href="./terms.html">
+                    <span class="lang-zh">使用条款</span>
+                    <span class="lang-en">Terms of Use</span>
+                </a>
+            </nav>
+        </div>
+    </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

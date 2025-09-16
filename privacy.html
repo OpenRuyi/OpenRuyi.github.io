@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Ruyi Privacy Policy</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Reset & Global Styles --- */
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #2c3e50;
+            --primary-color: #2563eb;
+            --primary-color-dark: #1e40af;
+            --secondary-color: #475569;
+            --border-color: #e2e8f0;
+            --code-bg-color: #f1f5f9;
+            --code-text-color: #0f172a;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --hl-variable-color: #005cc5;
+            --hl-string-color: #d73a49;
+            --hl-comment-color: #6a737d;
+            --nav-width: 280px; /* Define nav width as a variable */
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .lang-en, .lang-zh { display: none; }
+
+        /* --- Layout --- */
+        .container { display: flex; max-width: 1280px; margin: 0 auto; }
+        .main-header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 2rem;
+            z-index: 100;
+            height: 73px;
+        }
+        .header-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+        
+        .main-header .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            /* Key alignment style */
+            padding-left: 2.5rem;
+            transition: padding-left 0.3s ease;
+        }
+        .logo-icon { width: 28px; height: 28px; color: var(--primary-color); }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-download {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+        .btn-download:hover { background-color: var(--primary-color-dark); }
+
+        #toc {
+            position: sticky;
+            top: 73px;
+            height: calc(100vh - 73px);
+            overflow-y: auto;
+            width: var(--nav-width);
+            padding: 2rem 1rem;
+            border-right: 1px solid var(--border-color);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        #toc ul { list-style-type: none; }
+        #toc li a {
+            display: block;
+            padding: 0.4rem 0.8rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            font-size: 0.9rem;
+        }
+        #toc li a.h3-link { padding-left: 1.8rem; font-size: 0.85rem; }
+        #toc li a.h4-link { padding-left: 2.8rem; font-size: 0.8rem; }
+        #toc li a:hover { background-color: var(--border-color); color: var(--text-color); }
+        #toc li a.active { background-color: var(--primary-color); color: white; font-weight: 500; }
+        
+        main { flex-grow: 1; padding: 2rem 3rem 4rem; min-width: 0; }
+
+        /* --- Content Typography & Code Blocks --- */
+        main h1, main h2, main h3, main h4 {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-top: 2.5em;
+            margin-bottom: 1em;
+            scroll-margin-top: 80px;
+        }
+        main h1 { font-size: 2.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        main h2 { font-size: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
+        main h3 { font-size: 1.5rem; }
+        main h4 { font-size: 1.25rem; }
+        main p { margin-bottom: 1.25em; }
+        main ul, main ol { margin-left: 1.5rem; margin-bottom: 1.25em; }
+        main li { margin-bottom: 0.5em; }
+        main a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        main a:hover { text-decoration: underline; }
+        main strong { font-weight: 700; }
+        main hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
+        
+        main pre {
+            background-color: var(--code-bg-color);
+            color: var(--code-text-color);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+        main code {
+            font-family: 'SF Mono', 'Fira Code', 'Menlo', monospace;
+            font-size: 0.9rem;
+            counter-reset: line;
+            white-space: pre;
+        }
+        main code .line { display: block; padding-left: 3.5em; position: relative; min-height: 1.2em; }
+        main code .line::before {
+            counter-increment: line;
+            content: counter(line);
+            position: absolute;
+            left: 0;
+            width: 2.5em;
+            text-align: right;
+            color: var(--secondary-color);
+            opacity: 0.6;
+            user-select: none;
+        }
+        main p > code, main li > code { background-color: var(--code-bg-color); padding: 0.2em 0.4em; border-radius: 4px; font-size: 0.85em; }
+        .hl-variable { color: var(--hl-variable-color); font-weight: 500; }
+        .hl-string { color: var(--hl-string-color); }
+        .hl-comment { color: var(--hl-comment-color); font-style: italic; }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            background-color: #cbd5e1;
+            border: none;
+            padding: 0.4rem 0.6rem;
+            border-radius: 6px;
+            color: var(--code-text-color);
+            cursor: pointer;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        main pre:hover .copy-btn { opacity: 1; }
+        
+        /* --- Language Toggle Switch --- */
+        .lang-switch { display: flex; align-items: center; font-size: 0.9rem; user-select: none; }
+        .lang-switch .switch { position: relative; display: inline-block; width: 44px; height: 24px; margin: 0 0.5rem; }
+        .lang-switch .switch input { display: none; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: var(--border-color); transition: .4s; border-radius: 34px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--primary-color); }
+        input:checked + .slider:before { transform: translateX(20px); }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 1024px) {
+            #toc {
+                transform: translateX(-100%);
+                width: 0;
+                padding: 0;
+                border: none;
+            }
+            .main-header .logo {
+                padding-left: 0; /* Remove padding when TOC is hidden */
+            }
+            main { padding: 2rem; }
+        }
+        @media (max-width: 640px) {
+            .main-header { padding: 0 1rem; }
+            main { padding: 1.5rem 1rem; }
+            main h1 { font-size: 2rem; }
+            main h2 { font-size: 1.75rem; }
+            .header-actions { gap: 1rem; }
+            .btn-download { padding: 0.4rem 0.8rem; font-size: 0.8rem;}
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 19L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17.5 7.5L16.5 2.5L15.5 7.5L20.5 8.5L15.5 9.5L16.5 14.5L17.5 9.5L22.5 8.5L17.5 7.5Z" fill="currentColor"/>
+                </svg>
+                <span class="lang-zh">Ruyi 隐私政策</span>
+                <span class="lang-en">Ruyi Privacy Policy</span>
+            </div>
+            <div class="header-actions">
+                <a href="#" class="btn-download">
+                    <span class="lang-zh">下载试用 🚀</span>
+                    <span class="lang-en">Download App 🚀</span>
+                </a>
+                <div class="lang-switch">
+                    <span>中文</span>
+                    <label class="switch">
+                        <input type="checkbox" id="language-toggle">
+                        <span class="slider"></span>
+                    </label>
+                    <span>English</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav id="toc">
+            <!-- Table of Contents will be generated here by JavaScript -->
+        </nav>
+
+        <main>
+            <article id="content">
+                <h1>
+                    <span class="lang-zh">隐私政策</span>
+                    <span class="lang-en">Privacy Policy</span>
+                </h1>
+                <p>
+                    <strong><span class="lang-zh">生效日期：</span><span class="lang-en">Effective Date:</span></strong>
+                    <span class="lang-zh">2025年9月9日</span>
+                    <span class="lang-en">September 9, 2025</span>
+                </p>
+    
+                <h2 id="s1-policy-statement">
+                    <span class="lang-zh">1. 政策声明</span>
+                    <span class="lang-en">1. Policy Statement</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">本隐私政策（“政策”）描述了 Wisewk Inc. 及其关联公司（统称为“Wisewk Inc.”或“我们”）如何收集和处理关于您的已识别或可识别信息（“个人数据”），包括当您使用本网站、我们的产品或我们的服务（统称为“服务”）时。</span>
+                    <span class="lang-en">This Privacy Policy (the “Policy”) describes how Wisewk Inc. and its affiliates (collectively “Wisewk Inc.” or “we”) collect and process an identified or identifiable information about you (“Personal Data”), including when you are using this website, our products, or our services (collectively, the “Services“).</span>
+                </p>
+                <p>
+                    <span class="lang-zh">Wisewk Inc. 是一家全球性软件公司，主要运营于美国和中国。当您使用我们的产品或服务时，Wisewk Inc. 是决定您个人数据处理目的和方式的数据控制者。</span>
+                    <span class="lang-en">Wisewk Inc. is a global software company with its offices in the United States and China. When you use our products or services, Wisewk Inc. is the data controller which decides the purpose and means of processing of your Personal Data.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">Wisewk Inc. 关心保护个人的隐私权，并致力于遵守适用的地方性法律。我们力求在处理个人数据时遵循全球公认的原则，例如 GDPR 中规定的原则。本政策中使用的“个人数据”、“处理”、“控制者”、“数据主体”等术语，其含义与 GDPR 中的定义一致。</span>
+                    <span class="lang-en">Wisewk Inc. cares about protecting the right to privacy of individuals and, while we observe the applicable local laws, we aim to uphold Personal Data protection principles provided by global standards like the GDPR. Terms like “Personal Data”, “processing”, “controller”, and “data subject” are used in this Policy in accordance with the definitions given by such regulations.</span>
+                </p>
+    
+                <h2 id="s2-personal-data-processed">
+                    <span class="lang-zh">2. 我们处理的个人数据</span>
+                    <span class="lang-en">2. Personal Data We Process</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">在我们的运营活动中，Wisewk Inc. 可能会处理属于各类数据主体的不同类型的个人数据，例如客户、潜在客户、业务合作伙伴、求职者、我们服务（包括 Ruyi Studio）的用户等。我们处理的关于您的个人数据的类别和性质取决于您与我们的关系以及处理的目的。</span>
+                    <span class="lang-en">During its activity, Wisewk Inc. may process different types of Personal Data belonging to a variety of data subjects such as customers, potential customers, business partners, candidates, and users of our Services including Ruyi Studio. The categories and nature of Personal Data processed about you depends on your relationship with us and on the purpose of processing.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">请注意，如果您由法人实体注册或使用法人实体域名下的电子邮件地址自行注册，我们将视您代表该实体行事。因此，我们可能会根据您雇主的要求，向其提供您的个人数据或您在服务中的活动信息。</span>
+                    <span class="lang-en">Please note that, if you are enrolled by a legal entity or you have enrolled by yourself with an e-mail address registered under the domain of a legal entity, we will deem that you are acting on behalf of that entity. Therefore, we may need to make the Personal Data or your activity within the Services available to your employer upon their request.</span>
+                </p>
+    
+                <h3><span class="lang-zh">提供我们的服务</span><span class="lang-en">Providing our Services</span></h3>
+                <p>
+                    <span class="lang-zh">为访问和使用我们的产品和服务（包括 Ruyi Studio）而进行的个人数据处理。</span>
+                    <span class="lang-en">Personal Data processing for accessing and using our products and services, including Ruyi Studio.</span>
+                </p>
+                <ul>
+                    <li><strong><span class="lang-zh">账户创建与管理：</span><span class="lang-en">Account Creation and Management:</span></strong>
+                        <span class="lang-zh">当您为 Ruyi Studio 创建账户以使用相关服务时，我们会处理您的姓名、电子邮件地址、用户名、国家/地区、语言、雇主、职位等信息，以便授予您访问权限并维护您的账户。我们基于服务条款（合同）处理这些数据。</span>
+                        <span class="lang-en">When you create an account with Ruyi Studio to use the associated Services, we process your name, e-mail address, username, country, language, employer, job title, and other information needed to grant you access to the Service and maintain the account. We process this data based on the terms & conditions of the Services (contract).</span>
+                    </li>
+                    <li><strong><span class="lang-zh">Ruyi Studio 服务使用数据：</span><span class="lang-en">Ruyi Studio Service Usage Data:</span></strong>
+                        <span class="lang-zh">在使用 Ruyi Studio 服务期间，我们会收集使用数据，包括您的用户 ID 和关于您与我们应用程序交互的信息。我们收集这些数据是基于我们的合法利益，以维护我们服务的可访问性和功能性，并了解我们的用户及其兴趣。</span>
+                        <span class="lang-en">When using Ruyi Studio Services, we gather usage data, which includes your user ID and information about your interaction with our applications. We gather these data based on our legitimate interest to maintain the accessibility and functioning of our services as well as based on our legitimate interest to know our users and our users’ interests.</span>
+                    </li>
+                    <li><strong><span class="lang-zh">用于服务改善的数据（基于同意）：</span><span class="lang-en">Data for Service Improvement (Consent-Based):</span></strong>
+                        <span class="lang-zh">为了改进 Ruyi Studio 的核心功能，尤其是AI解释器的准确性和性能，我们可能会请求您允许我们收集您创建的任务脚本和相关的执行日志信息。<strong>我们只会在获得您的明确同意后才会收集此类数据。</strong>这些数据将以匿名化或聚合形式用于产品改进和机器学习目的，并且我们采取技术措施最小化个人数据的使用。</span>
+                        <span class="lang-en">To improve the core functionality of Ruyi Studio, especially the accuracy and performance of the AI interpreter, we may ask for your permission to collect the task scripts you create and associated execution log information. <strong>We will only collect this type of data after receiving your explicit consent.</strong> This data will be used in an anonymized or aggregated form for product improvement and machine learning purposes, and we employ technical measures to minimize the use of personal data.</span>
+                    </li>
+                </ul>
+    
+                <h3><span class="lang-zh">提供支持</span><span class="lang-en">Offering Support</span></h3>
+                <p>
+                    <span class="lang-zh">如果您请求我们的支持，我们将根据我们的支持条款处理支持所需的个人数据，如姓名、电子邮件地址、公司、职位和设备 ID。我们处理这些数据是为了履行我们与您的合同。</span>
+                    <span class="lang-en">If you request our support, we will process the Personal Data needed for support, such as name, email address, company, job title and device ID, in accordance with our Support terms. We process this data to perform the contract we have with you.</span>
+                </p>
+    
+                <h3><span class="lang-zh">访问我们的网站</span><span class="lang-en">Access to our Websites</span></h3>
+                <p>
+                    <span class="lang-zh">当您访问我们的网站时，我们会请求您同意收集您的个人数据，包括但不限于浏览器信息、设备、IP 地址、姓名、电子邮件、电话号码等。我们将用它来为您提供相关新闻、改善您在我们网站上的体验或回应您的询问。有关更多信息，请访问我们的 Cookie 政策。</span>
+                    <span class="lang-en">When you visit our websites, we will request your consent to collect your Personal Data, including, without being limited to, browser information, device used, IP address, name, email, phone number, etc. We will use it to provide you with relevant news, improve your experience on our website, or respond to your inquiries. For more information, please visit our Cookie Policy.</span>
+                </p>
+    
+                <h3><span class="lang-zh">我们的营销活动</span><span class="lang-en">Our Marketing Activities</span></h3>
+                <p>
+                    <span class="lang-zh">我们可能会处理您的个人数据，如姓名、电子邮件地址和电话号码，用于向您发送营销通讯。我们仅在您明确或默示同意的基础上，或在适用隐私法允许的情况下基于我们的合法利益进行此操作。您可以随时选择不接收我们的营销通讯。</span>
+                    <span class="lang-en">We may process your Personal Data, such as name, e-mail address and telephone number, for the purpose of sending you marketing communications. We only do so based on your explicit or implied consent, or based on our legitimate interest, where the applicable privacy laws allow it. You may at any time choose not to receive marketing communications from us.</span>
+                </p>
+    
+                <h2 id="s3-sharing">
+                    <span class="lang-zh">3. 个人数据的共享与披露</span>
+                    <span class="lang-en">3. Personal Data Sharing and Disclosures</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">作为一家全球性公司，我们可能会与我们的关联公司、第三方处理者或业务合作伙伴共享数据。</span>
+                    <span class="lang-en">As a global company, we may share data with our affiliates, third-party processors, or business partners around the world.</span>
+                </p>
+                <ul>
+                    <li><strong><span class="lang-zh">与我们的服务提供商：</span><span class="lang-en">With Our Service Providers:</span></strong> <span class="lang-zh">我们使用各种承包商和服务提供商的服务（例如，云托管、数据分析、客户支持）。我们与他们签订了合同协议，以确保您的个人数据受到保护。</span><span class="lang-en">We use the services of various contractors and service providers (e.g., for cloud hosting, data analytics, customer support). We have contractual agreements with them to ensure that your Personal Data is protected.</span></li>
+                    <li><strong><span class="lang-zh">与我们的合作伙伴和分销商：</span><span class="lang-en">With Our Partners and Distributors:</span></strong> <span class="lang-zh">为维持高效的渠道系统，我们可能会与授权的合作伙伴和分销商共享某些客户数据（如业务联系方式）。</span><span class="lang-en">As necessary to maintain an efficient channel system, we may share certain customers’ data (such as business contact details) with our authorized partners and distributors.</span></li>
+                    <li><strong><span class="lang-zh">法律要求：</span><span class="lang-en">If Legally Required:</span></strong> <span class="lang-zh">我们可能应公共当局、审计师或有权对我们进行检查的机构的合法要求提供个人数据。</span><span class="lang-en">We may also provide personal data to third parties as lawfully requested by public authorities, auditors, or institutions competent to exercise inspections on us.</span></li>
+                </ul>
+    
+                <h2 id="s4-retention">
+                    <span class="lang-zh">4. 个人数据保留</span>
+                    <span class="lang-en">4. Personal Data Retention</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">我们将根据实现本政策所述处理目的所需，以及根据我们的法律和合同义务，在有限的期限内存储您的个人数据。一旦保留期届满，我们将根据我们的内部政策删除、存档或匿名化您的数据。</span>
+                    <span class="lang-en">We will store your Personal Data for a limited period, as necessary to achieve the purposes of the processing described in this Policy, and in accordance with our legal and contractual obligations. Once the retention period expires, we will delete, archive, or anonymize your data in accordance with our internal policies.</span>
+                </p>
+    
+                <h2 id="s5-security">
+                    <span class="lang-zh">5. 个人数据安全</span>
+                    <span class="lang-en">5. Personal Data Security</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">Wisewk Inc. 不断评估和升级已实施的安全措施，以确保个人数据处理的安全。我们采用行业标准的技术和组织措施来保护您的个人数据。</span>
+                    <span class="lang-en">Wisewk Inc. constantly evaluates and upgrades the security measures implemented to ensure a secure and safe Personal Data processing. We employ industry-standard technical and organizational measures to protect your Personal Data.</span>
+                </p>
+    
+                <h2 id="s6-rights">
+                    <span class="lang-zh">6. 数据主体权利</span>
+                    <span class="lang-en">6. Data Subjects Rights</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">根据适用的法律（如 GDPR），您对您的个人数据拥有以下权利，您可以随时通过联系我们来行使这些权利：</span>
+                    <span class="lang-en">You have the following rights with respect to your Personal Data under applicable laws (such as GDPR), which you may exercise at any time by contacting us:</span>
+                </p>
+                <ul>
+                    <li><span class="lang-zh">访问权</span><span class="lang-en">The right of access</span></li>
+                    <li><span class="lang-zh">要求更正或删除个人数据的权利</span><span class="lang-en">The right to request the rectification or erasure of personal data</span></li>
+                    <li><span class="lang-zh">要求限制处理的权利</span><span class="lang-en">The right to request the restriction of processing</span></li>
+                    <li><span class="lang-zh">撤回您对处理的同意的权利</span><span class="lang-en">The right to withdraw your consent for processing</span></li>
+                    <li><span class="lang-zh">反对数据处理的权利</span><span class="lang-en">The right to object to the data processing</span></li>
+                    <li><span class="lang-zh">数据可携权</span><span class="lang-en">The right to data portability</span></li>
+                </ul>
+    
+                <h2 id="s7-children">
+                    <span class="lang-zh">7. 儿童个人数据</span>
+                    <span class="lang-en">7. Personal Data from Children</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">我们的产品和服务不针对13岁以下的儿童设计。我们不会故意收集儿童的个人数据。</span>
+                    <span class="lang-en">Our products and services have not been designed to be used by children under the age of 18. We do not knowingly collect Personal Data from children.</span>
+                </p>
+    
+                <h2 id="s8-changes">
+                    <span class="lang-zh">8. 本隐私政策的变更</span>
+                    <span class="lang-en">8. Changes to this Privacy Policy</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">我们可能会根据需要更改和更新本隐私政策。我们将在本页面发布任何重大变更。</span>
+                    <span class="lang-en">This Privacy Policy may be changed and updated by us as it could become necessary. We will publish any substantial changes to this Privacy Policy on this page.</span>
+                </p>
+    
+                <h2 id="s9-contact">
+                    <span class="lang-zh">9. 联系我们</span>
+                    <span class="lang-en">9. Contact us</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">如果您对本政策或我们的一般隐私惯例有任何疑问，请通过以下方式联系我们：<a href="mailto:privacy@wisewk.com">privacy@wisewk.com</a>。</span>
+                    <span class="lang-en">For any questions regarding this Policy, or our privacy practices in general please reach out to us at: <a href="mailto:privacy@wisewk.com">privacy@wisewk.com</a>.</span>
+                </p>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const content = document.getElementById('content');
+            const tocContainer = document.getElementById('toc');
+            const toggle = document.getElementById('language-toggle');
+
+            const BROWSER_LANG = navigator.language.toLowerCase();
+            const PREFERRED_LANG_KEY = 'ruyi_lang_pref';
+
+            function updateTOCLanguage(lang) {
+                const langSelector = lang === 'en' ? '.lang-en' : '.lang-zh';
+                tocContainer.querySelectorAll('a').forEach(link => {
+                    const headingElement = document.getElementById(link.getAttribute('href').substring(1));
+                    if (headingElement) {
+                        const langSpan = headingElement.querySelector(langSelector);
+                        if (langSpan) link.textContent = langSpan.textContent;
+                    }
+                });
+            }
+
+            function processAllCodeBlocks(lang) {
+                const langSelector = lang === 'en' ? 'lang-en' : 'lang-zh';
+                document.querySelectorAll('main pre').forEach(pre => {
+                    const codeSpan = pre.querySelector(`code > span.${langSelector}`);
+                    if (codeSpan && codeSpan.dataset.originalCode) {
+                         const highlightedHtml = highlightAndNumberCode(codeSpan.dataset.originalCode);
+                         codeSpan.innerHTML = highlightedHtml;
+                    }
+                });
+            }
+            
+            function highlightAndNumberCode(rawCode) {
+                // Escape HTML characters to prevent rendering them
+                const escapedCode = rawCode
+                    .replace(/&/g, '&amp;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;');
+                
+                // Apply syntax highlighting
+                const highlightedCode = escapedCode
+                    .replace(/"([^"]*)"/g, '<span class="hl-string">"$1"</span>')
+                    // .replace(/'([^']*)'/g, "<span class='hl-string'>'$1'</span>")
+                    .replace(/\{([^}]+)\}/g, '<span class="hl-variable">{$1}</span>')
+                    .replace(/(#.*)/g, '<span class="hl-comment">$1</span>');
+                
+                // Add line numbers
+                const lines = highlightedCode.split('\n');
+                return lines.map(line => `<span class="line">${line || ' '}</span>`).join('');
+            }
+
+            function setLanguage(lang) {
+                const isEnglish = lang === 'en';
+                document.documentElement.lang = isEnglish ? 'en-US' : 'zh-CN';
+                
+                document.querySelectorAll('.lang-zh').forEach(el => el.style.display = isEnglish ? 'none' : 'inline');
+                document.querySelectorAll('.lang-en').forEach(el => el.style.display = isEnglish ? 'inline' : 'none');
+                
+                updateTOCLanguage(lang);
+                processAllCodeBlocks(lang);
+                
+                toggle.checked = isEnglish;
+                localStorage.setItem(PREFERRED_LANG_KEY, lang);
+            }
+
+            // --- 1. One-time Setup on Load ---
+            // A. TOC Generation
+            const headings = content.querySelectorAll('h2, h3, h4');
+            const tocList = document.createElement('ul');
+            headings.forEach(heading => {
+                const id = heading.id;
+                if (!id) return;
+                const link = document.createElement('a');
+                link.href = `#${id}`;
+                if (heading.tagName === 'H3') link.classList.add('h3-link');
+                if (heading.tagName === 'H4') link.classList.add('h4-link');
+                const tocItem = document.createElement('li');
+                tocItem.appendChild(link);
+                tocList.appendChild(tocItem);
+            });
+            tocContainer.appendChild(tocList);
+
+            // B. Store original code and set up copy buttons
+            document.querySelectorAll('main pre').forEach(pre => {
+                const codeBlock = pre.querySelector('code');
+                if (!codeBlock) return;
+                
+                // Save original text for both languages
+                codeBlock.querySelectorAll('span.lang-zh, span.lang-en').forEach(span => {
+                    span.dataset.originalCode = span.textContent;
+                });
+
+                const button = document.createElement('button');
+                button.className = 'copy-btn';
+                button.textContent = 'Copy';
+                pre.appendChild(button);
+
+                button.addEventListener('click', () => {
+                    const visibleSpan = codeBlock.querySelector('span:not([style*="display: none"])');
+                    const rawCodeToCopy = visibleSpan ? visibleSpan.dataset.originalCode : '';
+                    
+                    if (rawCodeToCopy) {
+                         navigator.clipboard.writeText(rawCodeToCopy).then(() => {
+                            button.textContent = 'Copied!';
+                            setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                        });
+                    }
+                });
+            });
+
+            // --- 2. Language Initialization and Interactivity ---
+            const savedLang = localStorage.getItem(PREFERRED_LANG_KEY);
+            const initialLang = savedLang || (BROWSER_LANG.startsWith('zh') ? 'zh' : 'en');
+            setLanguage(initialLang);
+
+            toggle.addEventListener('change', () => {
+                setLanguage(toggle.checked ? 'en' : 'zh');
+            });
+
+            // --- 3. Active TOC Link Highlighting (Scrollspy) ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        tocContainer.querySelectorAll('a').forEach(link => {
+                           link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                        });
+                    }
+                });
+            }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+            headings.forEach(heading => observer.observe(heading));
+        });
+    </script>
+</body>
+</html>
