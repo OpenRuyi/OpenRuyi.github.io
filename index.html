@@ -829,6 +829,41 @@ tell user "The result of 10 + 25 is: {totalSum}"</span></code></pre>
                     <span class="lang-en">By using functions (tasks), you can decompose a large, complex task into a series of smaller, more manageable sub-tasks to be completed one by one. This ability to decompose tasks is essentially the skill of architecture and logic, requiring careful design, using variables to pass information at different stages of the flow, while ensuring the overall program structure is concise and readable.</span>
                 </p>
 
+                <h3 id="s3-6-parallel-execution">
+                    <span class="lang-zh">并行执行</span>
+                    <span class="lang-en">Parallel Execution</span>
+                </h3>
+                <p>
+                    <span class="lang-zh">在 Ruyi 中，你可以同时控制不同的设备来进行执行。可以直接将多个任务步骤分发到不同设备，也可以将预定义的任务分发到不同设备。</span>
+                    <span class="lang-en">In Ruyi, you can control different devices simultaneously for execution. You can distribute multiple task steps directly to different devices, or distribute predefined tasks to different devices.</span>
+                </p>
+                <ul>
+                    <li>
+                        <p><strong><span class="lang-zh">并行执行任务步骤</span><span class="lang-en">Parallel Execution of Task Steps</span></strong><span class="lang-zh">：使用 <code>在 "{设备名称列表}" 上并行执行</code> 开始，需要传入并行执行的设备名称。</span><span class="lang-en">: Use <code>execute in parallel on "{deviceNameList}"</code> to start, and provide the names of devices for parallel execution.</span></p>
+                        <pre><code><span class="lang-zh">在 "手机1、手机2" 上并行执行：
+    启动联系人app
+    创建一个名为 Ruyi 的联系人</span><span class="lang-en">execute in parallel on "Phone1, Phone2":
+    launch contacts app
+    create a contact named Ruyi</span></code></pre>
+                    </li>
+                    <li>
+                        <p><strong><span class="lang-zh">并行执行预定义任务</span><span class="lang-en">Parallel Execution of Predefined Tasks</span></strong><span class="lang-zh">：使用 <code>在 "{设备名称列表}" 上并行执行 "{任务名称}" 任务</code>，需要传入并行执行的设备名称，以及预定义的任务。</span><span class="lang-en">: Use <code>execute task "{taskName}" in parallel on "{deviceNameList}"</code>, providing the device names for parallel execution and the predefined task.</span></p>
+                        <pre><code><span class="lang-zh"># 先定义一个任务
+定义一个任务，名为 "创建联系人"
+    启动联系人app
+    创建一个名为 Ruyi 的联系人
+
+# 将预定义的任务分到多个设备上并行执行
+在 "手机1、手机2" 上并行执行 "创建联系人" 任务</span><span class="lang-en"># First define a task
+define a task named "createContact"
+    launch contacts app
+    create a contact named Ruyi
+
+# Distribute the predefined task to multiple devices for parallel execution
+execute task "createContact" in parallel on "Phone1, Phone2"</span></code></pre>
+                    </li>
+                </ul>
+
                 <h2 id="s6-use-cases">
                     <span class="lang-zh">6. 实战案例</span>
                     <span class="lang-en">6. Use Cases</span>
