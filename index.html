@@ -200,6 +200,170 @@
         input:checked + .slider { background-color: var(--primary-color); }
         input:checked + .slider:before { transform: translateX(20px); }
         
+        /* --- Demo Videos Section --- */
+        .demo-videos-section {
+            margin: 3rem 0;
+        }
+        
+        .demo-videos-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .demo-videos-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.5rem;
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            border-radius: 2px;
+        }
+        
+        .demo-videos-subtitle {
+            color: var(--secondary-color);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            padding-left: 1.25rem;
+        }
+        
+        .demo-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .demo-video-card {
+            background: linear-gradient(145deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+        
+        .demo-video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.15),
+                        0 8px 16px -8px rgba(0, 0, 0, 0.1);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        
+        .demo-video-wrapper {
+            position: relative;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+        
+        .demo-video-wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .demo-video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.4) 100%);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .demo-video-card:hover .demo-video-overlay {
+            opacity: 1;
+        }
+        
+        .demo-video-info {
+            padding: 1.25rem 1.5rem;
+        }
+        
+        .demo-video-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2563eb;
+            background: rgba(37, 99, 235, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .demo-video-tag svg {
+            width: 12px;
+            height: 12px;
+        }
+        
+        .demo-video-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .demo-video-description {
+            font-size: 0.875rem;
+            color: var(--secondary-color);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        /* Different tag colors for variety */
+        .demo-video-card:nth-child(1) .demo-video-tag {
+            color: #059669;
+            background: rgba(5, 150, 105, 0.1);
+        }
+        
+        .demo-video-card:nth-child(2) .demo-video-tag {
+            color: #7c3aed;
+            background: rgba(124, 58, 237, 0.1);
+        }
+        
+        .demo-video-card:nth-child(3) .demo-video-tag {
+            color: #ea580c;
+            background: rgba(234, 88, 12, 0.1);
+        }
+        
+        .demo-video-card:nth-child(4) .demo-video-tag {
+            color: #dc2626;
+            background: rgba(220, 38, 38, 0.1);
+        }
+        
+        @media (max-width: 900px) {
+            .demo-videos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .demo-videos-title {
+                font-size: 1.5rem;
+            }
+            
+            .demo-video-info {
+                padding: 1rem;
+            }
+            
+            .demo-video-title {
+                font-size: 0.9rem;
+            }
+        }
+
         /* --- Footer --- */
         .page-footer {
             border-top: 1px solid var(--border-color);
@@ -312,7 +476,129 @@
                 </p>
                 
 
-                <video width="100%" height="500px" src="https://www.ruyi.com/video/ruyi-demo.mp4" controls></video>
+                <!-- Demo Videos Gallery -->
+                <section class="demo-videos-section">
+                    <h3 class="demo-videos-title">
+                        <span class="lang-zh">演示视频</span>
+                        <span class="lang-en">Demo Videos</span>
+                    </h3>
+                    <p class="demo-videos-subtitle">
+                        <span class="lang-zh">观看 RuyiX 在真实场景中自动化操作手机、浏览器等设备的演示</span>
+                        <span class="lang-en">Watch RuyiX automate phones, browsers and other devices in real scenarios</span>
+                        <br>
+                        <small style="color: var(--secondary-color); opacity: 0.8;">
+                            <span class="lang-zh">* 所有视频均为实际演示录屏，未经加速</span>
+                            <span class="lang-en">* All videos are actual demo recordings, not sped up</span>
+                        </small>
+                    </p>
+                    
+                    <div class="demo-videos-grid">
+                        <!-- Demo 1: Baidu Scholar -->
+                        <div class="demo-video-card">
+                            <div class="demo-video-wrapper">
+                                <video src="./videos/demo-baidu-scholar.mp4" controls autoplay muted playsinline preload="metadata"></video>
+                                <div class="demo-video-overlay"></div>
+                            </div>
+                            <div class="demo-video-info">
+                                <span class="demo-video-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                    </svg>
+                                    <span class="lang-zh">学术研究</span>
+                                    <span class="lang-en">Research</span>
+                                </span>
+                                <h4 class="demo-video-title">
+                                    <span class="lang-zh">收集百度学术中 10 篇关于 GUI Agent 的文章信息及截图</span>
+                                    <span class="lang-en">Collect 10 GUI Agent papers from Baidu Scholar with screenshots</span>
+                                </h4>
+                                <p class="demo-video-description">
+                                    <span class="lang-zh">自动化学术信息收集，批量获取论文数据</span>
+                                    <span class="lang-en">Automated academic data collection in batch</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Demo 2: Feishu Meeting -->
+                        <div class="demo-video-card">
+                            <div class="demo-video-wrapper">
+                                <video src="./videos/demo-feishu-meeting.mp4" controls autoplay muted playsinline preload="metadata"></video>
+                                <div class="demo-video-overlay"></div>
+                            </div>
+                            <div class="demo-video-info">
+                                <span class="demo-video-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                    <span class="lang-zh">办公协作</span>
+                                    <span class="lang-en">Office</span>
+                                </span>
+                                <h4 class="demo-video-title">
+                                    <span class="lang-zh">在飞书中预约主题为 "RuyiX 讨论" 的会议</span>
+                                    <span class="lang-en">Schedule a "RuyiX Discussion" meeting in Feishu</span>
+                                </h4>
+                                <p class="demo-video-description">
+                                    <span class="lang-zh">智能日程管理，一键创建团队会议</span>
+                                    <span class="lang-en">Smart scheduling with one-click meeting setup</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Demo 3: JD Shopping -->
+                        <div class="demo-video-card">
+                            <div class="demo-video-wrapper">
+                                <video src="./videos/demo-jd-shopping.mp4" controls autoplay muted playsinline preload="metadata"></video>
+                                <div class="demo-video-overlay"></div>
+                            </div>
+                            <div class="demo-video-info">
+                                <span class="demo-video-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="9" cy="21" r="1"/>
+                                        <circle cx="20" cy="21" r="1"/>
+                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                                    </svg>
+                                    <span class="lang-zh">电商购物</span>
+                                    <span class="lang-en">Shopping</span>
+                                </span>
+                                <h4 class="demo-video-title">
+                                    <span class="lang-zh">在京东 App 搜索并加购 iPhone 17 Pro</span>
+                                    <span class="lang-en">Search and add iPhone 17 Pro to cart on JD App</span>
+                                </h4>
+                                <p class="demo-video-description">
+                                    <span class="lang-zh">自动化购物流程，智能商品搜索下单</span>
+                                    <span class="lang-en">Automated shopping flow with smart ordering</span>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- Demo 4: Xiaohongshu -->
+                        <div class="demo-video-card">
+                            <div class="demo-video-wrapper">
+                                <video src="./videos/demo-xiaohongshu.mp4" controls autoplay muted playsinline preload="metadata"></video>
+                                <div class="demo-video-overlay"></div>
+                            </div>
+                            <div class="demo-video-info">
+                                <span class="demo-video-tag">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                    </svg>
+                                    <span class="lang-zh">社交媒体</span>
+                                    <span class="lang-en">Social</span>
+                                </span>
+                                <h4 class="demo-video-title">
+                                    <span class="lang-zh">在小红书搜索雷军并点赞关注及私信</span>
+                                    <span class="lang-en">Search Lei Jun on Xiaohongshu, like, follow & message</span>
+                                </h4>
+                                <p class="demo-video-description">
+                                    <span class="lang-zh">社交平台自动化互动，智能用户操作</span>
+                                    <span class="lang-en">Automated social media interaction</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <hr>
 
