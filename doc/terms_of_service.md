@@ -1,168 +1,90 @@
-# **Terms of Service**
+### **Wisewk Terms of Service**
 
-**Last updated:** 2026-01-15
+**Last Updated:** January 15, 2026
 
-**Effective:** 2026-01-15
+**Effective Date:** January 15, 2026
 
-RuyiX is operated by Wisewk Inc. and its affiliated entities or subsidiaries (hereinafter referred to as “Wisewk”, “we” or “us”), and is provided to you through the following platforms: website, application (which may include different versions) and application programming interfaces (APIs) for third-party websites and applications, as well as other new formats arising from technological advancements (collectively or individually referred to as the "Services").
+#### **1. Your Agreement with Wisewk**
 
-By using the Services, you agree to be bound by these Terms of Service, our Privacy Policy, disclaimers and any other terms and conditions that may apply (collectively "Terms"). Please read these Terms carefully before using the Services.
+Welcome to RuyiX, an AI-based automation tool operated by Wisewk Inc. ("Wisewk," "we," "us," "our"). These Terms of Service, along with our Privacy Notice and any other referenced policies (collectively, the "Terms"), create a legally binding agreement between you and Wisewk. These Terms govern your access to and use of all RuyiX products and services, including our websites, applications, and APIs (the "Services").
 
-The Service is intended only for access and use by individuals at least eighteen (18) years old. By accessing or using Service, you warrant and represent that you are at least eighteen (18) years of age and with the full authority, right, and capacity to enter into this agreement and abide by all of the terms and conditions of these Terms. If you are not at least eighteen (18) years old, you are prohibited from both the access and usage of Service.
+By accessing or using our Services, you confirm that you have read, understood, and agree to be bound by these Terms.
 
-For purposes of these Terms, "you" and "your” means you as the user of the Services. If you use the Services on behalf of an entity, and you represent and warrant that (a) you are an authorized representative of the entity with the authority to bind the entity to these Terms, and (b) you agree to these Terms on the entity's behalf and (c) your business or entity is legally and financially responsible for your access or use of the Services as well as for the access or use of your account by others affiliated with your entity, including without limitation any employees, agents or contractors.
+**Eligibility:** The Services are intended for individuals who are at least 18 years old. By using the Services, you represent that you meet this age requirement and have the legal capacity to enter into this agreement. Usage by anyone under 18 is strictly prohibited.
 
-Depending on your specific needs and Services that we may provide, we may enter into separate agreements with you. If there is any conflict between such separately signed agreements and these Terms, the separately signed agreements shall prevail over these Terms, but only to the extent that such conflict relates to the specific matters governed by the other service agreement.
+**Business Use:** If you are using the Services on behalf of an organization or entity, you represent and warrant that you have the authority to bind that entity to these Terms. In such cases, "you" and "your" will refer to both you as an individual and the entity you represent, which will be held legally and financially responsible for all use of the account.
 
-### **1. Introduction**
+**Separate Agreements:** For specific enterprise or custom needs, we may enter into a separate written agreement with you. If there is a conflict between that agreement and these Terms, the separate agreement will take precedence for the specific matters it covers.
 
-RuyiX refers to the products and services provided to you by us through the following platforms, including but not limited to websites, apps, software, models, APIs, content, and documentation. As an AI-based automation tool, RuyiX allows you to control your devices (e.g., smartphones, desktops) using natural language. The specific service content is subject to the services you use or subscribe to.
+#### **2. The RuyiX Service**
 
-#### **License**
+**Our Service Offering:** RuyiX is an AI-powered platform that enables you to automate tasks and control your devices using natural language instructions. The exact features and functionalities available to you depend on your subscription and usage.
 
-We grant you a limited, non-exclusive, non-transferable license to access and use RuyiX. We reserve the right to modify, suspend, or terminate any part of RuyiX at any time without prior notice. You agree not to use RuyiX in any manner that may impair its functionality or accessibility.
+**License to Use:** We grant you a limited, non-exclusive, non-transferable, and revocable license to access and use the Services in accordance with these Terms. We reserve the right to alter, suspend, or discontinue any part of the Services at any time without prior notice. You agree not to use RuyiX in any way that could disrupt or impair its operation.
 
-#### **Update**
+**Service Updates and Modifications:** We are constantly working to improve the Services. This may require us to update, modify, or even discontinue certain features. We will not be liable for any losses you may incur from such changes, to the extent permitted by law. We also reserve the right to introduce fees for services that are currently free. Should we do so, we will provide you with advance notice via in-app notification, email, or our website, giving you a reasonable period to back up your data.
 
-We reserve the right to modify, suspend, or terminate the Services at any time and to adjust the types and formats of services provided through RuyiX based on actual circumstances. To the extent permitted by applicable laws, we will not be liable for any loss you may suffer due to any service adjustment. We reserve the right to charge applicable service fees for any currently free services at an appropriate time in the future. Prior to making such adjustments, we will notify you via in-app messages, email, or official website announcements and will provide you with a reasonable period to download and back up your data.
+We may suspend or terminate your access to the Services without notice if you breach these Terms, fail to pay applicable fees, or if required by law.
 
-You understand and agree that we may need to update, adjust, or upgrade the Services periodically or from time to time to improve availability, meet your needs, enhance product experience, and ensure security. We further reserve the right to suspend, or terminate your use of RuyiX without notice in any of the following circumstances:
-*   You violate any applicable laws or regulations, or breach these Terms;
-*   You fail to pay the applicable fees in full and on time for the use or access of our products and services (if applicable);
-*   As required by applicable laws or regulatory authorities.
+#### **3. Your Account and Responsibilities**
 
-### **2. Registration and Access**
+**Account Creation:** Accessing RuyiX requires you to register for an account. The information we collect during this process is detailed in our Privacy Notice. You are responsible for providing accurate and up-to-date information.
 
-#### **Your Registration Obligations**
+**Account Security:** You are solely responsible for maintaining the confidentiality of your account credentials (username and password) and for all activities that occur under your account. You may not share your account with any third party. We reserve the right to reject or remove any username we deem offensive or inappropriate.
 
-You may be required to register a RuyiX account in order to access or use the Services. To register an account and access certain features of our Services, we may ask you to provide certain personal data. For the kind of personal data we collect, the purposes of the collection, and how we use your personal data, please read the RuyiX Privacy Policy.
+**Account Verification and Restrictions:** To protect your account, we may implement verification measures like email or SMS confirmation. A single user account may only be logged in on a maximum of two devices (e.g., phone, tablet, computer) concurrently.
 
-We reserve the right to reject or terminate any username created by you which we deem offensive or inappropriate. You are responsible for maintaining the confidentiality of the account and the password to access the account. You may not share or disclose your account and password to any third party. You are responsible for all activities (whether by you or by others) that occur under your account.
+#### **4. Your Use of the Services**
 
-#### **Account Management**
+**Acceptable Use:** You must access and use the Services only through the official channels we provide. Your use must comply with all applicable laws and regulations. Prohibited activities include:
+*   Using automated tools like bots, spiders, or crawlers to access or activate the Services.
+*   Engaging in commercial resale or any non-personal use without our express permission.
+*   Accessing the Services in any way that infringes upon our rights or the rights of others.
+*   Using the Services for any illegal or fraudulent purpose.
 
-You shall be responsible for all activities under your account. You shall not use RuyiX to engage in activities that violate laws or regulations, breach these Terms, endanger network security, compromise the security of computer systems, undermine the integrity of RuyiX, or otherwise infringe upon the interests of Wisewk or any third party.
+**Your Responsibility for Automated Tasks:** You are solely responsible for the legality and safety of the applications and content that you direct RuyiX to interact with. It is your responsibility to ensure you have the necessary rights and permissions to automate actions on any third-party service. To function, RuyiX may require you to grant permissions, such as accessibility access or screen recording, which you may need to re-authorize upon restarting the application.
 
-To protect account security and prevent unauthorized access, you acknowledge and agree that we may, from time to time or on a regular basis, adopt one or more methods to verify the identity of users of the Services and accounts such as SMS verification, Email verification, etc.
+**Supervision and Liability:** You must maintain continuous supervision of the screen and operations while RuyiX is running. **All actions performed by RuyiX under your account are deemed to be your own actions.** You bear full responsibility for any consequences or losses resulting from these automated operations. RuyiX should not be used for critical, high-stakes tasks where an error could lead to significant risk or loss.
 
-#### **Login Restrictions**
+#### **5. Data Security and Storage**
 
-You understand and agree that under a single account, the number of concurrent users is limited to two (2), and at any given time, the same account may be simultaneously logged in on no more than two devices, including but not limited to mobile phones tablets, and computers.
+While we implement reasonable technical and organizational measures to protect your data, you acknowledge that transmitting information over the internet carries inherent security risks. We are not liable for service interruptions or data loss caused by events beyond our reasonable control, such as cyberattacks, network failures, or your own operational errors.
 
-### **3. Access to Services**
+**Data Deletion:** Upon the termination of your service, cancellation of your account, or default on payment, we are no longer obligated to retain your data unless required by law. You are solely responsible for backing up your data before your service ends.
 
-You must access the Services through the official channels we currently provide or may introduce in the future. Once the activation of a service is complete, the service may not be transferred or refunded (if applicable).
+#### **6. Service Fees and Payments**
 
-You may not activate RuyiX for yourself or others through any of the following means:
-*   Activating for profit, commercial operation, or other non-personal use purposes;
-*   Activating through the use of any automated programs or software, including but not limited to bots, spiders, crawlers, or screen-scraping tools;
-*   Activating through any improper means or in violation of the principle of good faith;
-*   Activating through channels not designated by us;
-*   Activating by infringing upon our or third parties' lawful rights and interests;
-*   Activating in any manner that violates applicable laws and regulations.
+**Paid Subscriptions:** Certain features of RuyiX are offered as "Paid Subscription Services." By purchasing a subscription, you agree to pay the applicable fees. The specific features, pricing, and terms of our subscriptions are detailed on our official website.
 
-### **4. Data and Information Security**
+**Refund Policy:**
+For users with an annual subscription, we offer a six-month window for refund requests. You may apply for a refund at any time within the first six months of your subscription start date. The refund is calculated by deduct the undiscounted cost of the months already used (any partial month will be counted as a full month) from your total annual fee. After this period, annual subscription fees become non-refundable.
 
-We will, in accordance with applicable laws and regulations, take reasonable technical and other necessary measures to protect the security of your data. However, data transmission, storage, and processing over the internet may involve certain unknown and unpredictable security risks. You expressly understand and agree to assume such internet-related risks and consequences.
+#### **7. Ownership and Intellectual Property**
 
-We will assume no responsibility and liability for interruptions or any loss or damage caused by any of the following circumstances:
-*   Damage caused by computer viruses, Trojans, or other malicious programs or hacker attacks;
-*   Communication line failures, network or computer malfunctions, or system instability;
-*   Improper operation by you;
-*   Your use of the services through means and methods not authorized by us;
-*   Other circumstances beyond our reasonable control or foresight.
+**Our Property:** Wisewk Inc. and its licensors own all rights, title, and interest in and to the Services, including all related intellectual property. The RuyiX name and logos are trademarks of Wisewk Inc.
 
-#### **Data Storage and Deletion**
+**Your Content and License to Us:** You retain ownership of the content you provide to the Services ("Input") and the content generated by the AI in response ("Output"). However, you grant Wisewk a worldwide, perpetual, royalty-free, and sublicensable license to use, store, modify, and distribute your Input and Output for any purpose related to providing and improving the RuyiX Services.
 
-Upon the expiration of the service term, early termination of the Services, or payment default by a paid user, unless otherwise required by law, we will no longer retain your data or perform anonymization processing. You are solely responsible for downloading and backing up your data.
+**AI and Content Disclaimers:**
+*   **Accuracy:** Due to the nature of AI, we cannot guarantee the accuracy, completeness, or reliability of any Output. You are responsible for verifying any information or actions generated by the Services.
+*   **Similarity:** Outputs generated by our AI are not guaranteed to be unique. Other users may receive similar or identical results from the Services.
+*   **High-Stakes Use:** You must exercise extreme caution and perform manual confirmation when using RuyiX for important operations involving communications, financial transactions, or account management. All automated actions are considered to be performed by you personally.
 
-### **5. Conditions of Use**
+**Copyright Complaints:** If you believe your copyrighted work has been infringed upon, please send a detailed notice to our designated agent at **wisewk.com@gmail.com**.
 
-You understand and agree that you are solely responsible for maintaining and using the account you utilize to access RuyiX. When using RuyiX, you must not engage in any of the following activity:
-*   Violating These Terms.
-*   Violating laws, regulations, rules, ordinances, or any other legally binding norms.
-*   Disrupting or negatively impacting our ability to operate and offer the Services.
-*   Engaging in any act that compromises computer network security.
-*   Reverse engineering of any algorithms, source code, mechanisms, etc., of RuyiX, or attempting to extract data from RuyiX in any way.
-*   Using RuyiX to develop, train, or improve other algorithms, models, etc., that are in direct or indirect competition with us.
-*   Using RuyiX for any decision-making activities, such as making high-risk automated decisions in areas with significant impact on individual and societal safety, rights, or well-being.
+#### **8. Disclaimers and Limitation of Liability**
 
-When using RuyiX, you should pay attention to the following:
-*   You must ensure that the applications you direct and cause RuyiX to access are accessed lawfully and are safe, legal, and compliant in their content. You are solely responsible for all risks and consequences arising from your failure to fulfill these obligations.
-*   It is your responsibility to ensure we have the right to operate applications where you request RuyiX to perform actions. To ensure the normal execution of these operations, we may need to obtain permissions such as accessibility/assistive features, microphone, device information, screen recording, and automation on your device. Each time you close and then reopen RuyiX, you may need to re-authorize these permissions.
-*   While using RuyiX, you must maintain continuous monitoring of the screen content and ensure the safety of automated operations. You understand and agree that all computer operations executed by RuyiX shall be deemed to be your own actions, and any losses arising from such operations shall be borne by you exclusively. RuyiX must not be used for critical or essential computer tasks to avoid potential risks and losses。
+**"As Is" Service:** THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
 
-### **6. Fees and Refunds**
+**Limitation of Liability:** TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WISEWK OR ITS AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF THE SERVICES. OUR TOTAL AGGREGATE LIABILITY TO YOU UNDER THESE TERMS WILL NOT EXCEED THE AMOUNT YOU PAID FOR THE SERVICES IN THE 12 MONTHS PRECEDING THE CLAIM.
 
-Some components of the Services are paid features ("Paid Subscription Services"). To use these services, you must pay a corresponding fee.
+#### **9. Indemnification**
 
-#### **Pricing Standards**
+You agree to indemnify and hold harmless Wisewk and its affiliates, directors, officers, and employees from any and all claims, losses, damages, and expenses (including reasonable attorneys' fees) arising from your use of the Services or your violation of these Terms.
 
-The specific content and features of RuyiX, service standards, and fees are available on our official website(s). Before subscribing, you should carefully read, fully understand, and confirm each of these items.
+#### **10. General Provisions**
 
-#### **Refund**
-
-Since RuyiX is a digital product, once you complete payment and access the features of the Paid Subscription Services, the payment is non-refundable. A refund is only available in cases where, due to network issues or technical errors, you are charged multiple times during the purchase process, or where you are unable to access the purchased services due to technical issues with RuyiX.
-
-### **7. Intellectual Property Rights**
-
-We own and reserve all rights, title and interest in and to the Services. Subject to your compliance with these Terms, we grant you a non-exclusive, limited, non-transferable, non-sublicensable, revocable right to access and use the Services for your personal and non-commercial use. The RuyiX name and logos are trademarks of Wisewk Inc.
-
-### **8. Input and Output**
-
-#### **Your Rights**
-
-During your use of RuyiX, you may submit text, voice, or other content or information (collectively, “Input”) to RuyiX, and receive text, voice, or other content or information generated in response to your Input (collectively, “Output”). As between you and us, to the extent permitted by applicable law, you retain all rights in the Input and you also own the Output. You agree to grant us a nonexclusive, worldwide, royalty-free, fully paid up, transferable, sublicensable, perpetual, irrevocable license to use your Input and Output for any RuyiX-related purpose.
-
-#### **Similarity of Content**
-
-Due to the nature of our Services and artificial intelligence generally, Output may not be unique and other users may receive similar Output from our Services.
-
-#### **Disclaimer on the Limitations of Artificial Intelligence**
-
-You understand and agree that, due to technical limitations, we do not warrant the legality, authenticity, completeness, accuracy, timeliness, or usefulness of the content generated by RuyiX. You are solely responsible for evaluating the accuracy and applicability of any generated content or actions taken.
-
-When using RuyiX to initiate and execute important operations, you must perform additional manual confirmation with caution. Such operations include but are not limited to:
-*   Real-time communication actions (e.g., sending messages, emails).
-*   Shopping-related actions (e.g., placing orders, changing addresses).
-*   Financial transactions (e.g., transfers, payments).
-*   Account management actions (e.g., changing passwords).
-
-You must continuously monitor the screen when using RuyiX and ensure that it is operated only under your supervision. Any computer operation carried out by RuyiX is considered as performed by you personally.
-
-### **9. Copyright Complaints**
-
-If you are a copyright owner who believes your copyrighted material has been infringed via the Services, please inform our designated Copyright Agent by sending written notice to wisewk.com@gmail.com. Please include a detailed description of the work, its location, your contact information, a statement of good-faith belief, a statement under penalty of perjury, and your signature.
-
-### **10. Third Party Services**
-
-Under no circumstances will we be liable in any way for any service provided or maintained by third parties. Your use of any third-party services is at your own risk and subject to additional terms and conditions from those third parties.
-
-### **11. Limitation of Liability**
-
-The Services are provided on an “as is” and “as available” basis, without warranties of any kind either express or implied. To the fullest extent permissible pursuant to applicable law, we disclaim all warranties.
-
-Under no circumstances will we or our affiliates be liable for any direct, indirect, incidental, special, consequential or exemplary damages that result from the use of, or the inability to use, the Services. Our aggregate liability under these Terms will not exceed the greater of the amount you paid for using RuyiX that gave rise to the claim during the 12 months before the liability arose.
-
-### **12. Indemnity**
-
-You agree to indemnify and hold harmless us, our affiliates, and each of our and their respective directors, officers, managers, and employees from and against any and all losses, expenses, damages and costs that arise out of your use of the Services or violation of these Terms.
-
-### **13. Dispute Resolution by Binding Arbitration**
-
-This section affects your rights so please read it carefully. You agree that any and all disputes or claims that have arisen or may arise between you and Wisewk shall be resolved exclusively through final and binding arbitration, rather than a court, in accordance with the terms of this Arbitration Agreement. The Singapore Law governs the interpretation and enforcement of this Arbitration Agreement. Arbitration will be conducted by a neutral arbitrator administered by the Singapore International Arbitration Centre (“SIAC”) in accordance with its rules.
-
-### **14. Services Changes or Terminations**
-
-The Services may be suspended or terminated if you voluntarily choose to terminate, violate these Terms, or due to legal requirements or other necessary circumstances. If you cancel your RuyiX account, we will also terminate the provision of Services. We also reserve the right to modify or discontinue the Services at any time.
-
-### **15. Miscellaneous**
-
-*   **Amendments:** We reserve the right to change these Terms from time to time. By continuing to use our Services after we post any such changes, you accept the Terms, as modified.
-*   **Assignment:** These Terms are personal to you and may not be assigned to any third party. We may assign our rights or obligations under these Terms.
-*   **Applicable Law and Jurisdiction:** These Terms are governed by the laws of Singapore.
-*   **Severability:** If any provision of these Terms is found by a court to be invalid, the other provisions of these Terms remain in full force and effect.
-
-### **16. Contact Us**
-
-If you have any questions about these Terms, please contact us at wisewk.com@gmail.com.
+*   **Service Termination:** We may suspend or terminate your access to the Services at any time for violations of these Terms or other necessary circumstances.
+*   **Modifications to Terms:** We may amend these Terms at any time. We will notify you of any changes, and your continued use of the Services will constitute your acceptance of the revised Terms.
+*   **Entire Agreement:** These Terms constitute the entire agreement between you and Wisewk regarding the Services.
+*   **Contact Information:** For any questions about these Terms, please contact us at **wisewk.com@gmail.com**.

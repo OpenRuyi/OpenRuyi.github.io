@@ -1,69 +1,60 @@
-# **Experience Improvement Program**
+### **Experience Improvement Program**
 
-**Last updated:** 2026-01-15
+**Last Updated:** January 15, 2026
 
-**Effective:** 2026-01-15
+**Effective Date:** January 15, 2026
 
-Providing products and services that exceed user expectations has always been the core vision and goal of Wisewk Inc. and its affiliated companies (hereinafter referred to as “Wisewk” or “we”). To continuously enhance the quality of our products and services and offer you a more refined, personalized, and seamless user experience, we hereby invite you to participate in the “RuyiX Experience Improvement Program” (hereinafter referred to as "this Program"). Your genuine feedback on product usage will serve as a vital foundation for our service optimization and technological innovation.
+#### **1. Help Us Build a Better RuyiX**
 
-Before choosing to participate in this Program, please read the following terms carefully. By opting into this Program, you acknowledge that you have read, understood, and agreed to the terms outlined below.
+At Wisewk, our goal is to create an exceptional user experience. The RuyiX Experience Improvement Program is a voluntary initiative designed to help us achieve that goal by better understanding how our Services are used in the real world. By participating, you provide us with invaluable data that serves as a foundation for our service optimization and technological innovation.
 
-We highly value your privacy and the protection of your personal data. We have formulated the **RuyiX Privacy Policy** to explain how we handle personal data. We will strictly comply with the applicable laws and regulations, as well as the personal data protection principles and security measures described in the Privacy Policy, to properly manage and safeguard your personal data.
+Your privacy is paramount. All data collected in this Program is handled in strict accordance with our main **Privacy Policy**. This Program is an extension of our **Terms of Service** and **Privacy Policy**, which apply to any matters not specifically addressed here.
 
-This Program constitutes an integral part of the **Ru yi Terms of Service** and the **RuyiX Privacy Policy**. For matters not addressed in this Program, please refer to the **RuyiX Privacy Policy** and the **RuyiX Terms of Service**.
+By opting into this Program, you confirm that you have read and agree to these terms.
 
-### **A. Collection of Personal Data**
+#### **2. What Information We Collect and Why**
 
-If you choose to join the Program and provide your authorization, we will collect the following personal data you provide:
+By choosing to join this Program, you authorize us to collect two specific categories of data:
 
-a) **the device information** (device model, unique device identifier, device MAC address, and IP address);
+*   **Device & Connection Data:** This includes your device model, unique device identifiers, MAC address, and IP address.
+*   **Service Interaction Data:** This covers your interactions with the RuyiX application, such as the features you use, the duration of use, task execution logs, and your personalized settings.
 
-b) **usage data** (the number of clicks on product function buttons, duration of feature usage, your interactions with product features, usage flow, and personalized settings).
+This information is analyzed in aggregate to help us improve the quality of our products. We are committed to using this data **exclusively** for the following purposes:
 
-With your authorization, after collecting the above-mentioned personal data, we will analyze and process statistical data to improve the quality of our products and services or to launch innovative products and services that are beneficial to you. We will make every effort to enhance your experience when using our products/services. Specific purposes include:
+*   **Enhancing Performance and Stability:** To identify and fix bugs, optimize resource usage, and reduce crashes, ensuring a smoother experience.
+*   **Refining Product Design:** To make the user interface more intuitive and user-friendly by analyzing usage flows and feature interactions.
+*   **Improving AI and Personalization:** To enhance the accuracy and relevance of our AI’s command completion and recommendations based on real-world usage patterns.
+*   **Boosting User Satisfaction:** To optimize system response times and feedback mechanisms for more immediate and accurate results.
+*   **Driving Innovation:** To explore and develop new interaction methods and automation capabilities, expanding the possibilities of what RuyiX can do.
+*   **Providing Smarter Assistance:** To intelligently offer helpful prompts, tutorials, or solutions when you might encounter issues.
+*   **Guiding Service Strategy:** To make data-driven decisions on future features and experience optimizations that are tailored to user needs.
 
-a) **Targeted optimization of performance and stability:** Fix vulnerabilities, optimize resource allocation, reduce stuttering, latency, and crash occurrences, providing you with a convenient and smooth user experience;
+Participation is optional. Declining will not impact your access to the core features of RuyiX, but you will not receive the benefits of the Program.
 
-b) **Improvements to product structure and interaction design:** Optimize function layouts and entry guidance methods, making the interface more intuitive and easy to use, while reducing learning costs;
+#### **3. Data Handling and Confidentiality**
 
-c) **Enhancement of algorithmic personalization capabilities:** Based on your usage habits and preferences, intelligently recommend content, functions, or services that better align with your needs, improving the success rate and accuracy of command completion;
+We treat all Program data with the highest level of confidentiality. The information collected is for internal use only. We will not share, sell, or publicly disclose your personal Program data to any third party without your explicit consent.
 
-d) **Enhancement of overall user satisfaction:** Optimize response speeds and interaction feedback mechanisms, allowing your operations to yield more immediate and accurate results;
+We retain Program data only as long as necessary to fulfill our improvement objectives or as required by law. Upon fulfillment of this purpose, or if you withdraw from the Program or deactivate your account, the data is permanently deleted or fully anonymized.
 
-e) **Exploration and innovation:** Develop new interaction methods and expand automation and editing tools, bringing you more diverse usage scenarios;
+#### **4. Benefits of Participation**
 
-f) **Assistance with decision-making and prompts:** When you may encounter issues or confusion, intelligently provide prompts, tutorials, or solution suggestions;
+As a member of the Experience Improvement Program, you are entitled to several exclusive benefits:
 
-g) **Continuous improvement of service strategies:** Through user feedback and data analysis, continuously roll out functions and experience optimization plans that are more tailored to you.
+*   **Early Access:** Be among the first to experience new products, features, and major updates before they are released to the general public.
+*   **Directly Influence Development:** Collaborate with our Research and Development (R&D) team by providing opinions and suggestions that directly shape the future of RuyiX.
+*   **Exclusive Invitations:** Receive invitations to online and offline events, including user panels, closed beta tests, and workshops, where you can connect with our team and other expert users.
 
-We guarantee that your personal data will be used solely for the purposes stated above and will not be processed for any other purposes.
+#### **5. How to Manage Your Participation**
 
-If you choose not to provide such personal data, it will not affect your use of other functions of our products/services. However, we will be unable to provide you with the services included in the RuyiX Experience Improvement Program.
+You are in full control of your participation at all times.
 
-### **B. Sharing, Transfer, Disclosure, and Retention of Personal Data**
+*   **To Join:** Navigate to **"Settings" → "Experience Improvement Program”** within the RuyiX application and enable the option.
+*   **To Withdraw:** You can leave the Program at any time by returning to the same menu (**"Settings" → "Experience Improvement Program”**) and disabling the option.
 
-We will treat all collected personal data with strict confidentiality. Without your authorization, we will not share the aforementioned personal data with any third-party companies. In principle, we will also not publicly disclose or transfer your personal data.
+Withdrawing your consent will not affect your ability to use RuyiX.
 
-We will retain your personal data only for the duration necessary to fulfill the purpose of data collection, or as required by applicable laws and regulations. Once the intended purpose has been fulfilled, or upon your request for deletion or account deactivation, or in the event we cease operations of the relevant products and/or services, we will cease retention and carry out deletion or anonymization of your personal data.
+#### **6. Additional Information**
 
-### **C. Your Rights**
-
-If you choose to participate in this Program, you will be entitled to the following benefits:
-
-a) Opportunity to experience and use our new products, new features, and important version updates earlier than general users;
-
-b) Opportunity to directly participate in our product development alongside our Research and Development (R&D) team, allowing your opinions and suggestions to directly influence the product design and optimization direction;
-
-c) Opportunity to be invited to participate in our online or offline exchange activities, experience officer salons, closed beta activities, and more, enabling face-to-face communication with other experience officers and team members.
-
-### **D. Joining/Withdrawing from This Program**
-
-You may choose to join this Program via **"Settings" → "Experience Improvement Program”**, helping us to improve and optimize our services, enhance service quality, and refine your interaction experience.
-
-You have the right to withdraw from this Program at any time by going to **"Settings" → "Experience Improvement Program”**. Adjusting or revoking your prior authorization will not affect your continued use of the products/services we provide.
-
-### **E. Miscellaneous**
-
-If you have any questions or concerns regarding this Program or our handling of personal data, please contact us through the following methods: wisewk.com@gmail.com.
-
-Unless otherwise defined in this Program, terms used herein shall have the same meaning as defined in the RuyiX Privacy Policy and other related agreements.
+*   **Contact Us:** If you have any questions or concerns about this Program or how we handle your data, please contact us at **wisewk.com@gmail.com**.
+*   **Relationship to Other Policies:** Unless otherwise specified here, all terms used in this document carry the same meaning as defined in our primary RuyiX Privacy Policy and Terms of Service.
