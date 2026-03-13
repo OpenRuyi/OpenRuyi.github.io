@@ -142,6 +142,10 @@
         main a:hover { text-decoration: underline; }
         main strong { font-weight: 700; }
         main hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
+        main table { width: 100%; border-collapse: collapse; margin-bottom: 1.25em; }
+        main th, main td { border: 1px solid var(--border-color); padding: 0.75rem 1rem; text-align: left; vertical-align: top; }
+        main th { background-color: var(--code-bg-color); font-weight: 700; }
+        main tbody tr:hover { background-color: #f8fafc; }
         
         main pre {
             background-color: var(--code-bg-color);
@@ -264,154 +268,401 @@
                     <span class="lang-en">Privacy Policy</span>
                 </h1>
                 <p>
+                    <strong><span class="lang-zh">最后更新：</span><span class="lang-en">Last Updated:</span></strong>
+                    <span class="lang-zh">2026年1月15日</span>
+                    <span class="lang-en">January 15, 2026</span>
+                </p>
+                <p>
                     <strong><span class="lang-zh">生效日期：</span><span class="lang-en">Effective Date:</span></strong>
-                    <span class="lang-zh">2025年9月9日</span>
-                    <span class="lang-en">September 9, 2025</span>
+                    <span class="lang-zh">2026年1月15日</span>
+                    <span class="lang-en">January 15, 2026</span>
                 </p>
-    
-                <h2 id="s1-policy-statement">
-                    <span class="lang-zh">1. 政策声明</span>
-                    <span class="lang-en">1. Policy Statement</span>
+
+                <h2 id="s1-commitment">
+                    <span class="lang-zh">1. 我们对您隐私的承诺</span>
+                    <span class="lang-en">1. Our Commitment to Your Privacy</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">本隐私政策（“政策”）描述了 Wisewk Inc. 及其关联公司（统称为“Wisewk Inc.”或“我们”）如何收集和处理关于您的已识别或可识别信息（“个人数据”），包括当您使用本网站、我们的产品或我们的服务（统称为“服务”）时。</span>
-                    <span class="lang-en">This Privacy Policy (the “Policy”) describes how Wisewk Inc. and its affiliates (collectively “Wisewk Inc.” or “we”) collect and process an identified or identifiable information about you (“Personal Data”), including when you are using this website, our products, or our services (collectively, the “Services“).</span>
+                    <span class="lang-zh">本文件由 Wisewk Inc.（”Wisewk”、”我们”）提供，旨在说明我们如何处理您的个人信息。您的隐私是我们的优先事项，本文件概述了我们关于所收集和处理数据的相关做法。</span>
+                    <span class="lang-en">This document is provided by Wisewk Inc. (“Wisewk,” “we,” “us,” “our”) to explain how we handle your personal information. Your privacy is a priority for us, and this document outlines our practices regarding the data we collect and process.</span>
                 </p>
                 <p>
-                    <span class="lang-zh">Wisewk Inc. 是一家全球性软件公司，主要运营于美国和中国。当您使用我们的产品或服务时，Wisewk Inc. 是决定您个人数据处理目的和方式的数据控制者。</span>
-                    <span class="lang-en">Wisewk Inc. is a global software company with its offices in the United States and China. When you use our products or services, Wisewk Inc. is the data controller which decides the purpose and means of processing of your Personal Data.</span>
+                    <span class="lang-zh">本声明适用于通过 RuyiX（我们基于 AI 的自动化工具，让您能以自然语言控制设备）提供的所有服务，包括我们的网站、应用程序和 API（统称为”服务”）。使用我们的服务，即表示您同意本隐私政策的条款。</span>
+                    <span class="lang-en">This notice applies to all services offered through RuyiX, our AI-based automation tool that lets you control your devices with natural language. This includes our websites, applications, and APIs (collectively, the “Services”). By using our Services, you are agreeing to the terms of this Privacy Policy.</span>
                 </p>
                 <p>
-                    <span class="lang-zh">Wisewk Inc. 关心保护个人的隐私权，并致力于遵守适用的地方性法律。我们力求在处理个人数据时遵循全球公认的原则，例如 GDPR 中规定的原则。本政策中使用的“个人数据”、“处理”、“控制者”、“数据主体”等术语，其含义与 GDPR 中的定义一致。</span>
-                    <span class="lang-en">Wisewk Inc. cares about protecting the right to privacy of individuals and, while we observe the applicable local laws, we aim to uphold Personal Data protection principles provided by global standards like the GDPR. Terms like “Personal Data”, “processing”, “controller”, and “data subject” are used in this Policy in accordance with the definitions given by such regulations.</span>
+                    <span class="lang-zh">我们可能会修订本声明以反映我们做法的更新或法律要求的变化，建议您定期查阅。如有任何疑问，请发送邮件至 <strong>wisewk.com@gmail.com</strong>。</span>
+                    <span class="lang-en">We may revise this notice to reflect updates in our practices or changes in legal requirements. We encourage you to review it periodically. For any questions, you can reach us at <strong>wisewk.com@gmail.com</strong>.</span>
                 </p>
-    
-                <h2 id="s2-personal-data-processed">
-                    <span class="lang-zh">2. 我们处理的个人数据</span>
-                    <span class="lang-en">2. Personal Data We Process</span>
+                <p>
+                    <span class="lang-zh">本声明包含针对<strong>欧洲经济区 (EEA)</strong> 和<strong>加利福尼亚州</strong>居民的特定条款，您可在本文件末尾找到相关内容。</span>
+                    <span class="lang-en">This notice includes specific sections for residents of the <strong>European Economic Area (EEA)</strong> and <strong>California</strong>, which you can find at the end of this document.</span>
+                </p>
+
+                <h2 id="s2-information-collected">
+                    <span class="lang-zh">2. 我们收集的信息</span>
+                    <span class="lang-en">2. The Information We Collect</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">在我们的运营活动中，Wisewk Inc. 可能会处理属于各类数据主体的不同类型的个人数据，例如客户、潜在客户、业务合作伙伴、求职者、我们服务（包括 RuyiX Studio）的用户等。我们处理的关于您的个人数据的类别和性质取决于您与我们的关系以及处理的目的。</span>
-                    <span class="lang-en">During its activity, Wisewk Inc. may process different types of Personal Data belonging to a variety of data subjects such as customers, potential customers, business partners, candidates, and users of our Services including RuyiX Studio. The categories and nature of Personal Data processed about you depends on your relationship with us and on the purpose of processing.</span>
+                    <span class="lang-zh">为了提供和改善我们的服务，我们通过以下几种方式收集信息。</span>
+                    <span class="lang-en">To provide and improve our Services, we gather information in a few different ways.</span>
                 </p>
-                <p>
-                    <span class="lang-zh">请注意，如果您由法人实体注册或使用法人实体域名下的电子邮件地址自行注册，我们将视您代表该实体行事。因此，我们可能会根据您雇主的要求，向其提供您的个人数据或您在服务中的活动信息。</span>
-                    <span class="lang-en">Please note that, if you are enrolled by a legal entity or you have enrolled by yourself with an e-mail address registered under the domain of a legal entity, we will deem that you are acting on behalf of that entity. Therefore, we may need to make the Personal Data or your activity within the Services available to your employer upon their request.</span>
-                </p>
-    
-                <h3><span class="lang-zh">提供我们的服务</span><span class="lang-en">Providing our Services</span></h3>
-                <p>
-                    <span class="lang-zh">为访问和使用我们的产品和服务（包括 RuyiX Studio）而进行的个人数据处理。</span>
-                    <span class="lang-en">Personal Data processing for accessing and using our products and services, including RuyiX Studio.</span>
-                </p>
+
+                <h3><span class="lang-zh">A. 您直接提供给我们的信息</span><span class="lang-en">A. Information You Directly Provide to Us</span></h3>
                 <ul>
-                    <li><strong><span class="lang-zh">账户创建与管理：</span><span class="lang-en">Account Creation and Management:</span></strong>
-                        <span class="lang-zh">当您为 RuyiX Studio 创建账户以使用相关服务时，我们会处理您的姓名、电子邮件地址、用户名、国家/地区、语言、雇主、职位等信息，以便授予您访问权限并维护您的账户。我们基于服务条款（合同）处理这些数据。</span>
-                        <span class="lang-en">When you create an account with RuyiX Studio to use the associated Services, we process your name, e-mail address, username, country, language, employer, job title, and other information needed to grant you access to the Service and maintain the account. We process this data based on the terms & conditions of the Services (contract).</span>
+                    <li>
+                        <strong><span class="lang-zh">账户信息：</span><span class="lang-en">Account Information:</span></strong>
+                        <span class="lang-zh">要使用 RuyiX，您需要创建一个账户。我们收集您的用户名、密码、电子邮件地址，以及可选的电话号码，用于创建和保护您的个人资料。为确保无缝体验，这些账户信息将在您使用的所有版本服务间同步。</span>
+                        <span class="lang-en">To use RuyiX, you need an account. We collect your username, password, email address, and optionally a phone number to create and secure your profile. To ensure a seamless experience, this account information is synchronized across all versions of our Services you use.</span>
                     </li>
-                    <li><strong><span class="lang-zh">RuyiX Studio 服务使用数据：</span><span class="lang-en">RuyiX Studio Service Usage Data:</span></strong>
-                        <span class="lang-zh">在使用 RuyiX Studio 服务期间，我们会收集使用数据，包括您的用户 ID 和关于您与我们应用程序交互的信息。我们收集这些数据是基于我们的合法利益，以维护我们服务的可访问性和功能性，并了解我们的用户及其兴趣。</span>
-                        <span class="lang-en">When using RuyiX Studio Services, we gather usage data, which includes your user ID and information about your interaction with our applications. We gather these data based on our legitimate interest to maintain the accessibility and functioning of our services as well as based on our legitimate interest to know our users and our users’ interests.</span>
+                    <li>
+                        <strong><span class="lang-zh">您的 AI 指令与内容：</span><span class="lang-en">Your AI Instructions and Content:</span></strong>
+                        <span class="lang-zh">RuyiX 的核心功能是处理您的命令以自动化任务。为此，我们收集您提供的内容，包括文本、语音命令、图像、视频和其他文件（统称为”输入”）。我们的系统会分析这些输入，以理解您的目标并在您的设备上执行所请求的操作。</span>
+                        <span class="lang-en">The core of RuyiX involves processing your commands to automate tasks. To do this, we collect the content you provide, which can include text, voice commands, images, videos, and other files (collectively, “Input”). Our systems analyze this Input to understand your goals and execute the requested actions on your devices.</span>
                     </li>
-                    <li><strong><span class="lang-zh">用于服务改善的数据（基于同意）：</span><span class="lang-en">Data for Service Improvement (Consent-Based):</span></strong>
-                        <span class="lang-zh">为了改进 RuyiX Studio 的核心功能，尤其是AI解释器的准确性和性能，我们可能会请求您允许我们收集您创建的任务脚本和相关的执行日志信息。<strong>我们只会在获得您的明确同意后才会收集此类数据。</strong>这些数据将以匿名化或聚合形式用于产品改进和机器学习目的，并且我们采取技术措施最小化个人数据的使用。</span>
-                        <span class="lang-en">To improve the core functionality of RuyiX Studio, especially the accuracy and performance of the AI interpreter, we may ask for your permission to collect the task scripts you create and associated execution log information. <strong>We will only collect this type of data after receiving your explicit consent.</strong> This data will be used in an anonymized or aggregated form for product improvement and machine learning purposes, and we employ technical measures to minimize the use of personal data.</span>
+                    <li>
+                        <strong><span class="lang-zh">直接通讯：</span><span class="lang-en">Direct Communications:</span></strong>
+                        <span class="lang-zh">如果您联系我们寻求支持、提供反馈或进行任何其他咨询，我们将收集您选择分享的信息，例如您的姓名、联系方式以及您消息的内容。</span>
+                        <span class="lang-en">If you contact us for support, to provide feedback, or for any other inquiry, we will collect the information you choose to share, such as your name, contact details, and the content of your message.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">自愿服务改进数据：</span><span class="lang-en">Voluntary Service Improvement Data:</span></strong>
+                        <span class="lang-zh">您可以通过设置菜单选择加入我们的体验改进计划。如果您选择加入，我们将收集有关您设备（型号、唯一标识符）和您与服务交互（功能使用、任务日志、使用模式）的数据。这些信息仅用于提升我们服务的性能、可用性和功能。您可以随时选择退出。</span>
+                        <span class="lang-en">You have the option to join our Experience Improvement Program through the settings menu. If you opt-in, we will collect data about your device (model, unique identifiers) and your interactions with the service (feature usage, task logs, usage patterns). This information is used solely to enhance the performance, usability, and features of our Services. You can opt-out at any time.</span>
                     </li>
                 </ul>
-    
-                <h3><span class="lang-zh">提供支持</span><span class="lang-en">Offering Support</span></h3>
+
+                <h3><span class="lang-zh">B. 您使用服务时自动收集的信息</span><span class="lang-en">B. Information Collected Automatically During Your Use</span></h3>
+                <ul>
+                    <li>
+                        <strong><span class="lang-zh">设备与连接数据：</span><span class="lang-en">Device and Connection Data:</span></strong>
+                        <span class="lang-zh">出于安全和运营目的，当您使用我们的服务时，我们会自动记录技术详细信息，包括您的 IP 地址、设备 MAC 地址、设备型号和网络日志。这有助于我们保护您的账户并履行法律义务。</span>
+                        <span class="lang-en">For security and operational purposes, we automatically log technical details when you use our Services. This includes your IP address, device MAC address, device model, and network logs. This helps us protect your account and comply with legal obligations.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">服务使用模式：</span><span class="lang-en">Service Usage Patterns:</span></strong>
+                        <span class="lang-zh">我们收集您与 RuyiX 交互的数据，例如您最常使用的功能。这有助于我们了解用户需求并优化整体体验。</span>
+                        <span class="lang-en">We gather data on how you interact with RuyiX, such as which features you use most frequently. This helps us understand user needs and optimize the overall experience.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">Cookie 及类似技术：</span><span class="lang-en">Cookies and Similar Technologies:</span></strong>
+                        <span class="lang-zh">我们使用 Cookie 和相关技术来了解您如何浏览和与我们的服务交互。详情请参阅第 5 节”我们对 Cookie 及跟踪技术的使用”。</span>
+                        <span class="lang-en">We use cookies and related technologies to understand how you navigate and interact with our Services. For a detailed breakdown, please see Section 5, “Our Use of Cookies and Tracking Technologies.”</span>
+                    </li>
+                </ul>
+
+                <h3><span class="lang-zh">C. 来自外部来源的信息</span><span class="lang-en">C. Information from External Sources</span></h3>
                 <p>
-                    <span class="lang-zh">如果您请求我们的支持，我们将根据我们的支持条款处理支持所需的个人数据，如姓名、电子邮件地址、公司、职位和设备 ID。我们处理这些数据是为了履行我们与您的合同。</span>
-                    <span class="lang-en">If you request our support, we will process the Personal Data needed for support, such as name, email address, company, job title and device ID, in accordance with our Support terms. We process this data to perform the contract we have with you.</span>
+                    <span class="lang-zh">我们可能从第三方服务获取信息，目前包括：</span>
+                    <span class="lang-en">We may obtain information from third-party services. This currently includes:</span>
                 </p>
-    
-                <h3><span class="lang-zh">访问我们的网站</span><span class="lang-en">Access to our Websites</span></h3>
-                <p>
-                    <span class="lang-zh">当您访问我们的网站时，我们会请求您同意收集您的个人数据，包括但不限于浏览器信息、设备、IP 地址、姓名、电子邮件、电话号码等。我们将用它来为您提供相关新闻、改善您在我们网站上的体验或回应您的询问。有关更多信息，请访问我们的 Cookie 政策。</span>
-                    <span class="lang-en">When you visit our websites, we will request your consent to collect your Personal Data, including, without being limited to, browser information, device used, IP address, name, email, phone number, etc. We will use it to provide you with relevant news, improve your experience on our website, or respond to your inquiries. For more information, please visit our Cookie Policy.</span>
-                </p>
-    
-                <h3><span class="lang-zh">我们的营销活动</span><span class="lang-en">Our Marketing Activities</span></h3>
-                <p>
-                    <span class="lang-zh">我们可能会处理您的个人数据，如姓名、电子邮件地址和电话号码，用于向您发送营销通讯。我们仅在您明确或默示同意的基础上，或在适用隐私法允许的情况下基于我们的合法利益进行此操作。您可以随时选择不接收我们的营销通讯。</span>
-                    <span class="lang-en">We may process your Personal Data, such as name, e-mail address and telephone number, for the purpose of sending you marketing communications. We only do so based on your explicit or implied consent, or based on our legitimate interest, where the applicable privacy laws allow it. You may at any time choose not to receive marketing communications from us.</span>
-                </p>
-    
-                <h2 id="s3-sharing">
-                    <span class="lang-zh">3. 个人数据的共享与披露</span>
-                    <span class="lang-en">3. Personal Data Sharing and Disclosures</span>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span class="lang-zh">第三方服务</span><span class="lang-en">Third-Party Service</span></th>
+                            <th><span class="lang-zh">我们获取的信息</span><span class="lang-en">Information We Receive</span></th>
+                            <th><span class="lang-zh">收集原因</span><span class="lang-en">Reason for Collection</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Google</td>
+                            <td><span class="lang-zh">您的头像和用户名</span><span class="lang-en">Your profile photo &amp; username</span></td>
+                            <td><span class="lang-zh">用于账户注册的社交登录。</span><span class="lang-en">To enable social sign-on for account registration.</span></td>
+                        </tr>
+                        <tr>
+                            <td>GitHub</td>
+                            <td><span class="lang-zh">您的头像和用户名</span><span class="lang-en">Your profile photo &amp; username</span></td>
+                            <td><span class="lang-zh">用于账户注册的社交登录。</span><span class="lang-en">To enable social sign-on for account registration.</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="s3-how-we-use">
+                    <span class="lang-zh">3. 我们如何以及为何使用您的信息</span>
+                    <span class="lang-en">3. How and Why We Use Your Information</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">作为一家全球性公司，我们可能会与我们的关联公司、第三方处理者或业务合作伙伴共享数据。</span>
-                    <span class="lang-en">As a global company, we may share data with our affiliates, third-party processors, or business partners around the world.</span>
+                    <span class="lang-zh">我们为特定、明确的目的处理您的数据，包括：</span>
+                    <span class="lang-en">We process your data for specific, defined purposes, including:</span>
                 </p>
                 <ul>
-                    <li><strong><span class="lang-zh">与我们的服务提供商：</span><span class="lang-en">With Our Service Providers:</span></strong> <span class="lang-zh">我们使用各种承包商和服务提供商的服务（例如，云托管、数据分析、客户支持）。我们与他们签订了合同协议，以确保您的个人数据受到保护。</span><span class="lang-en">We use the services of various contractors and service providers (e.g., for cloud hosting, data analytics, customer support). We have contractual agreements with them to ensure that your Personal Data is protected.</span></li>
-                    <li><strong><span class="lang-zh">与我们的合作伙伴和分销商：</span><span class="lang-en">With Our Partners and Distributors:</span></strong> <span class="lang-zh">为维持高效的渠道系统，我们可能会与授权的合作伙伴和分销商共享某些客户数据（如业务联系方式）。</span><span class="lang-en">As necessary to maintain an efficient channel system, we may share certain customers’ data (such as business contact details) with our authorized partners and distributors.</span></li>
-                    <li><strong><span class="lang-zh">法律要求：</span><span class="lang-en">If Legally Required:</span></strong> <span class="lang-zh">我们可能应公共当局、审计师或有权对我们进行检查的机构的合法要求提供个人数据。</span><span class="lang-en">We may also provide personal data to third parties as lawfully requested by public authorities, auditors, or institutions competent to exercise inspections on us.</span></li>
+                    <li>
+                        <strong><span class="lang-zh">运营和维护我们的服务：</span><span class="lang-en">To Operate and Maintain Our Service:</span></strong>
+                        <ul>
+                            <li><span class="lang-zh">验证您对账户的访问权限。</span><span class="lang-en">Authenticating your access to your account.</span></li>
+                            <li><span class="lang-zh">提供核心 AI 自动化功能。</span><span class="lang-en">Providing the core AI automation functionalities.</span></li>
+                            <li><span class="lang-zh">提供客户支持并管理您的服务体验。</span><span class="lang-en">Delivering customer support and managing your service experience.</span></li>
+                            <li><span class="lang-zh">确保跨不同平台的一致功能。</span><span class="lang-en">Ensuring consistent functionality across different platforms.</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">改善和发展我们的服务：</span><span class="lang-en">To Improve and Develop Our Service:</span></strong>
+                        <ul>
+                            <li><span class="lang-zh">分析使用趋势以确定改进领域。</span><span class="lang-en">Analyzing usage trends to identify areas for improvement.</span></li>
+                            <li><span class="lang-zh">训练我们的 AI 模型使其更准确、高效。</span><span class="lang-en">Training our AI models to be more accurate and efficient.</span></li>
+                            <li><span class="lang-zh">监测用户反馈以指导未来发展。</span><span class="lang-en">Monitoring user feedback to guide future development.</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">与您沟通：</span><span class="lang-en">To Communicate With You:</span></strong>
+                        <ul>
+                            <li><span class="lang-zh">回答您的问题和支持请求。</span><span class="lang-en">Responding to your questions and support requests.</span></li>
+                            <li><span class="lang-zh">通知您我们服务或政策的重要变更。</span><span class="lang-en">Notifying you of important changes to our Services or policies.</span></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">确保安全保障：</span><span class="lang-en">To Ensure Safety and Security:</span></strong>
+                        <ul>
+                            <li><span class="lang-zh">预防欺诈、滥用和其他有害活动。</span><span class="lang-en">Preventing fraud, misuse, and other harmful activities.</span></li>
+                            <li><span class="lang-zh">保护我们用户和公众的权利和人身安全。</span><span class="lang-en">Protecting the rights and physical safety of our users and the public.</span></li>
+                            <li><span class="lang-zh">遵守适用法律和具有法律约束力的要求。</span><span class="lang-en">Complying with applicable laws and legally binding requests.</span></li>
+                        </ul>
+                    </li>
                 </ul>
-    
-                <h2 id="s4-retention">
-                    <span class="lang-zh">4. 个人数据保留</span>
-                    <span class="lang-en">4. Personal Data Retention</span>
+
+                <h2 id="s4-sharing">
+                    <span class="lang-zh">4. 信息的共享与披露</span>
+                    <span class="lang-en">4. Sharing and Disclosure of Information</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">我们将根据实现本政策所述处理目的所需，以及根据我们的法律和合同义务，在有限的期限内存储您的个人数据。一旦保留期届满，我们将根据我们的内部政策删除、存档或匿名化您的数据。</span>
-                    <span class="lang-en">We will store your Personal Data for a limited period, as necessary to achieve the purposes of the processing described in this Policy, and in accordance with our legal and contractual obligations. Once the retention period expires, we will delete, archive, or anonymize your data in accordance with our internal policies.</span>
-                </p>
-    
-                <h2 id="s5-security">
-                    <span class="lang-zh">5. 个人数据安全</span>
-                    <span class="lang-en">5. Personal Data Security</span>
-                </h2>
-                <p>
-                    <span class="lang-zh">Wisewk Inc. 不断评估和升级已实施的安全措施，以确保个人数据处理的安全。我们采用行业标准的技术和组织措施来保护您的个人数据。</span>
-                    <span class="lang-en">Wisewk Inc. constantly evaluates and upgrades the security measures implemented to ensure a secure and safe Personal Data processing. We employ industry-standard technical and organizational measures to protect your Personal Data.</span>
-                </p>
-    
-                <h2 id="s6-rights">
-                    <span class="lang-zh">6. 数据主体权利</span>
-                    <span class="lang-en">6. Data Subjects Rights</span>
-                </h2>
-                <p>
-                    <span class="lang-zh">根据适用的法律（如 GDPR），您对您的个人数据拥有以下权利，您可以随时通过联系我们来行使这些权利：</span>
-                    <span class="lang-en">You have the following rights with respect to your Personal Data under applicable laws (such as GDPR), which you may exercise at any time by contacting us:</span>
+                    <span class="lang-zh">我们不出售您的个人数据。我们致力于维护您的信任，仅在以下有限情况下共享您的信息：</span>
+                    <span class="lang-en">We do not sell your personal data. We are committed to maintaining your trust, and we only share your information under the following limited circumstances:</span>
                 </p>
                 <ul>
-                    <li><span class="lang-zh">访问权</span><span class="lang-en">The right of access</span></li>
-                    <li><span class="lang-zh">要求更正或删除个人数据的权利</span><span class="lang-en">The right to request the rectification or erasure of personal data</span></li>
-                    <li><span class="lang-zh">要求限制处理的权利</span><span class="lang-en">The right to request the restriction of processing</span></li>
-                    <li><span class="lang-zh">撤回您对处理的同意的权利</span><span class="lang-en">The right to withdraw your consent for processing</span></li>
-                    <li><span class="lang-zh">反对数据处理的权利</span><span class="lang-en">The right to object to the data processing</span></li>
-                    <li><span class="lang-zh">数据可携权</span><span class="lang-en">The right to data portability</span></li>
+                    <li>
+                        <strong><span class="lang-zh">与服务提供商：</span><span class="lang-en">With Service Providers:</span></strong>
+                        <span class="lang-zh">我们与代表我们提供服务的第三方供应商和承包商合作，例如云托管和数据分析。我们仅在必要时与他们共享信息以便他们履行其职能，并且他们需要以符合本政策的方式保护这些信息。</span>
+                        <span class="lang-en">We work with third-party vendors and contractors who provide services on our behalf, such as cloud hosting and data analytics. We share information with them only as necessary for them to perform their functions, and they are required to protect it in a manner consistent with this policy.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">出于法律合规与安全目的：</span><span class="lang-en">For Legal Compliance and Safety:</span></strong>
+                        <span class="lang-zh">如果我们真诚地认为有必要遵守法律、法规或法律程序；保护任何人的安全；处理欺诈或安全问题；或保护我们的权利和财产，我们可能会披露您的信息。</span>
+                        <span class="lang-en">We may disclose your information if we believe in good faith that it is necessary to comply with a law, regulation, or legal process; to protect the safety of any person; to address fraud or security issues; or to protect our rights and property.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">业务交易情况下：</span><span class="lang-en">In Case of a Business Transaction:</span></strong>
+                        <span class="lang-zh">如果 Wisewk Inc. 参与合并、收购、资产出售或破产，您的信息可能作为该交易的一部分被转让。如果您的数据将受不同隐私政策的约束，我们将提前通知您。</span>
+                        <span class="lang-en">If Wisewk Inc. is involved in a merger, acquisition, asset sale, or bankruptcy, your information may be transferred as part of that transaction. We will notify you in advance if your data becomes subject to a different privacy policy.</span>
+                    </li>
                 </ul>
-    
-                <h2 id="s7-children">
-                    <span class="lang-zh">7. 儿童个人数据</span>
-                    <span class="lang-en">7. Personal Data from Children</span>
+
+                <h2 id="s5-cookies">
+                    <span class="lang-zh">5. 我们对 Cookie 及跟踪技术的使用</span>
+                    <span class="lang-en">5. Our Use of Cookies and Tracking Technologies</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">我们的产品和服务不针对18岁以下的儿童设计。我们不会故意收集儿童的个人数据。</span>
-                    <span class="lang-en">Our products and services have not been designed to be used by children under the age of 18. We do not knowingly collect Personal Data from children.</span>
+                    <span class="lang-zh">我们使用 Cookie 和其他跟踪技术（如信标和本地存储）来帮助我们的服务正常运行并了解用户偏好。</span>
+                    <span class="lang-en">We utilize cookies and other tracking technologies like beacons and local storage to help our Services function and to understand user preferences.</span>
                 </p>
-    
-                <h2 id="s8-changes">
-                    <span class="lang-zh">8. 本隐私政策的变更</span>
-                    <span class="lang-en">8. Changes to this Privacy Policy</span>
+                <ul>
+                    <li><strong><span class="lang-zh">Cookie</span><span class="lang-en">Cookies</span></strong> <span class="lang-zh">是您浏览器存储的小型文本文件，允许我们识别您并存储您的偏好。</span><span class="lang-en">are small text files stored by your browser that allow us to recognize you and store your preferences.</span></li>
+                    <li><strong><span class="lang-zh">信标</span><span class="lang-en">Beacons</span></strong> <span class="lang-zh">（或”像素”）是帮助我们追踪服务活动的微小电子图像。</span><span class="lang-en">(or “pixels”) are tiny electronic images that help us track activity on our Services.</span></li>
+                    <li><strong><span class="lang-zh">本地存储</span><span class="lang-en">Local Storage</span></strong> <span class="lang-zh">允许我们直接在您的设备上存储数据以提升性能。</span><span class="lang-en">allows us to store data directly on your device to improve performance.</span></li>
+                </ul>
+                <p>
+                    <span class="lang-zh">您可以随时通过浏览器设置控制和清除 Cookie。</span>
+                    <span class="lang-en">You can control and clear cookies through your browser’s settings at any time.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">我们对这些技术的使用分为两类：</span>
+                    <span class="lang-en">Our use of these technologies falls into two categories:</span>
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span class="lang-zh">类别</span><span class="lang-en">Category</span></th>
+                            <th><span class="lang-zh">存储的数据</span><span class="lang-en">Data Stored</span></th>
+                            <th><span class="lang-zh">目的</span><span class="lang-en">Purpose</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong><span class="lang-zh">基本运营</span><span class="lang-en">Essential Operations</span></strong></td>
+                            <td><span class="lang-zh">会话标识符、安全令牌</span><span class="lang-en">Session identifiers, security tokens</span></td>
+                            <td><span class="lang-zh">管理用户会话、防范安全风险并维护站点设置。</span><span class="lang-en">Manages user sessions, prevents security risks, and maintains site settings.</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong><span class="lang-zh">分析与功能</span><span class="lang-en">Analytics &amp; Functionality</span></strong></td>
+                            <td><span class="lang-zh">匿名用户和设备 ID、时间戳</span><span class="lang-en">Anonymized user and device IDs, timestamps</span></td>
+                            <td><span class="lang-zh">帮助验证用户身份、防止服务器过载并分析服务使用情况。</span><span class="lang-en">Helps authenticate users, prevents server overload, and analyzes service usage.</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="s6-security-retention">
+                    <span class="lang-zh">6. 数据安全与保留</span>
+                    <span class="lang-en">6. Data Security and Retention</span>
+                </h2>
+                <ul>
+                    <li>
+                        <strong><span class="lang-zh">我们的安全实践：</span><span class="lang-en">Our Security Practices:</span></strong>
+                        <span class="lang-zh">我们实施一系列组织和技术保障措施，包括加密和安全服务器基础设施，以保护您的个人数据免遭未经授权的访问或滥用。我们敦促您在与服务交互时不要分享密码或财务详情等敏感信息。</span>
+                        <span class="lang-en">We implement a range of organizational and technical safeguards, including encryption and secure server infrastructure, to protect your personal data from unauthorized access or misuse. We urge you not to share sensitive information like passwords or financial details when interacting with the Services.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">我们保留您数据的时间：</span><span class="lang-en">How Long We Keep Your Data:</span></strong>
+                        <span class="lang-zh">我们仅在实现收集数据目的所需的时间内，或遵守法律义务、解决争议和执行协议所需的时间内保留您的个人数据。您可以随时请求删除您的数据，但须受上述要求的限制。</span>
+                        <span class="lang-en">We retain your personal data only for as long as it is needed to fulfill the purposes for which it was collected, or as required to comply with our legal obligations, resolve disputes, and enforce our agreements. You can request the deletion of your data at any time, subject to these requirements.</span>
+                    </li>
+                </ul>
+
+                <h2 id="s7-global-operations">
+                    <span class="lang-zh">7. 全球运营与数据传输</span>
+                    <span class="lang-en">7. Global Operations and Data Transfers</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">我们可能会根据需要更改和更新本隐私政策。我们将在本页面发布任何重大变更。</span>
-                    <span class="lang-en">This Privacy Policy may be changed and updated by us as it could become necessary. We will publish any substantial changes to this Privacy Policy on this page.</span>
+                    <span class="lang-zh">我们在国际范围内运营，可能在全球各地维护服务器。因此，您的数据可能在您居住地以外的国家/地区处理。我们确保无论在何处处理您的数据，均按照本政策规定的标准以及主要数据传输法律框架予以保护。</span>
+                    <span class="lang-en">We operate internationally and may maintain servers in various locations around the world. As a result, your data may be processed in a country other than where you reside. We ensure that wherever your data is processed, it is protected by the standards outlined in this policy and in compliance with major legal frameworks governing data transfers.</span>
                 </p>
-    
-                <h2 id="s9-contact">
-                    <span class="lang-zh">9. 联系我们</span>
-                    <span class="lang-en">9. Contact us</span>
+
+                <h2 id="s8-your-rights">
+                    <span class="lang-zh">8. 您的隐私权利与选择</span>
+                    <span class="lang-en">8. Your Privacy Rights and Choices</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">如果您对本政策或我们的一般隐私惯例有任何疑问，请通过以下方式联系我们：<a href="mailto:wisewk@126.com">wisewk@126.com</a>。</span>
-                    <span class="lang-en">For any questions regarding this Policy, or our privacy practices in general please reach out to us at: <a href="mailto:wisewk@126.com">wisewk@126.com</a>.</span>
+                    <span class="lang-zh">您对您的个人信息拥有特定权利，包括：</span>
+                    <span class="lang-en">You have specific rights concerning your personal information. These include the right to:</span>
                 </p>
+                <ul>
+                    <li><strong><span class="lang-zh">访问</span><span class="lang-en">Access</span></strong> <span class="lang-zh">我们持有的关于您的个人数据。</span><span class="lang-en">the personal data we hold about you.</span></li>
+                    <li><strong><span class="lang-zh">更正</span><span class="lang-en">Correct</span></strong> <span class="lang-zh">任何不完整或不准确的信息。</span><span class="lang-en">any incomplete or inaccurate information.</span></li>
+                    <li><strong><span class="lang-zh">请求删除</span><span class="lang-en">Request the deletion</span></strong> <span class="lang-zh">您的个人数据，但须受法律限制。</span><span class="lang-en">of your personal data, subject to legal limitations.</span></li>
+                    <li><strong><span class="lang-zh">接收您的数据</span><span class="lang-en">Receive your data</span></strong> <span class="lang-zh">以便携式、机器可读格式。</span><span class="lang-en">in a portable, machine-readable format.</span></li>
+                    <li><strong><span class="lang-zh">反对</span><span class="lang-en">Object</span></strong> <span class="lang-zh">某些类型的数据处理。</span><span class="lang-en">to certain types of data processing.</span></li>
+                    <li><strong><span class="lang-zh">撤回同意</span><span class="lang-en">Withdraw consent</span></strong> <span class="lang-zh">对任何基于您同意的处理。</span><span class="lang-en">for any processing that is based on your consent.</span></li>
+                </ul>
+                <p>
+                    <span class="lang-zh">您可以免费联系我们来行使这些权利。我们将在一个月内回应您的请求。请注意，虽然我们的 AI 力求准确，但其输出可能并不总是正确的。您不应将其作为事实信息的唯一来源。</span>
+                    <span class="lang-en">You can exercise these rights free of charge by contacting us. We will respond to your request within one month. Please note that while our AI strives for accuracy, its output may not always be correct. You should not rely on it as a single source of factual information.</span>
+                </p>
+
+                <h2 id="s9-children">
+                    <span class="lang-zh">9. 有关儿童的政策</span>
+                    <span class="lang-en">9. Policy Regarding Children</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">我们的服务不面向 18 岁以下的个人。我们不会故意收集儿童的个人信息。如果您是父母或监护人，并认为您的孩子未经您同意向我们提供了数据，请立即联系我们，以便我们采取相应措施。</span>
+                    <span class="lang-en">Our Services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided us with data without your consent, please contact us immediately so we can take action.</span>
+                </p>
+
+                <h2 id="s10-other-info">
+                    <span class="lang-zh">10. 其他重要信息</span>
+                    <span class="lang-en">10. Other Important Information</span>
+                </h2>
+                <ul>
+                    <li>
+                        <strong><span class="lang-zh">政策更新：</span><span class="lang-en">Policy Updates:</span></strong>
+                        <span class="lang-zh">我们可能会不时更新本隐私政策。页面顶部的”最后更新”日期表示最新修订。您在变更后继续使用服务，即表示您接受新条款。</span>
+                        <span class="lang-en">We may update this Privacy Policy from time to time. The “Last Updated” date at the top of the page indicates the latest revision. Your continued use of the Services after a change signifies your acceptance of the new terms.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">数据控制者：</span><span class="lang-en">Data Controller:</span></strong>
+                        <span class="lang-zh">Wisewk Inc. 是您个人信息的数据控制者。</span>
+                        <span class="lang-en">Wisewk Inc. is the data controller for your personal information.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">如何联系我们：</span><span class="lang-en">How to Contact Us:</span></strong>
+                        <span class="lang-zh">如有关于本声明或您的个人数据的任何疑问，请发邮件至 <strong>wisewk.com@gmail.com</strong>。</span>
+                        <span class="lang-en">For any questions related to this notice or your personal data, please email us at <strong>wisewk.com@gmail.com</strong>.</span>
+                    </li>
+                </ul>
+
+                <hr>
+
+                <h2 id="s-eea">
+                    <span class="lang-zh">欧洲经济区 (EEA) 居民须知</span>
+                    <span class="lang-en">Notice for Residents of the European Economic Area (EEA)</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">如果您是 EEA 的数据主体，以下附加条款适用。</span>
+                    <span class="lang-en">If you are a data subject in the EEA, the following additional terms apply.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">处理的法律依据：</span><span class="lang-en">Legal Basis for Processing:</span></strong>
+                    <span class="lang-zh">我们依据《通用数据保护条例》(GDPR) 下的以下法律依据处理您的个人数据：</span>
+                    <span class="lang-en">We process your personal data on the following legal grounds under the General Data Protection Regulation (GDPR):</span>
+                </p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span class="lang-zh">主要目的</span><span class="lang-en">Primary Purpose</span></th>
+                            <th><span class="lang-zh">处理的数据类型</span><span class="lang-en">Types of Data Processed</span></th>
+                            <th><span class="lang-zh">法律依据</span><span class="lang-en">Legal Basis</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="lang-zh">账户创建与登录</span><span class="lang-en">Account Creation and Login</span></td>
+                            <td><span class="lang-zh">用户名、密码、电子邮件、电话号码</span><span class="lang-en">Username, password, email, phone number</span></td>
+                            <td><span class="lang-zh">您的同意</span><span class="lang-en">Your Consent</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="lang-zh">提供 AI 自动化功能</span><span class="lang-en">Providing AI Automation Features</span></td>
+                            <td><span class="lang-zh">输入（文本、语音、图像、文件）</span><span class="lang-en">Input (text, voice, images, files)</span></td>
+                            <td><span class="lang-zh">您的同意</span><span class="lang-en">Your Consent</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="lang-zh">回应通讯</span><span class="lang-en">Responding to Communications</span></td>
+                            <td><span class="lang-zh">联系方式、咨询内容</span><span class="lang-en">Contact details, inquiry content</span></td>
+                            <td><span class="lang-zh">合同履行</span><span class="lang-en">Performance of a Contract</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="lang-zh">确保安全与系统完整性</span><span class="lang-en">Ensuring Security and System Integrity</span></td>
+                            <td><span class="lang-zh">网络日志、设备信息、运营记录</span><span class="lang-en">Network logs, device info, operational records</span></td>
+                            <td><span class="lang-zh">合法利益；合同履行</span><span class="lang-en">Legitimate Interest; Performance of a Contract</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <strong><span class="lang-zh">EEA 以外的数据传输：</span><span class="lang-en">Data Transfers Outside the EEA:</span></strong>
+                    <span class="lang-zh">当我们将您的数据传输至 EEA 以外时，我们遵照 GDPR 进行，并使用标准合同条款等适当保障措施，确保您的数据受到同等水平的保护。</span>
+                    <span class="lang-en">When we transfer your data outside the EEA, we do so in compliance with GDPR, using appropriate safeguards like Standard Contractual Clauses to ensure your data receives a comparable level of protection.</span>
+                </p>
+
+                <hr>
+
+                <h2 id="s-ccpa">
+                    <span class="lang-zh">加利福尼亚州居民须知 (CCPA)</span>
+                    <span class="lang-en">Notice for Residents of California (CCPA)</span>
+                </h2>
+                <p>
+                    <span class="lang-zh">本节提供《加利福尼亚州消费者隐私法》(CCPA) 要求的附加披露。</span>
+                    <span class="lang-en">This section provides additional disclosures required by the California Consumer Privacy Act (CCPA).</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">已收集的个人信息类别：</span><span class="lang-en">Categories of Personal Information Collected:</span></strong>
+                    <span class="lang-zh">在过去 12 个月内，我们收集了以下类别的个人信息：</span>
+                    <span class="lang-en">In the last 12 months, we have collected the following categories of personal information:</span>
+                </p>
+                <ul>
+                    <li><strong><span class="lang-zh">A. 标识符：</span><span class="lang-en">A. Identifiers:</span></strong> <span class="lang-zh">（例如，用户名、IP 地址、电子邮件地址）。</span><span class="lang-en">(e.g., username, IP address, email address).</span></li>
+                    <li><strong><span class="lang-zh">B. 加利福尼亚州客户记录信息：</span><span class="lang-en">B. California Customer Records Information:</span></strong> <span class="lang-zh">（例如，电话号码）。</span><span class="lang-en">(e.g., phone number).</span></li>
+                    <li><strong><span class="lang-zh">C. 互联网或网络活动信息：</span><span class="lang-en">C. Internet or Network Activity Information:</span></strong> <span class="lang-zh">（例如，使用数据、日志、设备信息）。</span><span class="lang-en">(e.g., usage data, logs, device information).</span></li>
+                    <li><strong><span class="lang-zh">D. 地理位置数据：</span><span class="lang-en">D. Geolocation Data:</span></strong> <span class="lang-zh">（实际位置）。</span><span class="lang-en">(Physical location).</span></li>
+                </ul>
+                <p>
+                    <strong><span class="lang-zh">商业目的披露：</span><span class="lang-en">Business Purpose for Disclosures:</span></strong>
+                    <span class="lang-zh">在过去 12 个月内，我们向身份验证服务披露了标识符，以便于身份验证和登录。我们不会按 CCPA 定义”出售”个人信息。</span>
+                    <span class="lang-en">In the last 12 months, we have disclosed Identifiers to authentication services to facilitate identity verification and login. We do not “sell” personal information as defined by the CCPA.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">您的 CCPA 权利：</span><span class="lang-en">Your CCPA Rights:</span></strong>
+                    <span class="lang-zh">您有权请求了解我们的数据收集情况（知情权）以及请求删除您的个人信息（删除权）。如需行使这些权利，请联系我们。我们不会因为您行使 CCPA 权利而歧视您。</span>
+                    <span class="lang-en">You have the right to request information about our data collection (Right to Know) and to request the deletion of your personal information (Right to Delete). To exercise these rights, please contact us. We will not discriminate against you for exercising your CCPA rights.</span>
+                </p>
+                <ul>
+                    <li>
+                        <strong><span class="lang-zh">”阳光法”：</span><span class="lang-en">”Shine the Light” Law:</span></strong>
+                        <span class="lang-zh">加利福尼亚州居民可要求提供向第三方披露个人信息用于其直接营销目的的相关信息。如需提出请求，请联系我们。</span>
+                        <span class="lang-en">California residents may request information regarding the disclosure of personal information to third parties for their direct marketing purposes. To make a request, please contact us.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">”请勿追踪”信号：</span><span class="lang-en">”Do Not Track” Signals:</span></strong>
+                        <span class="lang-zh">我们目前不响应或遵守来自网络浏览器的”请勿追踪”信号。</span>
+                        <span class="lang-en">We do not currently respond to or honor “Do Not Track” signals from web browsers.</span>
+                    </li>
+                </ul>
             </article>
         </main>
     </div>

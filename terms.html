@@ -142,6 +142,10 @@
         main a:hover { text-decoration: underline; }
         main strong { font-weight: 700; }
         main hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
+        main table { width: 100%; border-collapse: collapse; margin-bottom: 1.25em; }
+        main th, main td { border: 1px solid var(--border-color); padding: 0.75rem 1rem; text-align: left; vertical-align: top; }
+        main th { background-color: var(--code-bg-color); font-weight: 700; }
+        main tbody tr:hover { background-color: #f8fafc; }
         
         main pre {
             background-color: var(--code-bg-color);
@@ -232,8 +236,8 @@
                     <path d="M5 19L19 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M17.5 7.5L16.5 2.5L15.5 7.5L20.5 8.5L15.5 9.5L16.5 14.5L17.5 9.5L22.5 8.5L17.5 7.5Z" fill="currentColor"/>
                 </svg>
-                <span class="lang-zh">RuyiX 隐私政策</span>
-                <span class="lang-en">RuyiX Privacy Policy</span>
+                <span class="lang-zh">RuyiX 使用条款</span>
+                <span class="lang-en">RuyiX Terms of Service</span>
             </div>
             <div class="header-actions">
                 <a href="https://lw572lx3ee.feishu.cn/share/base/form/shrcn3qqtFIBdJDVSTqwVFicx3d" class="btn-download" target="_blank">
@@ -260,154 +264,225 @@
         <main>
             <article id="content">
                 <h1>
-                    <span class="lang-zh">使用条款</span>
-                    <span class="lang-en">Terms of Use</span>
+                    <span class="lang-zh">服务条款</span>
+                    <span class="lang-en">Terms of Service</span>
                 </h1>
                 <p>
+                    <strong><span class="lang-zh">最后更新：</span><span class="lang-en">Last Updated:</span></strong>
+                    <span class="lang-zh">2026年1月15日</span>
+                    <span class="lang-en">January 15, 2026</span>
+                </p>
+                <p>
                     <strong><span class="lang-zh">生效日期：</span><span class="lang-en">Effective Date:</span></strong>
-                    <span class="lang-zh">2025年9月9日</span>
-                    <span class="lang-en">September 9, 2025</span>
+                    <span class="lang-zh">2026年1月15日</span>
+                    <span class="lang-en">January 15, 2026</span>
                 </p>
-    
-                <h2 id="s1-acceptance">
-                    <span class="lang-zh">1. 接受条款</span>
-                    <span class="lang-en">1. Acceptance of Terms</span>
+
+                <h2 id="s1-agreement">
+                    <span class="lang-zh">1. 您与 Wisewk 的协议</span>
+                    <span class="lang-en">1. Your Agreement with Wisewk</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">本使用条款（“条款”）构成 Wisewk Inc.（“公司”、“我们”）与您（“用户”）之间具有法律约束力的协议。通过访问、注册或使用我们的产品 RuyiX Studio 及相关服务（统称为“服务”），即表示您已阅读、理解并同意受本条款的约束。如果您不同意这些条款，请勿访问或使用本服务。</span>
-                    <span class="lang-en">These Terms of Use (“Terms”) constitute a legally binding agreement made between you (“User” or “you”) and Wisewk Inc. (“Company,” “we,” “us,” or “our”), concerning your access to and use of our product, RuyiX Studio, and related services (collectively, the “Service”). By accessing, registering for, or using the Service, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree with these Terms, you are prohibited from using the Service.</span>
+                    <span class="lang-zh">欢迎使用 RuyiX，这是由 Wisewk Inc.（”Wisewk”、”我们”）运营的基于 AI 的自动化工具。本服务条款连同我们的隐私声明及其他引用的政策（统称为”条款”），构成您与 Wisewk 之间具有法律约束力的协议。本条款管辖您对所有 RuyiX 产品和服务的访问和使用，包括我们的网站、应用程序和 API（”服务”）。</span>
+                    <span class="lang-en">Welcome to RuyiX, an AI-based automation tool operated by Wisewk Inc. (“Wisewk,” “we,” “us,” “our”). These Terms of Service, along with our Privacy Notice and any other referenced policies (collectively, the “Terms”), create a legally binding agreement between you and Wisewk. These Terms govern your access to and use of all RuyiX products and services, including our websites, applications, and APIs (the “Services”).</span>
                 </p>
-    
-                <h2 id="s2-service-description">
-                    <span class="lang-zh">2. 服务描述</span>
-                    <span class="lang-en">2. Description of Service</span>
+                <p>
+                    <span class="lang-zh">访问或使用我们的服务，即表示您确认已阅读、理解并同意受本条款约束。</span>
+                    <span class="lang-en">By accessing or using our Services, you confirm that you have read, understood, and agree to be bound by these Terms.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">资格要求：</span><span class="lang-en">Eligibility:</span></strong>
+                    <span class="lang-zh">服务面向年满 18 周岁的个人。使用服务，即表示您满足年龄要求且具有缔结本协议的法律能力。严格禁止 18 岁以下人员使用。</span>
+                    <span class="lang-en">The Services are intended for individuals who are at least 18 years old. By using the Services, you represent that you meet this age requirement and have the legal capacity to enter into this agreement. Usage by anyone under 18 is strictly prohibited.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">商业使用：</span><span class="lang-en">Business Use:</span></strong>
+                    <span class="lang-zh">如果您代表某组织或实体使用服务，您声明并保证您有权将该实体约束于本条款。在此情况下，”您”和”您的”同时指代您个人以及您所代表的实体，该实体将对账户的所有使用承担法律和财务责任。</span>
+                    <span class="lang-en">If you are using the Services on behalf of an organization or entity, you represent and warrant that you have the authority to bind that entity to these Terms. In such cases, “you” and “your” will refer to both you as an individual and the entity you represent, which will be held legally and financially responsible for all use of the account.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">单独协议：</span><span class="lang-en">Separate Agreements:</span></strong>
+                    <span class="lang-zh">对于特定企业或自定义需求，我们可能与您签订单独的书面协议。如该协议与本条款存在冲突，对于其涵盖的特定事项，该单独协议将优先适用。</span>
+                    <span class="lang-en">For specific enterprise or custom needs, we may enter into a separate written agreement with you. If there is a conflict between that agreement and these Terms, the separate agreement will take precedence for the specific matters it covers.</span>
+                </p>
+
+                <h2 id="s2-service">
+                    <span class="lang-zh">2. RuyiX 服务</span>
+                    <span class="lang-en">2. The RuyiX Service</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">RuyiX Studio 是一个自然语言编程框架，旨在让用户能够创建、执行和管理自动化任务脚本（“RuyiX 脚本”）。本服务利用大型语言模型（LLMs）来解释和执行用户以自然语言风格编写的指令。</span>
-                    <span class="lang-en">RuyiX Studio is a natural language programming framework designed to enable users to create, execute, and manage automation task scripts (“RuyiX Scripts”). The Service utilizes large language models (LLMs) to interpret and execute instructions written by the user in a natural language style.</span>
+                    <strong><span class="lang-zh">我们的服务产品：</span><span class="lang-en">Our Service Offering:</span></strong>
+                    <span class="lang-zh">RuyiX 是一个 AI 驱动的平台，使您能够使用自然语言指令自动化任务并控制设备。您可以使用的具体功能和特性取决于您的订阅和使用情况。</span>
+                    <span class="lang-en">RuyiX is an AI-powered platform that enables you to automate tasks and control your devices using natural language instructions. The exact features and functionalities available to you depend on your subscription and usage.</span>
                 </p>
-    
-                <h2 id="s3-user-accounts">
-                    <span class="lang-zh">3. 用户账户</span>
-                    <span class="lang-en">3. User Accounts</span>
+                <p>
+                    <strong><span class="lang-zh">使用许可：</span><span class="lang-en">License to Use:</span></strong>
+                    <span class="lang-zh">我们授予您有限的、非独占的、不可转让的、可撤销的许可，以根据本条款访问和使用服务。我们保留随时更改、暂停或终止服务任何部分的权利，恕不另行通知。您同意不以任何可能干扰或损害其运营的方式使用 RuyiX。</span>
+                    <span class="lang-en">We grant you a limited, non-exclusive, non-transferable, and revocable license to access and use the Services in accordance with these Terms. We reserve the right to alter, suspend, or discontinue any part of the Services at any time without prior notice. You agree not to use RuyiX in any way that could disrupt or impair its operation.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">服务更新与修改：</span><span class="lang-en">Service Updates and Modifications:</span></strong>
+                    <span class="lang-zh">我们持续致力于改善服务，这可能需要我们更新、修改甚至停用某些功能。在法律允许的范围内，我们不对此类变更可能导致的任何损失承担责任。我们还保留对目前免费的服务收取费用的权利。如若如此，我们将通过应用内通知、电子邮件或网站提前告知您，给您合理的时间备份数据。</span>
+                    <span class="lang-en">We are constantly working to improve the Services. This may require us to update, modify, or even discontinue certain features. We will not be liable for any losses you may incur from such changes, to the extent permitted by law. We also reserve the right to introduce fees for services that are currently free. Should we do so, we will provide you with advance notice via in-app notification, email, or our website, giving you a reasonable period to back up your data.</span>
+                </p>
+                <p>
+                    <span class="lang-zh">如果您违反本条款、未能支付适用费用或法律要求，我们可能在不通知的情况下暂停或终止您对服务的访问。</span>
+                    <span class="lang-en">We may suspend or terminate your access to the Services without notice if you breach these Terms, fail to pay applicable fees, or if required by law.</span>
+                </p>
+
+                <h2 id="s3-account">
+                    <span class="lang-zh">3. 您的账户与责任</span>
+                    <span class="lang-en">3. Your Account and Responsibilities</span>
                 </h2>
                 <p>
-                    <span class="lang-zh"><strong>注册：</strong>要使用本服务的某些功能，您可能需要注册一个账户。您同意在注册过程中提供准确、最新和完整的信息，并更新这些信息以保持其准确性。</span>
-                    <span class="lang-en"><strong>Registration:</strong> To use certain features of the Service, you may be required to register for an account. You agree to provide accurate, current, and complete information during the registration process and to update such information to keep it accurate.</span>
+                    <strong><span class="lang-zh">账户创建：</span><span class="lang-en">Account Creation:</span></strong>
+                    <span class="lang-zh">访问 RuyiX 需要您注册一个账户。我们在此过程中收集的信息详见我们的隐私声明。您有责任提供准确且最新的信息。</span>
+                    <span class="lang-en">Accessing RuyiX requires you to register for an account. The information we collect during this process is detailed in our Privacy Notice. You are responsible for providing accurate and up-to-date information.</span>
                 </p>
                 <p>
-                    <span class="lang-zh"><strong>账户安全：</strong>您全权负责维护您账户密码的机密性，并对在您账户下发生的所有活动负责。您同意在任何未经授权使用您账户的情况下立即通知我们。</span>
-                    <span class="lang-en"><strong>Account Security:</strong> You are solely responsible for safeguarding your account password and for all activities that occur under your account. You agree to notify us immediately of any unauthorized use of your account.</span>
+                    <strong><span class="lang-zh">账户安全：</span><span class="lang-en">Account Security:</span></strong>
+                    <span class="lang-zh">您全权负责维护账户凭据（用户名和密码）的保密性，以及在您账户下发生的所有活动。您不得与任何第三方共享您的账户。我们保留拒绝或删除任何我们认为具有冒犯性或不恰当的用户名的权利。</span>
+                    <span class="lang-en">You are solely responsible for maintaining the confidentiality of your account credentials (username and password) and for all activities that occur under your account. You may not share your account with any third party. We reserve the right to reject or remove any username we deem offensive or inappropriate.</span>
                 </p>
                 <p>
-                    <span class="lang-zh"><strong>年龄要求：</strong>您必须年满18岁或在您所在司法管辖区内达到订立有约束力合同的法定年龄，才能使用本服务。</span>
-                    <span class="lang-en"><strong>Age Requirement:</strong> You must be at least 18 years of age, or the legal age required to form a binding contract in your jurisdiction, to use the Service.</span>
+                    <strong><span class="lang-zh">账户验证与限制：</span><span class="lang-en">Account Verification and Restrictions:</span></strong>
+                    <span class="lang-zh">为保护您的账户，我们可能会实施电子邮件或短信确认等验证措施。单个用户账户最多只能同时在两台设备（如手机、平板电脑、电脑）上登录。</span>
+                    <span class="lang-en">To protect your account, we may implement verification measures like email or SMS confirmation. A single user account may only be logged in on a maximum of two devices (e.g., phone, tablet, computer) concurrently.</span>
                 </p>
-    
-                <h2 id="s4-user-conduct">
-                    <span class="lang-zh">4. 用户行为和责任</span>
-                    <span class="lang-en">4. User Conduct and Responsibilities</span>
+
+                <h2 id="s4-use">
+                    <span class="lang-zh">4. 您对服务的使用</span>
+                    <span class="lang-en">4. Your Use of the Services</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">您同意不将本服务用于任何非法或本条款禁止的目的。您同意在使用本服务时遵守所有适用的地方、州、国家和国际法律法规。您不得：</span>
-                    <span class="lang-en">You agree not to use the Service for any purpose that is illegal or prohibited by these Terms. You agree to comply with all applicable local, state, national, and international laws and regulations in connection with your use of the Service. You shall not:</span>
+                    <strong><span class="lang-zh">可接受的使用：</span><span class="lang-en">Acceptable Use:</span></strong>
+                    <span class="lang-zh">您必须仅通过我们提供的官方渠道访问和使用服务。您的使用必须符合所有适用的法律法规。禁止的活动包括：</span>
+                    <span class="lang-en">You must access and use the Services only through the official channels we provide. Your use must comply with all applicable laws and regulations. Prohibited activities include:</span>
                 </p>
                 <ul>
-                    <li><span class="lang-zh">将服务用于任何非法目的或宣传非法活动。</span><span class="lang-en">Use the Service for any illegal purpose or in furtherance of illegal activities.</span></li>
-                    <li><span class="lang-zh">上传或传播任何侵犯任何第三方知识产权或其他专有权利的内容。</span><span class="lang-en">Upload or transmit any content that infringes any intellectual property or other proprietary rights of any party.</span></li>
-                    <li><span class="lang-zh">传播任何病毒、蠕虫、缺陷、特洛伊木马或任何具有破坏性的代码。</span><span class="lang-en">Transmit any viruses, worms, defects, Trojan horses, or any code of a destructive nature.</span></li>
-                    <li><span class="lang-zh">对服务的任何部分进行逆向工程、反编译、反汇编或以其他方式试图发现其源代码。</span><span class="lang-en">Reverse engineer, decompile, disassemble, or otherwise attempt to discover the source code of any part of the Service.</span></li>
-                    <li><span class="lang-zh">干扰或试图干扰服务的正常运行或任何用户的服务使用。</span><span class="lang-en">Interfere with or attempt to disrupt the proper functioning of the Service or any User's use of the Service.</span></li>
+                    <li><span class="lang-zh">使用机器人、爬虫等自动化工具访问或激活服务。</span><span class="lang-en">Using automated tools like bots, spiders, or crawlers to access or activate the Services.</span></li>
+                    <li><span class="lang-zh">在未经我们明确许可的情况下进行商业转售或任何非个人用途。</span><span class="lang-en">Engaging in commercial resale or any non-personal use without our express permission.</span></li>
+                    <li><span class="lang-zh">以任何侵犯我们或他人权利的方式访问服务。</span><span class="lang-en">Accessing the Services in any way that infringes upon our rights or the rights of others.</span></li>
+                    <li><span class="lang-zh">将服务用于任何非法或欺诈目的。</span><span class="lang-en">Using the Services for any illegal or fraudulent purpose.</span></li>
                 </ul>
-    
-                <h2 id="s5-user-content">
-                    <span class="lang-zh">5. 用户生成内容</span>
-                    <span class="lang-en">5. User-Generated Content</span>
+                <p>
+                    <strong><span class="lang-zh">您对自动化任务的责任：</span><span class="lang-en">Your Responsibility for Automated Tasks:</span></strong>
+                    <span class="lang-zh">您全权负责您指示 RuyiX 交互的应用程序和内容的合法性与安全性。您有责任确保自己拥有在任何第三方服务上自动化操作所必要的权利和许可。为了正常运行，RuyiX 可能需要您授予权限（如无障碍访问或屏幕录制），重启应用程序后您可能需要重新授权。</span>
+                    <span class="lang-en">You are solely responsible for the legality and safety of the applications and content that you direct RuyiX to interact with. It is your responsibility to ensure you have the necessary rights and permissions to automate actions on any third-party service. To function, RuyiX may require you to grant permissions, such as accessibility access or screen recording, which you may need to re-authorize upon restarting the application.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">监督与责任：</span><span class="lang-en">Supervision and Liability:</span></strong>
+                    <span class="lang-zh">在 RuyiX 运行时，您必须持续监督屏幕和操作。<strong>在您账户下由 RuyiX 执行的所有操作均视为您本人的操作。</strong>您对这些自动化操作产生的任何后果或损失承担全部责任。RuyiX 不应用于错误可能导致重大风险或损失的关键、高风险任务。</span>
+                    <span class="lang-en">You must maintain continuous supervision of the screen and operations while RuyiX is running. <strong>All actions performed by RuyiX under your account are deemed to be your own actions.</strong> You bear full responsibility for any consequences or losses resulting from these automated operations. RuyiX should not be used for critical, high-stakes tasks where an error could lead to significant risk or loss.</span>
+                </p>
+
+                <h2 id="s5-data-security">
+                    <span class="lang-zh">5. 数据安全与存储</span>
+                    <span class="lang-en">5. Data Security and Storage</span>
                 </h2>
                 <p>
-                    <span class="lang-zh"><strong>您的所有权：</strong>您保留对您通过本服务创建、上传或执行的所有 RuyiX 脚本、数据和内容（统称为“用户内容”）的所有权和任何知识产权。</span>
-                    <span class="lang-en"><strong>Your Ownership:</strong> You retain ownership of and any intellectual property rights in all RuyiX Scripts, data, and content that you create, upload, or execute through the Service (collectively, “User Content”).</span>
+                    <span class="lang-zh">虽然我们采取合理的技术和组织措施保护您的数据，但您承认通过互联网传输信息存在固有的安全风险。对于由超出我们合理控制范围的事件（如网络攻击、网络故障或您自身的操作错误）造成的服务中断或数据丢失，我们不承担责任。</span>
+                    <span class="lang-en">While we implement reasonable technical and organizational measures to protect your data, you acknowledge that transmitting information over the internet carries inherent security risks. We are not liable for service interruptions or data loss caused by events beyond our reasonable control, such as cyberattacks, network failures, or your own operational errors.</span>
                 </p>
                 <p>
-                    <span class="lang-zh"><strong>授予我们的许可：</strong>为了运营和提供本服务，您授予 Wisewk Inc. 一项全球性、非排他性、免版税的许可，以使用、复制、修改、运行、显示、分发和处理您的用户内容，其唯一目的是为您运营和提供本服务。此许可仅在您使用本服务期间有效，并在您删除您的用户内容或终止您的账户时终止。</span>
-                    <span class="lang-en"><strong>License Grant to Us:</strong> In order to operate and provide the Service, you grant Wisewk Inc. a worldwide, non-exclusive, royalty-free license to use, reproduce, modify, run, display, distribute, and process your User Content solely for the purpose of operating and providing the Service to you. This license is limited to the duration of your use of the Service and terminates when you delete your User Content or terminate your account.</span>
+                    <strong><span class="lang-zh">数据删除：</span><span class="lang-en">Data Deletion:</span></strong>
+                    <span class="lang-zh">在您的服务终止、账户注销或违约付款后，除非法律要求，否则我们不再有义务保留您的数据。您全权负责在服务结束前备份您的数据。</span>
+                    <span class="lang-en">Upon the termination of your service, cancellation of your account, or default on payment, we are no longer obligated to retain your data unless required by law. You are solely responsible for backing up your data before your service ends.</span>
                 </p>
-                <p>
-                    <span class="lang-zh"><strong>服务改进：</strong>如我们的<a href="./privacy-policy.html">隐私政策</a>中进一步详述，如果您提供明确同意，您授予我们使用您的用户内容（以匿名化或聚合形式）来改进、开发和训练我们的AI模型和服务。此许可是可选的，您可以在服务设置中管理您的同意偏好。</span>
-                    <span class="lang-en"><strong>Service Improvement:</strong> As further detailed in our <a href="./privacy-policy.html">Privacy Policy</a>, if you provide explicit consent, you grant us a license to use your User Content (in an anonymized or aggregated form) to improve, develop, and train our AI models and the Service. This license is optional, and you may manage your consent preferences in the Service settings.</span>
-                </p>
-    
-                <h2 id="s6-ip-rights">
-                    <span class="lang-zh">6. 知识产权</span>
-                    <span class="lang-en">6. Intellectual Property Rights</span>
+
+                <h2 id="s6-fees">
+                    <span class="lang-zh">6. 服务费用与付款</span>
+                    <span class="lang-en">6. Service Fees and Payments</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">除您的用户内容外，本服务及其所有材料，包括但不限于软件、图像、文本、图形、徽标、专利、商标、服务标志和版权（“公司财产”），以及与之相关的所有知识产权，均为 Wisewk Inc. 及其许可方的专有财产。</span>
-                    <span class="lang-en">Other than your User Content, the Service and all materials therein, including, without limitation, software, images, text, graphics, logos, patents, trademarks, service marks, and copyrights (the “Company Property”), and all Intellectual Property Rights related thereto, are the exclusive property of Wisewk Inc. and its licensors.</span>
+                    <strong><span class="lang-zh">付费订阅：</span><span class="lang-en">Paid Subscriptions:</span></strong>
+                    <span class="lang-zh">RuyiX 的某些功能以”付费订阅服务”形式提供。购买订阅即表示您同意支付相应费用。我们订阅的具体功能、定价和条款详见我们的官方网站。</span>
+                    <span class="lang-en">Certain features of RuyiX are offered as “Paid Subscription Services.” By purchasing a subscription, you agree to pay the applicable fees. The specific features, pricing, and terms of our subscriptions are detailed on our official website.</span>
                 </p>
-    
-                <h2 id="s7-termination">
-                    <span class="lang-zh">7. 终止</span>
-                    <span class="lang-en">7. Termination</span>
+                <p>
+                    <strong><span class="lang-zh">退款政策：</span><span class="lang-en">Refund Policy:</span></strong>
+                    <span class="lang-zh">对于年度订阅用户，我们提供六个月的退款申请窗口。您可以在订阅开始日期后的前六个月内随时申请退款。退款金额的计算方式为：从年度总费用中扣除已使用月份的非折扣价格（不足整月按整月计算）。此后，年度订阅费用将不予退款。</span>
+                    <span class="lang-en">For users with an annual subscription, we offer a six-month window for refund requests. You may apply for a refund at any time within the first six months of your subscription start date. The refund is calculated by deducting the undiscounted cost of the months already used (any partial month will be counted as a full month) from your total annual fee. After this period, annual subscription fees become non-refundable.</span>
+                </p>
+
+                <h2 id="s7-ip">
+                    <span class="lang-zh">7. 所有权与知识产权</span>
+                    <span class="lang-en">7. Ownership and Intellectual Property</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">我们可能因任何原因（包括您违反本条款）随时暂停或终止您对本服务的访问，恕不另行通知。您可以通过删除您的账户随时终止本协议。终止后，您使用本服务的权利将立即停止。</span>
-                    <span class="lang-en">We may suspend or terminate your access to the Service at any time, for any reason, including for your violation of these Terms, without prior notice. You may terminate this agreement at any time by deleting your account. Upon termination, your right to use the Service will immediately cease.</span>
+                    <strong><span class="lang-zh">我们的财产：</span><span class="lang-en">Our Property:</span></strong>
+                    <span class="lang-zh">Wisewk Inc. 及其许可方对服务及其所有相关知识产权拥有全部权利、所有权和权益。RuyiX 的名称和标志是 Wisewk Inc. 的商标。</span>
+                    <span class="lang-en">Wisewk Inc. and its licensors own all rights, title, and interest in and to the Services, including all related intellectual property. The RuyiX name and logos are trademarks of Wisewk Inc.</span>
                 </p>
-    
-                <h2 id="s8-disclaimer">
-                    <span class="lang-zh">8. 免责声明</span>
-                    <span class="lang-en">8. Disclaimer of Warranties</span>
+                <p>
+                    <strong><span class="lang-zh">您的内容及授予我们的许可：</span><span class="lang-en">Your Content and License to Us:</span></strong>
+                    <span class="lang-zh">您保留您向服务提供的内容（”输入”）及 AI 据此生成的内容（”输出”）的所有权。但是，您授予 Wisewk 一项全球性的、永久的、免版税的、可再许可的许可，以出于提供和改善 RuyiX 服务的任何相关目的使用、存储、修改和分发您的输入和输出。</span>
+                    <span class="lang-en">You retain ownership of the content you provide to the Services (“Input”) and the content generated by the AI in response (“Output”). However, you grant Wisewk a worldwide, perpetual, royalty-free, and sublicensable license to use, store, modify, and distribute your Input and Output for any purpose related to providing and improving the RuyiX Services.</span>
+                </p>
+                <p>
+                    <strong><span class="lang-zh">AI 与内容免责声明：</span><span class="lang-en">AI and Content Disclaimers:</span></strong>
+                </p>
+                <ul>
+                    <li><strong><span class="lang-zh">准确性：</span><span class="lang-en">Accuracy:</span></strong> <span class="lang-zh">由于 AI 的性质，我们无法保证任何输出的准确性、完整性或可靠性。您有责任验证服务生成的任何信息或操作。</span><span class="lang-en">Due to the nature of AI, we cannot guarantee the accuracy, completeness, or reliability of any Output. You are responsible for verifying any information or actions generated by the Services.</span></li>
+                    <li><strong><span class="lang-zh">相似性：</span><span class="lang-en">Similarity:</span></strong> <span class="lang-zh">我们的 AI 生成的输出不保证具有唯一性。其他用户可能从服务中获得相似或相同的结果。</span><span class="lang-en">Outputs generated by our AI are not guaranteed to be unique. Other users may receive similar or identical results from the Services.</span></li>
+                    <li><strong><span class="lang-zh">高风险使用：</span><span class="lang-en">High-Stakes Use:</span></strong> <span class="lang-zh">使用 RuyiX 进行涉及通讯、金融交易或账户管理的重要操作时，您必须格外谨慎并进行人工确认。所有自动化操作均视为由您个人执行。</span><span class="lang-en">You must exercise extreme caution and perform manual confirmation when using RuyiX for important operations involving communications, financial transactions, or account management. All automated actions are considered to be performed by you personally.</span></li>
+                </ul>
+                <p>
+                    <strong><span class="lang-zh">版权投诉：</span><span class="lang-en">Copyright Complaints:</span></strong>
+                    <span class="lang-zh">如果您认为您的版权作品遭到侵权，请向我们的指定代理人发送详细通知，邮箱：<strong>wisewk.com@gmail.com</strong>。</span>
+                    <span class="lang-en">If you believe your copyrighted work has been infringed upon, please send a detailed notice to our designated agent at <strong>wisewk.com@gmail.com</strong>.</span>
+                </p>
+
+                <h2 id="s8-disclaimers">
+                    <span class="lang-zh">8. 免责声明与责任限制</span>
+                    <span class="lang-en">8. Disclaimers and Limitation of Liability</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">本服务按“原样”和“现有”的基础提供。在法律允许的最大范围内，WISEWK INC. 不作任何明示或暗示的保证，包括但不限于对适销性、特定用途适用性和不侵权的默示保证。我们不保证服务将不间断、安全或无错误。</span>
-                    <span class="lang-en">THE SERVICE IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS. TO THE FULLEST EXTENT PERMITTED BY LAW, WISEWK INC. DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED, SECURE, OR ERROR-FREE.</span>
+                    <strong><span class="lang-zh">”按现状”服务：</span><span class="lang-en">”As Is” Service:</span></strong>
+                    <span class="lang-zh">服务按”现状”和”可用性”提供，不附带任何形式的明示或暗示保证。我们不承担任何保证，包括但不限于适销性和特定用途适用性的暗示保证。</span>
+                    <span class="lang-en">THE SERVICES ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. WE DISCLAIM ALL WARRANTIES, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.</span>
                 </p>
-    
-                <h2 id="s9-limitation-liability">
-                    <span class="lang-zh">9. 责任限制</span>
-                    <span class="lang-en">9. Limitation of Liability</span>
+                <p>
+                    <strong><span class="lang-zh">责任限制：</span><span class="lang-en">Limitation of Liability:</span></strong>
+                    <span class="lang-zh">在法律允许的最大范围内，在任何情况下，Wisewk 或其关联公司均不对因使用服务而产生的任何间接、附带、特殊、后果性或惩罚性损害承担责任。我们在本条款下对您的全部总体责任不超过您在索赔前 12 个月内为服务支付的金额。</span>
+                    <span class="lang-en">TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL WISEWK OR ITS AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES ARISING OUT OF OR IN CONNECTION WITH THE USE OF THE SERVICES. OUR TOTAL AGGREGATE LIABILITY TO YOU UNDER THESE TERMS WILL NOT EXCEED THE AMOUNT YOU PAID FOR THE SERVICES IN THE 12 MONTHS PRECEDING THE CLAIM.</span>
+                </p>
+
+                <h2 id="s9-indemnification">
+                    <span class="lang-zh">9. 赔偿</span>
+                    <span class="lang-en">9. Indemnification</span>
                 </h2>
                 <p>
-                    <span class="lang-zh">在任何情况下，WISEWK INC.、其董事、员工或代理人均不对因您使用本服务而产生的任何直接、间接、偶然、特殊、后果性或惩罚性损害负责，即使我们已被告知可能发生此类损害。我们在本协议项下的总责任上限为您在导致索赔的事件发生前十二（12）个月内就本服务向我们支付的总金额或一百美元（$100.00），以较高者为准。</span>
-                    <span class="lang-en">IN NO EVENT SHALL WISEWK INC., ITS DIRECTORS, EMPLOYEES, OR AGENTS, BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF YOUR USE OF THE SERVICE, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. OUR TOTAL AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL BE LIMITED TO THE GREATER OF THE TOTAL AMOUNT PAID BY YOU TO US FOR THE SERVICE DURING THE TWELVE (12) MONTHS PRIOR TO THE EVENT GIVING RISE TO THE CLAIM OR ONE HUNDRED U.S. DOLLARS ($100.00).</span>
+                    <span class="lang-zh">您同意就因您使用服务或违反本条款而产生的任何及所有索赔、损失、损害和费用（包括合理的律师费），为 Wisewk 及其关联公司、董事、高级职员和员工进行辩护、赔偿并使其免受损害。</span>
+                    <span class="lang-en">You agree to indemnify and hold harmless Wisewk and its affiliates, directors, officers, and employees from any and all claims, losses, damages, and expenses (including reasonable attorneys' fees) arising from your use of the Services or your violation of these Terms.</span>
                 </p>
-    
-                <h2 id="s10-indemnification">
-                    <span class="lang-zh">10. 赔偿</span>
-                    <span class="lang-en">10. Indemnification</span>
+
+                <h2 id="s10-general">
+                    <span class="lang-zh">10. 一般条款</span>
+                    <span class="lang-en">10. General Provisions</span>
                 </h2>
-                <p>
-                    <span class="lang-zh">您同意就因您使用本服务、您违反本条款或您侵犯任何第三方权利而产生的任何及所有索赔、损害、义务、损失、责任、成本或债务及开支（包括但不限于律师费），为 Wisewk Inc. 及其员工、承包商、代理人、高级职员和董事进行辩护、赔偿并使其免受损害。</span>
-                    <span class="lang-en">You agree to defend, indemnify, and hold harmless Wisewk Inc. and its employees, contractors, agents, officers, and directors, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney's fees), resulting from or arising out of your use of the Service, your violation of these Terms, or your violation of any third-party right.</span>
-                </p>
-    
-                <h2 id="s11-governing-law">
-                    <span class="lang-zh">11. 管辖法律</span>
-                    <span class="lang-en">11. Governing Law</span>
-                </h2>
-                <p>
-                    <span class="lang-zh">本条款应受美国特拉华州法律管辖并据其解释，不考虑其法律冲突规定。您同意接受位于特拉华州的法院的个人管辖。</span>
-                    <span class="lang-en">These Terms shall be governed and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law provisions. You agree to submit to the personal jurisdiction of the courts located in Delaware.</span>
-                </p>
-    
-                <h2 id="s12-changes">
-                    <span class="lang-zh">12. 条款变更</span>
-                    <span class="lang-en">12. Changes to Terms</span>
-                </h2>
-                <p>
-                    <span class="lang-zh">我们保留随时自行决定修改或替换本条款的权利。如果我们进行重大修订，我们将通过在我们的网站上发布更新后的条款或通过服务内的通知来通知您。</span>
-                    <span class="lang-en">We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide notice by posting the updated terms on our website or through a notification within the Service.</span>
-                </p>
-    
-                <h2 id="s13-contact">
-                    <span class="lang-zh">13. 联系我们</span>
-                    <span class="lang-en">13. Contact Us</span>
-                </h2>
-                <p>
-                    <span class="lang-zh">如果您对本条款有任何疑问，请通过以下方式联系我们：<a href="mailto:wisewk@126.com">wisewk@126.com</a>。</span>
-                    <span class="lang-en">If you have any questions about these Terms, please contact us at: <a href="mailto:wisewk@126.com">wisewk@126.com</a>.</span>
-                </p>
+                <ul>
+                    <li>
+                        <strong><span class="lang-zh">服务终止：</span><span class="lang-en">Service Termination:</span></strong>
+                        <span class="lang-zh">我们可能随时因违反本条款或其他必要情况暂停或终止您对服务的访问。</span>
+                        <span class="lang-en">We may suspend or terminate your access to the Services at any time for violations of these Terms or other necessary circumstances.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">条款修改：</span><span class="lang-en">Modifications to Terms:</span></strong>
+                        <span class="lang-zh">我们可能随时修改本条款。我们将通知您任何变更，您继续使用服务即表示接受修订后的条款。</span>
+                        <span class="lang-en">We may amend these Terms at any time. We will notify you of any changes, and your continued use of the Services will constitute your acceptance of the revised Terms.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">完整协议：</span><span class="lang-en">Entire Agreement:</span></strong>
+                        <span class="lang-zh">本条款构成您与 Wisewk 之间关于服务的完整协议。</span>
+                        <span class="lang-en">These Terms constitute the entire agreement between you and Wisewk regarding the Services.</span>
+                    </li>
+                    <li>
+                        <strong><span class="lang-zh">联系信息：</span><span class="lang-en">Contact Information:</span></strong>
+                        <span class="lang-zh">如有关于本条款的任何问题，请发邮件至 <strong>wisewk.com@gmail.com</strong>。</span>
+                        <span class="lang-en">For any questions about these Terms, please contact us at <strong>wisewk.com@gmail.com</strong>.</span>
+                    </li>
+                </ul>
             </article>
         </main>
     </div>

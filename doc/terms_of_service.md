@@ -1,4 +1,4 @@
-### **Wisewk Terms of Service**
+### **Terms of Service**
 
 **Last Updated:** January 15, 2026
 
